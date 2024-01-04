@@ -68,7 +68,40 @@ getAtkDef _ = error "El Pokemon/Ataque carece de tipo!"
 -}
 
 getEficaciaAtaques :: Tipo -> Tipo -> Double
-getEficaciaAtaques = Silvia
+getEficaciaAtaques (Nombre _ (Ataques atk1, _)) (Nombre _ (Ataques atk2, _)) = calculaEficacia atk1 atk2
+getEficaciaAtaques _ _ = error "No se puede calcular la eficacia!"
+
+--Aux para calcular eficacia
+calculaEficacia :: [Tipo] -> [Tipo] -> Double
+calculaEficacia [] _ = 1.0  
+calculaEficacia _ [] = 1.0
+calculaEficacia (a:as) t2
+    | esDebil a t2 = 0.5 -- Si es débil : eficacia = 0.5
+    | esFuerte a t2 = 2.0 -- Si es fuerte : eficacia = 2.0
+    | esInmune a t2 = 0.0 -- Si es inmune : eficacia = 0.0
+    | otherwise = 1.0
+
+
+--Aux para saber si es débil
+esDebil :: Tipo -> [Tipo] -> Bool
+esDebil _ [] = False
+esDebil (Debil ds) (Nombre n _ : resto)
+    | elem n ds = True
+    | otherwise = esDebil (Debil ds) resto
+
+--Aux para saber si es fuerte
+esFuerte :: Tipo -> [Tipo] -> Bool
+esFuerte _ [] = False
+esFuerte (Fuerte fs) (Nombre n _ : resto)
+    | elem n fs = True
+    | otherwise = esFuerte (Fuerte fs) resto
+
+--Aux para saber si es inmune
+esInmune :: Tipo -> [Tipo] -> Bool
+esInmune _ [] = False
+esInmune (Inmune is) (Nombre n _ : resto)
+    | elem n is = True
+    | otherwise = esInmune (Inmune is) resto
 
 {-
     Calcula si un tipo es defensivo contra otro Tipo. Exactamente
@@ -85,11 +118,11 @@ getEficaciaAtaques = Silvia
 -}
 
 getEficaciasDefensas :: Tipo -> Tipo -> Double
-getEficaciasDefensas = Silvia
+getEficaciasDefensas = undefined
 
 {-
     GetTipoPorNombre obtiene como parámetros una lista de tipos y un String
     y devuelve dicho Tipo que tenga de nombre ese String
 -}
 getTipoPorNombre :: [Tipo] -> Nombre -> Tipo
-getTipoPorNombre = Silvia
+getTipoPorNombre = undefined
