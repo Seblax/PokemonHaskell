@@ -125,4 +125,7 @@ getEficaciasDefensas = undefined
     y devuelve dicho Tipo que tenga de nombre ese String
 -}
 getTipoPorNombre :: [Tipo] -> Nombre -> Tipo
-getTipoPorNombre = undefined
+getTipoPorNombre [] _ = error "Lista vacía"
+getTipoPorNombre ((Nombre n t):tipos) nombre
+    | n == nombre = Nombre n t
+    | otherwise = getTipoPorNombre tipos nombre
