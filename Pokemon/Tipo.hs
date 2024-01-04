@@ -23,13 +23,12 @@ aceroDefensa = Defensas [Debil ["Lucha", "Fuego", "Tierra"], Fuerte ["Normal", "
         Ej
             fuego::Tipo
             fuego = Principal "Fuego" [Debil "Agua", Fuerte "Planta"]
-            getTipo fuego == "Fuego"
+            getNombreTipo fuego == "Fuego"
 -}
-getTipo :: Tipo -> String
-getTipo (Nombre x _) = x
-getTipo Null = ""
-getTipo _ = error "El Pokemon/Ataque carece de tipo!"
-
+getNombreTipo :: Tipo -> String
+getNombreTipo (Nombre x _) = x
+getNombreTipo Null = ""
+getNombreTipo _ = error "Error al extraer el nombre del tipo!"
 
 {-
     Dado un Ataque, devuelvel el nombre del tipo del ataque con el contructor: Ataque ID Nombre Daño String
@@ -37,11 +36,11 @@ getTipo _ = error "El Pokemon/Ataque carece de tipo!"
         Ej:
             hidropulso :: Ataque
             hidropulso = Ataque 0 "Hidropulso" 70 "Agua"
-            getTipo hidropulso == "Agua"
+            getNombreTipo hidropulso == "Agua"
 -}
 
-getTipoAtaque :: Habilidad -> String
-getTipoAtaque (Habilidad _ _ _ x) = x
+getTipoHabilidad :: Habilidad -> String
+getTipoHabilidad (Habilidad _ _ _ x) = x
 
 getAtkDef :: Tipo -> ([Tipo],[Tipo])
 getAtkDef (Nombre _ (Ataques atk, Defensas def)) = (atk, def)
@@ -50,39 +49,47 @@ getAtkDef _ = error "El Pokemon/Ataque carece de tipo!"
 
 
 {-
-    Calcula si un tipo es eficaz contra otro Tipo, por ejemplo
-    getAtaques fuego "Planta" == 1
--}
-getAtaques :: Tipo -> String -> Double
-getAtaques (Debil xs) atc 
-    | elem atc xs = 0.5
-    | otherwise = 1  --Hace la llamada recursiva y suma lo que returne
-getAtaques (Fuerte xs) atc 
-    | elem atc xs = 2
-    | otherwise = 1  --Hace la llamada recursiva y suma lo que returne
-getAtaques (Inmune xs) atc 
-    | elem atc xs = 0
-    | otherwise = 1  --Hace la llamada recursiva y suma lo que returne
-getAtaques (Nombre _ (ataque,_)) atc = getAtaques ataque atc 
-getAtaques (Ataques ts) atc = minimum [getAtaques t atc | t <-ts]
+    Calcula si un tipo es eficaz contra otro Tipo. 
+    
+            -Si el Tipo 1 es muy eficaz (Fuerte) contra 
+            el otro tipo, devolverá un x2
 
+            -Si el Tipo 1 es debil (Debil) contra
+            el otro tipo, devolverá un x0.5
+
+            -Si el Tipo 1 no afecta (Inmune) al otro tipo
+            devolverá un x0
+
+            Ejemplo:
+                Agua -> Fuego -> x2
+                Agua -> Planta -> x0.5
+                Fantasma -> Normal -> x0
+
+-}
+
+getEficaciaAtaques :: Tipo -> Tipo -> Double
+getEficaciaAtaques = Silvia
 
 {-
-    Calcula si un tipo es defensivo contra otro Tipo, por ejemplo
-    getAtaques fuego "Agua" == 1
--}
-getDefensas :: Tipo -> String -> Double
-getDefensas (Debil xs) def
-    | elem def xs = 2
-    | otherwise = 1  --Hace la llamada recursiva y suma lo que returne
-getDefensas (Fuerte xs) def 
-    | elem def xs = 0.5
-    | otherwise = 1  --Hace la llamada recursiva y suma lo que returne
-getDefensas (Inmune xs) def
-    | elem def xs = 0
-    | otherwise = 1  --Hace la llamada recursiva y suma lo que returne
-getDefensas (Nombre _ (_,defensas)) def = getDefensas defensas def 
-getDefensas (Defensas ts) def = minimum [getDefensas t def | t <-ts]
+    Calcula si un tipo es defensivo contra otro Tipo. Exactamente
+    recíproco a la función anterior. Pero en este caso, si el tipo 2
+    es Debil, devolverá x2, y si el segudno tipo es fuerte devolverá
+    x0.5, e inmunne se queda igual x0. Esto es porque el Acero, por ejemplo,
+    es fuerte defendiendose contra el Normal (x0.5), pero Debil defendiendose
+    contra el tipo Lucha (x2) y el veneno no afecta al Acero (x0)
 
--- getTipoID :: [(Int, Tipo)] -> Int -> Tipo
--- getTipoID xs id = head [ y | (x,y) <-xs, x==id] 
+            Ejemplo:
+                Acero -> Normal -> x0.5       
+                Acero -> Lucha -> x2                    
+                Acero -> Veneno -> x0    
+-}
+
+getEficaciasDefensas :: Tipo -> Tipo -> Double
+getEficaciasDefensas = Silvia
+
+{-
+    GetTipoPorNombre obtiene como parámetros una lista de tipos y un String
+    y devuelve dicho Tipo que tenga de nombre ese String
+-}
+getTipoPorNombre :: [Tipo] -> Nombre -> Tipo
+getTipoPorNombre = Silvia

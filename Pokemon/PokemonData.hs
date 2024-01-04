@@ -8,10 +8,36 @@ type ID = Int
 type Daño = Int
 type Nombre = String
 
+--Habilidades-----------------------------------------------
+-- Son las habilidades que pueden aprender los Pokemons
+--      Habilidad = Habilidad 0 "Energi Bola" 70 "Eléctrico"
 --Maximo tamaño de nombre 12
 data Habilidad = Habilidad ID Nombre Daño Nombre
     deriving Show
 
+--Tipos-----------------------------------------------------
+-- Estructura de los tipos:
+--     Tipo = Nombre "Agua" [Ataque [Debil [], Fuerte [], Inmune []], Defensas [Debil [], Fuerte [], Inmune []]]
+------------------------------------------------------------
+data Tipo = Nombre Nombre (Tipo,Tipo) | 
+    Defensas [Tipo] | 
+    Ataques [Tipo] | 
+    Debil [Nombre] | Fuerte [Nombre] | Inmune [Nombre] | Tipo Nombre |
+    Null
+    deriving Show
+
+-- Pokemons con varios tipos, amazing -------------------------------------------
+
+-- data Pokemon =  Pokemon Nombre (Tipo 1, Tipo 2) Hp [ID]
+--     deriving Show
+
+----------------------------------------------------------------------------------
+
+data Pokemon =  Pokemon Nombre (Tipo, Tipo) Hp [ID]
+    deriving Show
+
+------------------------------------------------------------
+--      Pruebas de Datos (No echar cuenta)
 ------------------------------------------------------------
 ataque1 :: Habilidad
 ataque1 = Habilidad 0 "Acero" 70 "Acero"
@@ -50,53 +76,75 @@ ataque17 = Habilidad 0 "Volador" 70 "Volador"
 ataque18 :: Habilidad
 ataque18 = Habilidad 0 "Hada" 70 "Hada"
 
---Tipos-----------------------------------------------------
--- Estructura de los tipos:
---     Tipo = Nombre "Agua" [Ataque [Debil [], Fuerte [], Inmune []], Defensas [Debil [], Fuerte [], Inmune []]]
-------------------------------------------------------------
-data Tipo = Nombre Nombre (Tipo,Tipo) | 
-    Defensas [Tipo] | 
-    Ataques [Tipo] | 
-    Debil [Nombre] | Fuerte [Nombre] | Inmune [Nombre] | Tipo Nombre |
-    Null
-    deriving Show
-
--- veneno :: Tipo
--- veneno = Nombre "Veneno" (
---     Defensas [
---         Debil["Tierra", "Psíquico"],
---         Fuerte["Lucha","Veneno","Bicho","Planta","Hada"], 
---         Inmune []
---         ], 
---     Ataque [
---         Debil ["Tierra", "Veneno", "Fantasma", "Roca"],
---         Fuerte ["Planta", "Hada"],
---         Inmune ["Acero"]
---         ])
-
-
--- Pokemons con varios tipos, amazing -------------------------------------------
-
--- data Pokemon =  Pokemon Nombre Hp [ID] [Pokemon] | TipoPok Tipo
---     deriving Show
-
--- squirtle = Pokemon "Squirtle" 150 [0..12] [TipoPok tipo1, TipoPok tipo2]
-
--- data Pokemon =  Pokemon Nombre Tipo Hp [ID]
---     deriving Show
-----------------------------------------------------------------------------------
-
-data Pokemon =  Pokemon Nombre (Tipo, Tipo) Hp [ID]
-    deriving Show
+--------------------------------------------------------
 
 squirtle :: Pokemon
-squirtle = Pokemon "Squirtle" (tipo, Null) 150 [0..12]
+squirtle = Pokemon "Squirtle" (tipo1, tipo2) 150 [0..12]
     where 
-        tipo :: Tipo
-        tipo = Null
+        tipo1 :: Tipo
+        tipo1 = agua
+        tipo2 :: Tipo
+        tipo2 = piedra
 
 charizard :: Pokemon
-charizard = Pokemon "Charizard" (tipo, Null) 750 [0..12]
+charizard = Pokemon "Charizard" (tipo1, tipo2) 750 [0..12]
     where 
-        tipo :: Tipo
-        tipo = Null
+        tipo1 :: Tipo
+        tipo1 = fuego
+        tipo2 :: Tipo
+        tipo2 = volador
+
+
+--------------------------------------------------------------
+agua :: Tipo
+agua = Nombre "Agua" (
+    Defensas [
+        Debil["Tierra", "Psíquico"],
+        Fuerte["Lucha","Veneno","Bicho","Planta","Hada"], 
+        Inmune []
+        ], 
+    Ataques [
+        Debil ["Tierra", "Veneno", "Fantasma", "Roca"],
+        Fuerte ["Planta", "Hada"],
+        Inmune ["Acero"]
+        ])
+
+fuego :: Tipo
+fuego = Nombre "Fuego" (
+    Defensas [
+        Debil["Tierra", "Psíquico"],
+        Fuerte["Lucha","Veneno","Bicho","Planta","Hada"], 
+        Inmune []
+        ], 
+    Ataques [
+        Debil ["Tierra", "Veneno", "Fantasma", "Roca"],
+        Fuerte ["Planta", "Hada"],
+        Inmune ["Acero"]
+        ])
+
+volador :: Tipo
+volador = Nombre "Volador" (
+    Defensas [
+        Debil["Tierra", "Psíquico"],
+        Fuerte["Lucha","Veneno","Bicho","Planta","Hada"], 
+        Inmune []
+        ], 
+    Ataques [
+        Debil ["Tierra", "Veneno", "Fantasma", "Roca"],
+        Fuerte ["Planta", "Hada"],
+        Inmune ["Acero"]
+        ])
+
+piedra :: Tipo
+piedra = Nombre "Piedra" (
+    Defensas [
+        Debil["Tierra", "Psíquico"],
+        Fuerte["Lucha","Veneno","Bicho","Planta","Hada"], 
+        Inmune []
+        ], 
+    Ataques [
+        Debil ["Tierra", "Veneno", "Fantasma", "Roca"],
+        Fuerte ["Planta", "Hada"],
+        Inmune ["Acero"]
+        ])
+

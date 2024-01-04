@@ -1,7 +1,3 @@
-{-# OPTIONS_GHC -Wno-unrecognised-pragmas #-}
-
-{-# HLINT ignore "Use <$>" #-}
-
 module GameUI (menuScreen) where
 
 import Data.Char
@@ -16,14 +12,13 @@ type Screen = String
 replace :: (Eq a) => a -> a -> [a] -> [a]
 replace a b = map $ \c -> if c == a then b else c
 
-justifyLeft, justifyRight :: Int -> a -> [a] -> [a]
-justifyLeft n c s = s ++ replicate (n - length s) c
+justifyRight :: Int -> a -> [a] -> [a]
 justifyRight n c s = replicate (n - length s) c ++ s
 
 menuScreen :: IO ()
 menuScreen = do
   putStr blue
-  readFileSpritesLn "Data/Menu.txt"
+  readFileSprites "Data/Menu.txt"
   putStr none
 
   putStrLn (justifyRight 52 ' ' (button "Start" yellow))
@@ -32,15 +27,10 @@ menuScreen = do
   n <- instruccion "Elige un botón del menú:"
   menuBehavior n
 
-readFileSpritesLn :: String -> IO ()
-readFileSpritesLn path = do
-  xs <- fmap lines $ readFile path
-  mapM_ putStrLn xs
-
 readFileSprites :: String -> IO ()
 readFileSprites path = do
   xs <- fmap lines $ readFile path
-  mapM_ putStr xs
+  mapM_ putStrLn xs
 
 menuBehavior :: String -> IO ()
 menuBehavior s
@@ -51,8 +41,8 @@ menuBehavior s
 
 battle :: IO ()
 battle = do
-  pokemonShow squirtle 100
-  pokemonShow charizard 0
+  pokemonBattleShow [squirtle, charizard]
+  pokemonBattleShow [charizard, squirtle]
   putStr (ataques [ataque1,ataque2,ataque3,ataque4])
 
 instruccion :: String -> IO String
@@ -63,46 +53,33 @@ instruccion s = do
 button :: String -> Color -> String
 button s c = blue ++ "-=" ++ c ++ s ++ blue ++ "=-" ++ none
 
--- loadScreen :: IO()
--- loadScreen = do
---     let ataqueList = setColorHabilidades ataques tipoAgua ++ "\n" ++ setColorHabilidades ataques tipoPlanta ++ "\n" ++ setColorHabilidades ataques tipoFuego ++ "\n" ++ setColorHabilidades ataques tipoFantasma
---     putStrLn ataqueList
-
 ataques :: [Habilidad] -> String
 ataques [] = ""
 ataques (a1 : a2 : xs) = boxes ++ boxesAtaques ++ boxesTipo ++ boxes ++ ataques xs
   where
     boxes = colorAtaque a1 ++ "\n\t########################\t" ++ none ++ colorAtaque a2 ++ "########################\n" ++ none
     boxesAtaques = colorAtaque a1 ++ getAtaque a1 ++ colorAtaque a2 ++ getAtaque a2
-    boxesTipo = colorAtaque a1 ++ "\n\t#  " ++ getTipoAtaque a1 ++ "\t\t" ++ colorAtaque a2 ++  "\t#  " ++ getTipoAtaque a2 ++ "\t\t"
+    boxesTipo = colorAtaque a1 ++ "\n\t#  " ++ getTipoHabilidad a1 ++ "\t\t" ++ colorAtaque a2 ++  "\t#  " ++ getTipoHabilidad a2 ++ "\t\t"
     getAtaque (Habilidad i n _ _) = "\t#  " ++ n ++ "\t\t"
-    colorAtaque (Habilidad _ _ _ tipo) = setColorHabilidades tipo
+    colorAtaque (Habilidad _ _ _ tipo) = setColorTipo tipo
 
-setColorHabilidades :: String -> String
-setColorHabilidades s
-  | s == "Acero" = colorAcero
-  | s == "Agua" = colorAgua
-  | s == "Bicho" = colorBicho
-  | s == "Dragon" = colorDragón
-  | s == "Electrico" =colorEléctrico
-  | s == "Fantasma" = colorFantasma
-  | s == "Fuego" = colorFuego
-  | s == "Hada" = colorHada
-  | s == "Hielo" = colorHielo
-  | s == "Lucha" = colorLucha
-  | s == "Normal" = colorNormal
-  | s == "Planta" = colorPlanta
-  | s == "Psiquico" = colorPsíquico
-  | s == "Piedra" = colorRoca
-  | s == "Siniestro" =colorSiniestro
-  | s == "Tierra" = colorTierra
-  | s == "Veneno" = colorVeneno
-  | s == "Volador" = colorVolador
-  | otherwise = green
+
+
+
+
+-------------------------------------------
+-------------------------------------------
+pokemonBattleShow :: [Pokemon] -> IO()
+pokemonBattleShow ps = do
+  pokemonShow (last ps) 100
+  pokemonShow (head ps) 0
 
 pokemonShow :: Pokemon -> Int -> IO ()
 pokemonShow (Pokemon n (t1, t2) hp _) i = do
   putStrLn (justifyRight i ' ' "###################")
   putStrLn (justifyRight i ' ' n)
-  putStrLn (justifyRight i ' ' ("HP: " ++ show hp ++ " [" ++ getTipo t1 ++ getTipo t2 ++ "]"))
+  putStrLn (justifyRight (i-8) ' ' ("HP: " ++ show hp) ++ tiposDelPokemon)
   putStrLn (justifyRight i ' ' "###################")
+  where
+    tiposDelPokemon :: String
+    tiposDelPokemon = " [" ++ setTipoColorPokemonBatalla t1 ++ "-" ++ setTipoColorPokemonBatalla t2 ++ "]"

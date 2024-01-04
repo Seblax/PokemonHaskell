@@ -1,4 +1,5 @@
 module UIColors where
+import PokemonData
 
 type Color = String
 
@@ -92,3 +93,32 @@ colorVeneno = "\ESC[38;5;53m"
 
 colorVolador :: String
 colorVolador = "\ESC[38;5;15m"
+
+
+--Dado un tipo devuelve un color
+setColorTipo :: String -> String
+setColorTipo s
+  | s == "Acero" = colorAcero
+  | s == "Agua" = colorAgua
+  | s == "Bicho" = colorBicho
+  | s == "Dragon" = colorDragón
+  | s == "Electrico" =colorEléctrico
+  | s == "Fantasma" = colorFantasma
+  | s == "Fuego" = colorFuego
+  | s == "Hada" = colorHada
+  | s == "Hielo" = colorHielo
+  | s == "Lucha" = colorLucha
+  | s == "Normal" = colorNormal
+  | s == "Planta" = colorPlanta
+  | s == "Psiquico" = colorPsíquico
+  | s == "Piedra" = colorRoca
+  | s == "Siniestro" =colorSiniestro
+  | s == "Tierra" = colorTierra
+  | s == "Veneno" = colorVeneno
+  | s == "Volador" = colorVolador
+  | otherwise = error $ "No existe color para el tipo: \n" ++ s
+
+
+setTipoColorPokemonBatalla :: Tipo -> String
+setTipoColorPokemonBatalla (Nombre s _) = setColorTipo s ++ take 2 s ++ none
+setTipoColorPokemonBatalla _ = ""
