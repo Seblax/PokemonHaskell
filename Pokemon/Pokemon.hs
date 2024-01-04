@@ -9,7 +9,10 @@ data Pokemon =  Pokemon Nombre (Tipo, Tipo) Hp [ID]
 --      - Por ejepmlo:
 --               Charizard: Volador Fuego -> (Volador, Fuego)
 getPokemonTipo :: Pokemon -> (String,String)
-getPokemonTipo = Silvia
+getPokemonTipo (Pokemon _ (tipo1, tipo2) _ _) = (getTipo tipo1, getTipo tipo2)
+  where
+    getTipo :: Tipo -> String
+    getTipo (Nombre nombre _) = nombre
 
 --GetPokemonVida------------------------------------------
 -- Dado un pokemon, que devuelva el valor de su vida (Int)
@@ -17,4 +20,4 @@ getPokemonTipo = Silvia
 --              Empoleon: 150 -> 150
 -- (Esta es trivial vamos)
 getPokemonVida :: Pokemon -> Hp
-getPokemonVida = Silvia
+getPokemonVida (Pokemon _ _ vida _)= vida
