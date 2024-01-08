@@ -1,0 +1,72 @@
+1 Pico Taladro 55 Acero
+2 Garra Metal 70	Acero
+3	Pu–o Acero	90	Acero
+4	Cola Ferrea	100	Acero
+5	Acua Cola	55	Agua
+6	Burbuja	70	Agua
+7	Cascada	90	Agua
+8	Hidropulso	100	Agua
+9	Picadura	55	Bicho
+10	Aguijon	70	Bicho
+11	Megacuerno	90	Bicho
+12	Tijera X	100	Bicho
+13	Ciclon	55	Dragon
+14	Enfado	70	Dragon
+15	Furia Dragon	90	Dragon
+16	Cometa Draco	100	Dragon
+17	Descarga	55	Electrico
+18	Onda Voltio	70	Electrico
+19	Hiper Rayo	90	Electrico
+20	Trueno	100	Electrico
+21	Hueso Sombra	55	Fantasma
+22	Lenguetazo	70	Fantasma
+23	Sombra Vil	90	Fantasma
+24	Bola Sombra	100	Fantasma
+25	Lanza Llamas	55	Fuego
+26	Ascuas	70	Fuego
+27	Fuego Fatuo	90	Fuego
+28	Llamarada	100	Fuego
+29	Beso Drenaje	55	Hada
+30	Pisoton	70	Hada
+31	Bofeton	90	Hada
+32	Encanto	100	Hada
+33	Carambano	55	Hielo
+34	Ventisca	70	Hielo
+35	Avalancha	90	Hielo
+36	Pu–o Hielo	100	Hielo
+37	Desquite	55	Lucha
+38	Golpe Karate	70	Lucha
+39	Llave Giro	90	Lucha
+40	Patada Baja	100	Lucha
+41	Empujon	55	Normal
+42	Atadura	70	Normal
+43	Derribo	90	Normal
+44	Placaje	100	Normal
+45	Esporas	55	Planta
+46	Drenadoras	70	Planta
+47	Hoja Afilada	90	Planta
+48	Latigo Cepa	100	Planta
+49	Rayo Carga	55	Psiquico
+50	Psicocarga	70	Psiquico
+51	Psiquico	90	Psiquico
+52	Hipnosis	100	Psiquico
+53	Roca Afilada	55	Piedra
+54	Giro Roca	70	Piedra
+55	Pedrada	90	Piedra
+56	Terremoto	100	Piedra
+57	Insomnio	55	Siniestro
+58	Paranoia	70	Siniestro
+59	Devora Almas	90	Siniestro
+60	Miedo	100	Siniestro
+61	Temblor	55	Tierra
+62	Bomba Lodo	70	Tierra
+63	Puo Fango	90	Tierra
+64	Golpe Arena	100	Tierra
+65	Colmillo	55	Veneno
+66	Puya Nociva	70	Veneno
+67	Toxico	90	Veneno
+68	Garra Veneno	100	Veneno
+69	Ataque Ala	55	Volador
+70	Pico Volador	70	Volador
+71	Vuelo	90	Volador
+72	Tornado	100	Volador

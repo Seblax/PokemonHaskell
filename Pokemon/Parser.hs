@@ -1,5 +1,8 @@
 module Parser where
+    
 import PokemonData
+import Tipo
+
 {-
     Función que separa un String en función de un Predicado dado.
     Enlaces de donde he sacado las fuentes para entender el código:
@@ -73,6 +76,7 @@ parseoUnSoloTipo (atk, def) = Nombre nombre (attak, defense)
 --Parsea un String a una tupla de lista de Strings divididos de la siguiente forma:
 --      
 --      - (Debilidades, Fortalezas, Inmunidades)
+
 parseoDebilFuerteInmune :: String -> ([String],[String],[String])
 parseoDebilFuerteInmune s = (debilidades, fortalezas, inmunidades)
     where
@@ -83,3 +87,33 @@ parseoDebilFuerteInmune s = (debilidades, fortalezas, inmunidades)
         debilidades = (words.head) lista
         fortalezas = words (lista!!1)
         inmunidades = words (lista!!2)
+
+
+--Parseo de Habilidades----------------------------------------------------------
+-- Dado dos lista de Strings (Ataques y Defensas), devolver una lista de tipos
+--      Habilidad = Habilidad 0 "Energi Bola" 70 "Eléctrico"
+------------------------------------------------------------------------------
+parsearHabilidades :: [String] -> TablaDeTipos -> [Habilidad]
+parsearHabilidades habilidades tablaDeTipos = [parseoUnaSolaHabilidad habilidad tablaDeTipos | habilidad <- habilidades] 
+parseoUnaSolaHabilidad :: String -> TablaDeTipos -> Habilidad 
+parseoUnaSolaHabilidad h t = (Habilidad id nombreHabilidad poder tipo)
+    where
+        lista = words h
+        id = (read.head) lista
+        nombreHabilidad = lista!!1
+        poder = read (lista!!2)
+        tipo = lista!!3
+
+
+
+-- parsearUnSoloPokemon :: String -> TablaDeTipos -> Pokemon
+
+
+--Parseo de Pokemons----------------------------------------------------------
+-- Dado dos lista de Strings (Ataques y Defensas), devolver una lista de tipos
+------------------------------------------------------------------------------
+-- parsearPokemons :: [String] -> TablaDeTipos -> [Pokemon]
+-- parsearPokemons pokemons tablaDeTipos = [parseoUnSoloPokemon pokemon tablaDeTipos | pokemon <- pokemons] 
+
+-- parsearUnSoloPokemon :: String -> TablaDeTipos -> Pokemon
+

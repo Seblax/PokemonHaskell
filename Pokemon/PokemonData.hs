@@ -8,6 +8,8 @@ type ID = Int
 type Daño = Int
 type Nombre = String
 
+type TablaDeTipos = [Tipo]
+
 --Habilidades-----------------------------------------------
 -- Son las habilidades que pueden aprender los Pokemons
 --      Habilidad = Habilidad 0 "Energi Bola" 70 "Eléctrico"

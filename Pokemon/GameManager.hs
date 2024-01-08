@@ -11,6 +11,8 @@ import GameUI
 main :: IO()
 main = do
     tipos <- loadTipos      --Todos los tipos 
+    habilidades <- loadHabilities tipos
+    putStr (show habilidades)
     menuScreen
 
 --Carga los tipos de los pokemons
@@ -23,8 +25,11 @@ loadTipos = do
     let res = parsearTipos ataques defensas
     return res
     
-loadAttaks :: IO()
-loadAttaks = undefined
+loadHabilities :: TablaDeTipos -> IO [Habilidad]
+loadHabilities t =  do 
+    fichero <- readFile "Data/Habilidades.txt"
+    let res = parsearHabilidades (lines fichero) t
+    return res
 
 loadPokemons :: IO()
 loadPokemons = undefined

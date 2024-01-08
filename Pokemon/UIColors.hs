@@ -3,6 +3,9 @@ import PokemonData
 
 type Color = String
 
+clear :: Color
+clear = "\ESC[2J"
+
 none::Color
 none = "\ESC[0m"
 black :: Color

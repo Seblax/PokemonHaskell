@@ -34,13 +34,14 @@ readFileSprites path = do
 
 menuBehavior :: String -> IO ()
 menuBehavior s
-  | s == "Start" = do battle
+  | s == "Start" = do batalla
   | s == "Load" = do putStr $ green ++ "Has seleccionado LOAD!" ++ none
   | s == "Exit" = do putStr $ red ++ "¡Hasta otra entrenador!" ++ none
   | otherwise = menuScreen
 
-battle :: IO ()
-battle = do
+batalla :: IO ()
+batalla = do
+  clearScreen
   pokemonBattleShow [squirtle, charizard]
   pokemonBattleShow [charizard, squirtle]
   putStr (ataques [ataque1,ataque2,ataque3,ataque4])
@@ -64,8 +65,10 @@ ataques (a1 : a2 : xs) = boxes ++ boxesAtaques ++ boxesTipo ++ boxes ++ ataques 
     colorAtaque (Habilidad _ _ _ tipo) = setColorTipo tipo
 
 
-
-
+-------------------------------------------
+-------------------------------------------
+clearScreen :: IO()
+clearScreen = putStr clear
 
 -------------------------------------------
 -------------------------------------------
