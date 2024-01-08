@@ -1,11 +1,11 @@
 Acero
-Agua
+Aguas
 Bicho
 Dragón
 Eléctrico
 Fantasma
 Fuego
-Hada
+Hadas
 Hielo
 Lucha
 Normal

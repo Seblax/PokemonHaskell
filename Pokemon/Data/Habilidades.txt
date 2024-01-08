@@ -1,11 +1,11 @@
-1 Pico Taladro 55 Acero
-2 Garra Metal 70	Acero
-3	Pu–o Acero	90	Acero
+1	Pico Taladro	55	Acero
+2	Garra Metal	70	Acero
+3	Pico Acero	90	Acero
 4	Cola Ferrea	100	Acero
-5	Acua Cola	55	Agua
-6	Burbuja	70	Agua
-7	Cascada	90	Agua
-8	Hidropulso	100	Agua
+5	Acua Cola	55	Aguas
+6	Burbuja	70	Aguas
+7	Cascada	90	Aguas
+8	Hidropulso	100	Aguas
 9	Picadura	55	Bicho
 10	Aguijon	70	Bicho
 11	Megacuerno	90	Bicho
@@ -26,14 +26,14 @@
 26	Ascuas	70	Fuego
 27	Fuego Fatuo	90	Fuego
 28	Llamarada	100	Fuego
-29	Beso Drenaje	55	Hada
-30	Pisoton	70	Hada
-31	Bofeton	90	Hada
-32	Encanto	100	Hada
+29	Beso Drenaje	55	Hadas
+30	Pisoton	70	Hadas
+31	Bofeton	90	Hadas
+32	Encanto	100	Hadas
 33	Carambano	55	Hielo
 34	Ventisca	70	Hielo
 35	Avalancha	90	Hielo
-36	Pu–o Hielo	100	Hielo
+36	Pico Hielo	100	Hielo
 37	Desquite	55	Lucha
 38	Golpe Karate	70	Lucha
 39	Llave Giro	90	Lucha
@@ -60,7 +60,7 @@
 60	Miedo	100	Siniestro
 61	Temblor	55	Tierra
 62	Bomba Lodo	70	Tierra
-63	Puo Fango	90	Tierra
+63	Pua Fango	90	Tierra
 64	Golpe Arena	100	Tierra
 65	Colmillo	55	Veneno
 66	Puya Nociva	70	Veneno

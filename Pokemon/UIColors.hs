@@ -102,13 +102,13 @@ colorVolador = "\ESC[38;5;15m"
 setColorTipo :: String -> String
 setColorTipo s
   | s == "Acero" = colorAcero
-  | s == "Agua" = colorAgua
+  | s == "Aguas" = colorAgua
   | s == "Bicho" = colorBicho
   | s == "Dragon" = colorDragón
   | s == "Electrico" =colorEléctrico
   | s == "Fantasma" = colorFantasma
   | s == "Fuego" = colorFuego
-  | s == "Hada" = colorHada
+  | s == "Hadas" = colorHada
   | s == "Hielo" = colorHielo
   | s == "Lucha" = colorLucha
   | s == "Normal" = colorNormal

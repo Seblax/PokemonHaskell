@@ -1,4 +1,5 @@
 import PokemonData
+import Tipo(getNombreTipo)
 {-
 data Pokemon =  Pokemon Nombre (Tipo, Tipo) Hp [ID]
     deriving Show
@@ -10,10 +11,7 @@ data Pokemon =  Pokemon Nombre (Tipo, Tipo) Hp [ID]
 --               Charizard: Volador Fuego -> (Volador, Fuego)
 
 getPokemonTipo :: Pokemon -> (String,String)
-getPokemonTipo (Pokemon _ (tipo1, tipo2) _ _) = (getTipo tipo1, getTipo tipo2)
-  where
-    getTipo :: Tipo -> String
-    getTipo (Nombre nombre _) = nombre
+getPokemonTipo (Pokemon _ (tipo1, tipo2) _ _) = (getNombreTipo tipo1, getNombreTipo tipo2)
 
 --GetPokemonVida------------------------------------------
 -- Dado un pokemon, que devuelva el valor de su vida (Int)

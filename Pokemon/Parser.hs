@@ -1,7 +1,6 @@
-module Parser where
-    
+module Parser (parsearHabilidades, parsearTipos) where
+
 import PokemonData
-import Tipo
 
 {-
     Función que separa un String en función de un Predicado dado.
@@ -93,12 +92,12 @@ parseoDebilFuerteInmune s = (debilidades, fortalezas, inmunidades)
 -- Dado dos lista de Strings (Ataques y Defensas), devolver una lista de tipos
 --      Habilidad = Habilidad 0 "Energi Bola" 70 "Eléctrico"
 ------------------------------------------------------------------------------
-parsearHabilidades :: [String] -> TablaDeTipos -> [Habilidad]
-parsearHabilidades habilidades tablaDeTipos = [parseoUnaSolaHabilidad habilidad tablaDeTipos | habilidad <- habilidades] 
-parseoUnaSolaHabilidad :: String -> TablaDeTipos -> Habilidad 
-parseoUnaSolaHabilidad h t = (Habilidad id nombreHabilidad poder tipo)
+parsearHabilidades :: [String] -> [Habilidad]
+parsearHabilidades habilidades = [parseoUnaSolaHabilidad habilidad | habilidad <- habilidades] 
+parseoUnaSolaHabilidad :: String -> Habilidad 
+parseoUnaSolaHabilidad h = (Habilidad id nombreHabilidad poder tipo)
     where
-        lista = words h
+        lista = split (=='\t') h
         id = (read.head) lista
         nombreHabilidad = lista!!1
         poder = read (lista!!2)

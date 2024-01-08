@@ -8,8 +8,6 @@ type ID = Int
 type Daño = Int
 type Nombre = String
 
-type TablaDeTipos = [Tipo]
-
 --Habilidades-----------------------------------------------
 -- Son las habilidades que pueden aprender los Pokemons
 --      Habilidad = Habilidad 0 "Energi Bola" 70 "Eléctrico"
@@ -35,7 +33,7 @@ data Tipo = Nombre Nombre (Tipo,Tipo) |
 
 ----------------------------------------------------------------------------------
 
-data Pokemon =  Pokemon Nombre (Tipo, Tipo) Hp [ID]
+data Pokemon =  Pokemon Nombre (Tipo, Tipo) Hp [Habilidad]
     deriving Show
 
 ------------------------------------------------------------
@@ -81,7 +79,7 @@ ataque18 = Habilidad 0 "Hada" 70 "Hada"
 --------------------------------------------------------
 
 squirtle :: Pokemon
-squirtle = Pokemon "Squirtle" (tipo1, tipo2) 150 [0..12]
+squirtle = Pokemon "Squirtle                   e" (tipo1, tipo2) 150 [0..12]
     where 
         tipo1 :: Tipo
         tipo1 = agua
@@ -89,7 +87,7 @@ squirtle = Pokemon "Squirtle" (tipo1, tipo2) 150 [0..12]
         tipo2 = piedra
 
 charizard :: Pokemon
-charizard = Pokemon "Charizard" (tipo1, tipo2) 750 [0..12]
+charizard = Pokemon "Charizard                  e" (tipo1, tipo2) 750 [0..12]
     where 
         tipo1 :: Tipo
         tipo1 = fuego
@@ -99,7 +97,7 @@ charizard = Pokemon "Charizard" (tipo1, tipo2) 750 [0..12]
 
 --------------------------------------------------------------
 agua :: Tipo
-agua = Nombre "Agua" (
+agua = Nombre "Aguas" (
     Defensas [
         Debil["Tierra", "Psíquico"],
         Fuerte["Lucha","Veneno","Bicho","Planta","Hada"], 

@@ -1,19 +1,19 @@
 Nombre      | Debil x(2)                            | Fuerte x(1/2)                                                           | Inmune x(0)
-Acero       | Lucha Fuego Tierra                    | Normal Volador Roca Bicho Acero Planta Psiquico Hielo Dragon Hada     | Veneno
-Agua        | Planta Electrico                      | Acero Fuego Agua Hielo                                                | 
+Acero       | Lucha Fuego Tierra                    | Normal Volador Roca Bicho Acero Planta Psiquico Hielo Dragon Hadas     | Veneno
+Aguas        | Planta Electrico                      | Acero Fuego Aguas Hielo                                                | 
 Bicho       | Volador Fuego Roca                    | Lucha Tierra Planta                                                   | 
-Dragon      | Hada  Hielo Dragon                    | Fuego Agua Planta Electrico                                           | 
+Dragon      | Hadas  Hielo Dragon                    | Fuego Aguas Planta Electrico                                           | 
 Electrico   | Tierra                                | Volador Acero Electrico                                               | 
 Fantasma    | Fantasma Siniestro                    | Veneno Bicho                                                          | Normal Lucha
-Fuego       | Tierra Agua Roca                      | Bicho Acero Fuego Planta Hielo Hada                                   | 
-Hada        | Acero Veneno                          | Lucha Bicho Siniestro                                                 | Dragon 
+Fuego       | Tierra Aguas Roca                      | Bicho Acero Fuego Planta Hielo Hadas                                   | 
+Hadas        | Acero Veneno                          | Lucha Bicho Siniestro                                                 | Dragon 
 Hielo       | Lucha Acero Roca Fuego                | Hielo                                                                 | 
 Lucha       | Psiquico Volador Hielo                | Roca Bicho Siniestro                                                  | 
 Normal      | Lucha                                 |                                                                       | Fantasma
-Planta      | Volador Bicho Veneno Hielo Fuego      | Tierra Agua Planta Electrico                                          | 
+Planta      | Volador Bicho Veneno Hielo Fuego      | Tierra Aguas Planta Electrico                                          | 
 Psiquico    | Bicho Fantasma Siniestro              | Lucha Psiquico                                                        | 
-Roca        | Lucha Tierra Acero Agua Planta        | Normal Volador Veneno Fuego                                           | 
-Siniestro   | Lucha Hada Bicho                      | Fantasma Siniestro                                                    | Psiquico
-Tierra      | Agua Planta Hielo                     | Veneno Roca                                                           | Electrico
-Veneno      | Tierra Psiquico                       | Lucha Veneno Bicho Planta Hada                                        | 
+Roca        | Lucha Tierra Acero Aguas Planta        | Normal Volador Veneno Fuego                                           | 
+Siniestro   | Lucha Hadas Bicho                      | Fantasma Siniestro                                                    | Psiquico
+Tierra      | Aguas Planta Hielo                     | Veneno Roca                                                           | Electrico
+Veneno      | Tierra Psiquico                       | Lucha Veneno Bicho Planta Hadas                                        | 
 Volador     | Roca Hielo Electrico                  | Lucha Bicho Planta                                                    | Tierra
