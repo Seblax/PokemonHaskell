@@ -137,7 +137,8 @@ esInmune' _ _ = False
     y devuelve dicho Tipo que tenga de nombre ese String
 -}
 getTipoPorNombre :: [Tipo] -> Nombre -> Tipo
-getTipoPorNombre [] _ = error "Lista vacía"
+getTipoPorNombre [] n = error $ "No se ha encontrado el Tipo: " ++ n
 getTipoPorNombre ((Nombre n t):tipos) nombre
+    | nombre == "null" = Null
     | n == nombre = Nombre n t
     | otherwise = getTipoPorNombre tipos nombre

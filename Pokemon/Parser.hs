@@ -1,18 +1,20 @@
-module Parser (parsearHabilidades, parsearTipos) where
+module Parser (parsearHabilidades, parsearTipos, parsearPokemons) where
 
 import PokemonData
+import Tipo
+import System.Random
 
 {-
     Función que separa un String en función de un Predicado dado.
     Enlaces de donde he sacado las fuentes para entender el código:
-        - https://stackoverflow.com/questions/4978578/how-to-split-a-string-in-haskell
+        - https://stackoverflow.com/questions/4978578/how-to-splitText-a-string-in-haskell
         - http://zvon.org/other/haskell/Outputprelude/break_f.html
         - http://zvon.org/other/haskell/Outputsyntax/caseQexpressions_reference.html
 -}
-split :: (Char -> Bool) -> String -> [String]   --Devuelve una lista de Strings
-split p s =  case dropWhile p s of          --Actua como un Switch              
+splitText :: (Char -> Bool) -> String -> [String]   --Devuelve una lista de Strings
+splitText p s =  case dropWhile p s of          --Actua como un Switch              
                       "" -> []              --Si estamos en caso base añadimos una Lista vacía
-                      s' -> w : split p xs --Si no, concatenamos w por la izquierda y realizamos llamada recursiva
+                      s' -> w : splitText p xs --Si no, concatenamos w por la izquierda y realizamos llamada recursiva
                             where (w, xs) = break p s' 
                                             -- Break crea una tupla de 2 listas separadas por una condicion
                                             -- w lista resultante, minetras que xs es el resto
@@ -69,7 +71,7 @@ parseoUnSoloTipo (atk, def) = Nombre nombre (attak, defense)
         defense = Defensas [Debil def_d, Fuerte def_f, Inmune def_i]
 
         --Obtiene el nombre del Tipo
-        nombre = head (split (=='|') atk)
+        nombre = head (splitText (=='|') atk)
 
 
 --Parsea un String a una tupla de lista de Strings divididos de la siguiente forma:
@@ -80,7 +82,7 @@ parseoDebilFuerteInmune :: String -> ([String],[String],[String])
 parseoDebilFuerteInmune s = (debilidades, fortalezas, inmunidades)
     where
         --No nos interesa el nombre por lo tanto lo dropeamos
-        lista = drop 1 (split (=='|') s) 
+        lista = drop 1 (splitText (=='|') s) 
 
         -- de la lista de strings cogemos los respectivos valores
         debilidades = (words.head) lista
@@ -97,22 +99,35 @@ parsearHabilidades habilidades = [parseoUnaSolaHabilidad habilidad | habilidad <
 parseoUnaSolaHabilidad :: String -> Habilidad 
 parseoUnaSolaHabilidad h = (Habilidad id nombreHabilidad poder tipo)
     where
-        lista = split (=='\t') h
+        lista = splitText (=='\t') h
         id = (read.head) lista
         nombreHabilidad = lista!!1
         poder = read (lista!!2)
         tipo = lista!!3
 
 
-
--- parsearUnSoloPokemon :: String -> TablaDeTipos -> Pokemon
-
-
 --Parseo de Pokemons----------------------------------------------------------
 -- Dado dos lista de Strings (Ataques y Defensas), devolver una lista de tipos
 ------------------------------------------------------------------------------
--- parsearPokemons :: [String] -> TablaDeTipos -> [Pokemon]
--- parsearPokemons pokemons tablaDeTipos = [parseoUnSoloPokemon pokemon tablaDeTipos | pokemon <- pokemons] 
+parsearPokemons :: [String] -> [Tipo] -> [Habilidad] -> Int -> [Pokemon]
+parsearPokemons pokemons t h seed = [parsearUnSoloPokemon pokemon t h seed | pokemon <- pokemons] 
 
--- parsearUnSoloPokemon :: String -> TablaDeTipos -> Pokemon
+parsearUnSoloPokemon :: String -> [Tipo] -> [Habilidad] -> Int -> Pokemon
+parsearUnSoloPokemon p t h seed = Pokemon nombre (t1, t2) vida habilidades
+    where
+        lista = splitText (=='\t') p
+        nombre = head lista
+        vida = read (lista!!1)
+        t1 = getTipoPorNombre t (lista!!2)
+        t2 | lista!!3 == "null" = Null
+           | otherwise = getTipoPorNombre t (lista!!3)  
+        habilidades = pokemonSetHabilidades h [] seed
 
+pokemonSetHabilidades :: [Habilidad] -> [Habilidad] -> Int -> [Habilidad]
+pokemonSetHabilidades t ac seed
+    | length ac < 4 = pokemonSetHabilidades t ((t!!rand) : ac) (seed + 1)
+    | otherwise = ac
+    where
+        generator = mkStdGen seed
+        n = length t
+        (rand, _) = randomR (0,(n-1)) generator

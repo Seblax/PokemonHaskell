@@ -1,967 +1,1127 @@
-Bulbasaur	45	Grass	Poison
-Ivysaur	60	Grass	Poison
-Venusaur	80	Grass	Poison
-Charmander	39	Fire	null
-Charmeleon	58	Fire	null
-Charizard	78	Fire	Flying
-Squirtle	44	Water	null
-Wartortle	59	Water	null
-Blastoise	79	Water	null
-Caterpie	45	Bug	null
-Metapod	50	Bug	null
-Butterfree	60	Bug	Flying
-Weedle	40	Bug	Poison
-Kakuna	45	Bug	Poison
-Beedrill	65	Bug	Poison
-Pidgey	40	Normal	Flying
-Pidgeotto	63	Normal	Flying
-Pidgeot	83	Normal	Flying
+Bulbasaur	45	Planta	Veneno
+Ivysaur	60	Planta	Veneno
+Venusaur	80	Planta	Veneno
+Venusaur (Mega)	80	Planta	Veneno
+Charmander	39	Fuego	null
+Charmeleon	58	Fuego	null
+Charizard	78	Fuego	Volador
+Charizard (Mega X)	78	Aguas	Dragon
+Charizard (Mega Y)	78	Aguas	Volador
+Squirtle	44	Aguas	null
+Wartortle	59	Aguas	null
+Blastoise	79	Bicho Bicho	null
+Blastoise (Mega)	79	Bicho Bicho	null
+Caterpie	45	Bicho Bicho	null
+Metapod	50	Bicho	null
+Butterfree	60	Normal	Volador
+Weedle	40	Normal	Veneno
+Kakuna	45	Normal	Veneno
+Beedrill	65	Normal	Veneno
+Beedrill (Mega)	65	Normal	Veneno
+Pidgey	40	Siniestro	Volador
+Pidgeotto	63	Normal	Volador
+Pidgeot	83	Siniestro	Volador
+Pidgeot (Mega)	83	Normal	Volador
 Rattata	30	Normal	null
-Raticate	55	Normal	null
-Spearow	40	Normal	Flying
-Fearow	65	Normal	Flying
-Ekans	30	Poison	null
-Arbok	60	Poison	null
-Pikachu	35	Electric	null
-Raichu	60	Electric	null
-Sandshrew	50	Ground	null
-Sandslash	75	Ground	null
-Nidoran	55	Poison	null
-Nidorina	70	Poison	null
-Nidoqueen	90	Poison	Ground
-Nidoran	46	Poison	null
-Nidorino	61	Poison	null
-Nidoking	81	Poison	Ground
-Clefairy	70	Fairy	null
-Clefable	95	Fairy	null
-Vulpix	38	Fire	null
-Ninetales	73	Fire	null
-Jigglypuff	115	Normal	Fairy
-Wigglytuff	140	Normal	Fairy
-Zubat	40	Poison	Flying
-Golbat	75	Poison	Flying
-Oddish	45	Grass	Poison
-Gloom	60	Grass	Poison
-Vileplume	75	Grass	Poison
-Paras	35	Bug	Grass
-Parasect	60	Bug	Grass
-Venonat	60	Bug	Poison
-Venomoth	70	Bug	Poison
-Diglett	10	Ground	null
-Dugtrio	35	Ground	null
-Meowth	40	Normal	null
-Persian	65	Normal	null
-Psyduck	50	Water	null
-Golduck	80	Water	null
-Mankey	40	Fighting	null
-Primeape	65	Fighting	null
-Growlithe	55	Fire	null
-Arcanine	90	Fire	null
-Poliwag	40	Water	null
-Poliwhirl	65	Water	null
-Poliwrath	90	Water	Fighting
-Abra	25	Psychic	null
-Kadabra	40	Psychic	null
-Alakazam	55	Psychic	null
-Machop	70	Fighting	null
-Machoke	80	Fighting	null
-Machamp	90	Fighting	null
-Bellsprout	50	Grass	Poison
-Weepinbell	65	Grass	Poison
-Victreebel	80	Grass	Poison
-Tentacool	40	Water	Poison
-Tentacruel	80	Water	Poison
-Geodude	40	Rock	Ground
-Graveler	55	Rock	Ground
-Golem	80	Rock	Ground
-Ponyta	50	Fire	null
-Rapidash	65	Fire	null
-Slowpoke	90	Water	Psychic
-Slowbro	95	Water	Psychic
-Magnemite	25	Electric	Steel
-Magneton	50	Electric	Steel
-Farfetch'd	52	Normal	Flying
-Doduo	35	Normal	Flying
-Dodrio	60	Normal	Flying
-Seel	65	Water	null
-Dewgong	90	Water	Ice
-Grimer	80	Poison	null
-Muk	105	Poison	null
-Shellder	30	Water	null
-Cloyster	50	Water	Ice
-Gastly	30	Ghost	Poison
-Haunter	45	Ghost	Poison
-Gengar	60	Ghost	Poison
-Onix	35	Rock	Ground
-Drowzee	60	Psychic	null
-Hypno	85	Psychic	null
-Krabby	30	Water	null
-Kingler	55	Water	null
-Voltorb	40	Electric	null
-Electrode	60	Electric	null
-Exeggcute	60	Grass	Psychic
-Exeggutor	95	Grass	Psychic
-Cubone	50	Ground	null
-Marowak	60	Ground	null
-Hitmonlee	50	Fighting	null
-Hitmonchan	50	Fighting	null
-Lickitung	90	Normal	null
-Koffing	40	Poison	null
-Weezing	65	Poison	null
-Rhyhorn	80	Ground	Rock
-Rhydon	105	Ground	Rock
-Chansey	250	Normal	null
-Tangela	65	Grass	null
-Kangaskhan	105	Normal	null
-Horsea	30	Water	null
-Seadra	55	Water	null
-Goldeen	45	Water	null
-Seaking	80	Water	null
-Staryu	30	Water	null
-Starmie	60	Water	Psychic
-Mr. Mime	40	Psychic	Fairy
-Scyther	70	Bug	Flying
-Jynx	65	Ice	Psychic
-Electabuzz	65	Electric	null
-Magmar	65	Fire	null
-Pinsir	65	Bug	null
+Rattata (Alolan)	30	Veneno	Normal
+Raticate	55	Veneno	null
+Raticate (Alolan)	75	Electrico	Normal
+Spearow	40	Electrico	Volador
+Fearow	65	Electrico	Volador
+Ekans	30	Tierra	null
+Arbok	60	Hielo	null
+Pikachu	35	Tierra	null
+Raichu	60	Hielo	null
+Raichu (Alolan)	60	Veneno	Psiquico
+Sandshrew	50	Veneno	null
+Sandshrew (Alolan)	50	Veneno	Acero
+Sandslash	75	Veneno	null
+Sandslash (Alolan)	75	Veneno	Acero
+Nidoran (Female)	55	Veneno	null
+Nidorina	70	Hadas	null
+Nidoqueen	90	Hadas Fuego	Tierra
+Nidoran (Male)	46	Hielo Fuego	null
+Nidorino	61	Hielo	null
+Nidoking	81	Normal	Tierra
+Clefairy	70	Normal	null
+Clefable	95	Veneno	null
+Vulpix	38	Veneno	null
+Vulpix (Alolan)	38	Planta	null
+Ninetales	73	Planta	null
+Ninetales (Alolan)	73	Planta	Hadas
+Jigglypuff	115	Bicho Bicho	Hadas
+Wigglytuff	140	Bicho Bicho	Hadas
+Zubat	40	Tierra	Volador
+Golbat	75	Tierra	Volador
+Oddish	45	Tierra	Veneno
+Gloom	60	Tierra	Veneno
+Vileplume	75	Normal	Veneno
+Paras	35	Siniestro	Planta
+Parasect	60	Acero	Planta
+Venonat	60	Normal	Veneno
+Venomoth	70	Siniestro	Veneno
+Diglett	10	Aguas	null
+Diglett (Alolan)	10	Aguas	Acero
+Dugtrio	35	Lucha	null
+Dugtrio (Alolan)	35	Lucha	Acero
+Meowth	40	Fuego Fuego	null
+Meowth (Alolan)	40	Fuego Fuego	null
+Meowth (Galarian)	50	Aguas	null
+Persian	65	Aguas	null
+Persian (Alolan)	65	Aguas	null
+Psyduck	50	Psiquico	null
+Golduck	80	Psiquico	null
+Mankey	40	Psiquico	null
+Primeape	65	Psiquico	null
+Growlithe	55	Lucha	null
+Growlithe (Hisuian)	60	Lucha	Piedra
+Arcanine	90	Lucha	null
+Arcanine (Hisuian)	95	Planta	Piedra
+Poliwag	40	Planta	null
+Poliwhirl	65	Planta	null
+Poliwrath	90	Aguas	Lucha
+Abra	25	Aguas	null
+Kadabra	40	Piedra	null
+Alakazam	55	Piedra	null
+Alakazam (Mega)	55	Piedra	null
+Machop	70	Piedra	null
+Machoke	80	Piedra	null
+Machamp	90	Piedra	null
+Bellsprout	50	Fuego	Veneno
+Weepinbell	65	Psiquico	Veneno
+Victreebel	80	Fuego	Veneno
+Tentacool	40	Psiquico	Veneno
+Tentacruel	80	Aguas	Veneno
+Geodude	40	Psiquico	Tierra
+Geodude (Alolan)	40	Aguas	Electrico
+Graveler	55	Aguas	Tierra
+Graveler (Alolan)	55	Veneno	Electrico
+Golem	80	Electrico	Tierra
+Golem (Alolan)	80	Electrico	Electrico
+Ponyta	50	Normal	null
+Ponyta (Galarian)	50	Lucha	null
+Rapidash	65	Normal	null
+Rapidash (Galarian)	65	Normal	Hadas
+Slowpoke	90	Aguas	Psiquico
+Slowpoke (Galarian)	90	Aguas	null
+Slowbro	95	Veneno	Psiquico
+Slowbro (Mega)	95	Veneno	Psiquico
+Slowbro (Galarian)	95	Veneno	Psiquico
+Magnemite	25	Veneno	Acero
+Magneton	50	Aguas	Acero
+Farfetch'd	52	Aguas	Volador
+Farfetch'd (Galarian)	52	Fantasma	null
+Doduo	35	Fantasma	Volador
+Dodrio	60	Fantasma	Volador
+Seel	65	Fantasma	null
+Dewgong	90	Piedra	Hielo
+Grimer	80	Psiquico	null
+Grimer (Alolan)	80	Psiquico	Siniestro
+Muk	105	Aguas	null
+Muk (Alolan)	105	Aguas	Siniestro
+Shellder	30	Electrico	null
+Cloyster	50	Electrico	Hielo
+Gastly	30	Electrico	Veneno
+Haunter	45	Electrico	Veneno
+Gengar	60	Planta	Veneno
+Gengar (Mega)	60	Planta	Veneno
+Onix	35	Planta	Tierra
+Drowzee	60	Tierra	null
+Hypno	85	Tierra	null
+Krabby	30	Fuego	null
+Kingler	55	Lucha	null
+Voltorb	40	Lucha	null
+Voltorb (Hisuian)	40	Normal	Planta
+Electrode	60	Veneno	null
+Electrode (Hisuian)	60	Veneno	Planta
+Exeggcute	60	Veneno	Psiquico
+Exeggutor	95	Tierra	Psiquico
+Exeggutor (Alolan)	95	Tierra	Dragon
+Cubone	50	Normal	null
+Marowak	60	Planta	null
+Marowak (Alolan)	60	Normal	Fantasma
+Hitmonlee	50	Normal	null
+Hitmonchan	50	Aguas	null
+Lickitung	90	Aguas	null
+Koffing	40	Aguas	null
+Weezing	65	Aguas	null
+Weezing (Galarian)	65	Aguas	Hadas
+Rhyhorn	80	Aguas	Piedra
+Rhydon	105	Psiquico	Piedra
+Chansey	250	Hielo Bicho	null
+Tangela	65	Hielo	null
+Kangaskhan	105	Electrico	null
+Kangaskhan (Mega)	105	Fuego Bicho	null
+Horsea	30	Bicho	null
+Seadra	55	Normal	null
+Goldeen	45	Lucha	null
+Seaking	80	Lucha	null
+Staryu	30	Lucha	null
+Starmie	60	Aguas	Psiquico
+Mr. Mime	40	Aguas	Hadas
+Mr. Mime (Galarian)	50	Aguas	Psiquico
+Scyther	70	Aguas	Volador
+Jynx	65	Normal	Psiquico
+Electabuzz	65	Normal	null
+Magmar	65	Aguas	null
+Pinsir	65	Electrico	null
+Pinsir (Mega)	65	Fuego	Volador
 Tauros	75	Normal	null
-Magikarp	20	Water	null
-Gyarados	95	Water	Flying
-Lapras	130	Water	Ice
-Ditto	48	Normal	null
-Eevee	55	Normal	null
-Vaporeon	130	Water	null
-Jolteon	65	Electric	null
-Flareon	65	Fire	null
-Porygon	65	Normal	null
-Omanyte	35	Rock	Water
-Omastar	70	Rock	Water
-Kabuto	30	Rock	Water
-Kabutops	60	Rock	Water
-Aerodactyl	80	Rock	Flying
-Snorlax	160	Normal	null
-Articuno	90	Ice	Flying
-Zapdos	90	Electric	Flying
-Moltres	90	Fire	Flying
-Dratini	41	Dragon	null
-Dragonair	61	Dragon	null
-Dragonite	91	Dragon	Flying
-Mewtwo	106	Psychic	null
-Mew	100	Psychic	null
-Chikorita	45	Grass	null
-Bayleef	60	Grass	null
-Meganium	80	Grass	null
-Cyndaquil	39	Fire	null
-Quilava	58	Fire	null
-Typhlosion	78	Fire	null
-Totodile	50	Water	null
-Croconaw	65	Water	null
-Feraligatr	85	Water	null
-Sentret	35	Normal	null
-Furret	85	Normal	null
-Hoothoot	60	Normal	Flying
-Noctowl	100	Normal	Flying
-Ledyba	40	Bug	Flying
-Ledian	55	Bug	Flying
-Spinarak	40	Bug	Poison
-Ariados	70	Bug	Poison
-Crobat	85	Poison	Flying
-Chinchou	75	Water	Electric
-Lanturn	125	Water	Electric
-Pichu	20	Electric	null
-Cleffa	50	Fairy	null
-Igglybuff	90	Normal	Fairy
-Togepi	35	Fairy	null
-Togetic	55	Fairy	Flying
-Natu	40	Psychic	Flying
-Xatu	65	Psychic	Flying
-Mareep	55	Electric	null
-Flaaffy	70	Electric	null
-Ampharos	90	Electric	null
-Bellossom	75	Grass	null
-Marill	70	Water	Fairy
-Azumarill	100	Water	Fairy
-Sudowoodo	70	Rock	null
-Politoed	90	Water	null
-Hoppip	35	Grass	Flying
-Skiploom	55	Grass	Flying
-Jumpluff	75	Grass	Flying
-Aipom	55	Normal	null
-Sunkern	30	Grass	null
-Sunflora	75	Grass	null
-Yanma	65	Bug	Flying
-Wooper	55	Water	Ground
-Quagsire	95	Water	Ground
-Espeon	65	Psychic	null
-Umbreon	95	Dark	null
-Murkrow	60	Dark	Flying
-Slowking	95	Water	Psychic
-Misdreavus	60	Ghost	null
-Unown	48	Psychic	null
-Wobbuffet	190	Psychic	null
-Girafarig	70	Normal	Psychic
-Pineco	50	Bug	null
-Forretress	75	Bug	Steel
-Dunsparce	100	Normal	null
-Gligar	65	Ground	Flying
-Steelix	75	Steel	Ground
-Snubbull	60	Fairy	null
-Granbull	90	Fairy	null
-Qwilfish	65	Water	Poison
-Scizor	70	Bug	Steel
-Shuckle	20	Bug	Rock
-Heracross	80	Bug	Fighting
-Sneasel	55	Dark	Ice
-Teddiursa	60	Normal	null
-Ursaring	90	Normal	null
-Slugma	40	Fire	null
-Magcargo	60	Fire	Rock
-Swinub	50	Ice	Ground
-Piloswine	100	Ice	Ground
-Corsola	65	Water	Rock
-Remoraid	35	Water	null
-Octillery	75	Water	null
-Delibird	45	Ice	Flying
-Mantine	85	Water	Flying
-Skarmory	65	Steel	Flying
-Houndour	45	Dark	Fire
-Houndoom	75	Dark	Fire
-Kingdra	75	Water	Dragon
-Phanpy	90	Ground	null
-Donphan	90	Ground	null
-Porygon2	85	Normal	null
-Stantler	73	Normal	null
-Smeargle	55	Normal	null
-Tyrogue	35	Fighting	null
-Hitmontop	50	Fighting	null
-Smoochum	45	Ice	Psychic
-Elekid	45	Electric	null
-Magby	45	Fire	null
-Miltank	95	Normal	null
+Tauros (Paldean, Combat)	75	Piedra	null
+Tauros (Paldean, Blaze)	75	Piedra	Fuego
+Tauros (Paldean, Aqua)	75	Piedra	Aguas
+Magikarp	20	Piedra	null
+Gyarados	95	Piedra	Volador
+Gyarados (Mega)	95	Piedra	Siniestro
+Lapras	130	Normal	Hielo
+Ditto	48	Hielo	null
+Eevee	55	Psiquico	null
+Vaporeon	130	Electrico	null
+Jolteon	65	Lucha	null
+Flareon	65	Fuego Siniestro	null
+Porygon	65	Dragon	null
+Omanyte	35	Dragon	Aguas
+Omastar	70	Dragon	Aguas
+Kabuto	30	Psiquico	Aguas
+Kabutops	60	Psiquico	Aguas
+Aerodactyl	80	Psiquico	Volador
+Aerodactyl (Mega)	80	Psiquico	Volador
+Snorlax	160	Planta	null
+Articuno	90	Planta	Volador
+Articuno (Galarian)	90	Planta	Volador
+Zapdos	90	Fuego Fuego	Volador
+Zapdos (Galarian)	90	Fuego Fuego	Volador
+Moltres	90	Aguas	Volador
+Moltres (Galarian)	90	Aguas	Volador
+Dratini	41	Aguas	null
+Dragonair	61	Normal	null
+Dragonite	91	Normal	Volador
+Mewtwo	106	Normal	null
+Mewtwo (Mega X)	106	Normal	Lucha
+Mewtwo (Mega Y)	106	Bicho Bicho	null
+Mew	100	Bicho Bicho	null
+Chikorita	45	Veneno	null
+Bayleef	60	Aguas	null
+Meganium	80	Aguas	null
+Cyndaquil	39	Electrico	null
+Quilava	58	Hadas	null
+Typhlosion	78	Normal	null
+Typhlosion (Hisuian)	73	Hadas	Fantasma
+Totodile	50	Hadas	null
+Croconaw	65	Psiquico	null
+Feraligatr	85	Psiquico	null
+Sentret	35	Electrico	null
+Furret	85	Electrico	null
+Hoothoot	60	Electrico	Volador
+Noctowl	100	Electrico	Volador
+Ledyba	40	Planta	Volador
+Ledian	55	Aguas	Volador
+Spinarak	40	Aguas	Veneno
+Ariados	70	Piedra	Veneno
+Crobat	85	Aguas	Volador
+Chinchou	75	Planta	Electrico
+Lanturn	125	Planta	Electrico
+Pichu	20	Planta	null
+Cleffa	50	Normal	null
+Igglybuff	90	Planta	Hadas
+Togepi	35	Planta	null
+Togetic	55	Bicho	Volador
+Natu	40	Aguas	Volador
+Xatu	65	Veneno	Volador
+Mareep	55	Aguas	null
+Flaaffy	70	Psiquico	null
+Ampharos	90	Siniestro	null
+Ampharos (Mega)	90	Siniestro	Dragon
+Bellossom	75	Aguas	null
+Marill	70	Veneno	Hadas
+Azumarill	100	Fantasma	Hadas
+Sudowoodo	70	Psiquico	null
+Politoed	90	Psiquico	null
+Hoppip	35	Normal	Volador
+Skiploom	55	Bicho Bicho	Volador
+Jumpluff	75	Normal	Volador
+Aipom	55	Tierra	null
+Sunkern	30	Acero	null
+Sunflora	75	Acero	null
+Yanma	65	Hadas	Volador
+Wooper	55	Hadas	Tierra
+Wooper (Paldean)	55	Aguas	Tierra
+Quagsire	95	Siniestro	Tierra
+Espeon	65	Bicho Bicho	null
+Umbreon	95	Bicho Bicho	null
+Murkrow	60	Bicho	Volador
+Slowking	95	Siniestro	Psiquico
+Slowking (Galarian)	95	Lucha	Psiquico
+Misdreavus	60	Normal	null
+Unown	48	Normal	null
+Wobbuffet	190	Fuego Fuego	null
+Girafarig	70	Hielo Hielo	Psiquico
+Pineco	50	Aguas	null
+Forretress	75	Fantasma	Acero
+Dunsparce	100	Aguas	null
+Gligar	65	Aguas	Volador
+Steelix	75	Hielo	Tierra
+Steelix (Mega)	75	Aguas	Tierra
+Snubbull	60	Acero	null
+Granbull	90	Siniestro	null
+Qwilfish	65	Siniestro	Veneno
+Qwilfish (Hisuian)	65	Siniestro	Veneno
+Scizor	70	Aguas	Acero
+Scizor (Mega)	70	Tierra	Acero
+Shuckle	20	Tierra	Piedra
+Heracross	80	Normal	Lucha
+Heracross (Mega)	80	Normal	Lucha
+Sneasel	55	Normal	Hielo
+Sneasel (Hisuian)	55	Lucha	Veneno
+Teddiursa	60	Lucha	null
+Ursaring	90	Hielo	null
+Slugma	40	Electrico	null
+Magcargo	60	Fuego	Piedra
+Swinub	50	Normal	Tierra
+Piloswine	100	Normal	Tierra
+Corsola	65	Electrico	Piedra
+Corsola (Galarian)	60	Fuego	null
+Remoraid	35	Aguas	null
+Octillery	75	Piedra	null
+Delibird	45	Piedra	Volador
+Mantine	85	Piedra	Volador
+Skarmory	65	Piedra	Volador
+Houndour	45	Psiquico	Fuego
+Houndoom	75	Fuego	Fuego
+Houndoom (Mega)	75	Psiquico	Fuego
+Kingdra	75	Planta	Dragon
+Phanpy	90	Planta	null
+Donphan	90	Planta	null
+Porygon2	85	Planta	null
+Stantler	73	Fuego Fuego	null
+Smeargle	55	Fuego Fuego	null
+Tyrogue	35	Aguas	null
+Hitmontop	50	Aguas	null
+Smoochum	45	Aguas	Psiquico
+Elekid	45	Aguas	null
+Magby	45	Siniestro	null
+Miltank	95	Siniestro	null
 Blissey	255	Normal	null
-Raikou	90	Electric	null
-Entei	115	Fire	null
-Suicune	100	Water	null
-Larvitar	50	Rock	Ground
-Pupitar	70	Rock	Ground
-Tyranitar	100	Rock	Dark
-Lugia	106	Psychic	Flying
-Ho-oh	106	Fire	Flying
-Celebi	100	Psychic	Grass
-Treecko	40	Grass	null
-Grovyle	50	Grass	null
-Sceptile	70	Grass	null
-Torchic	45	Fire	null
-Combusken	60	Fire	Fighting
-Blaziken	80	Fire	Fighting
-Mudkip	50	Water	null
-Marshtomp	70	Water	Ground
-Swampert	100	Water	Ground
-Poochyena	35	Dark	null
-Mightyena	70	Dark	null
+Raikou	90	Siniestro	null
+Entei	115	Normal	null
+Suicune	100	Siniestro	null
+Larvitar	50	Bicho Bicho	Tierra
+Pupitar	70	Bicho Bicho	Tierra
+Tyranitar	100	Bicho	Siniestro
+Tyranitar (Mega)	100	Aguas	Siniestro
+Lugia	106	Aguas	Volador
+Ho-oh	106	Aguas	Volador
+Celebi	100	Planta	Planta
+Treecko	40	Planta	null
+Grovyle	50	Planta	null
+Sceptile	70	Normal	null
+Sceptile (Mega)	70	Normal	Dragon
+Torchic	45	Aguas	null
+Combusken	60	Aguas	Lucha
+Blaziken	80	Psiquico	Lucha
+Blaziken (Mega)	80	Psiquico	Lucha
+Mudkip	50	Psiquico	null
+Marshtomp	70	Psiquico	Tierra
+Swampert	100	Bicho Bicho	Tierra
+Swampert (Mega)	100	Planta	Tierra
+Poochyena	35	Planta	null
+Mightyena	70	Normal	null
 Zigzagoon	38	Normal	null
-Linoone	78	Normal	null
-Wurmple	45	Bug	null
-Silcoon	50	Bug	null
-Beautifly	60	Bug	Flying
-Cascoon	50	Bug	null
-Dustox	60	Bug	Poison
-Lotad	40	Water	Grass
-Lombre	60	Water	Grass
-Ludicolo	80	Water	Grass
-Seedot	40	Grass	null
-Nuzleaf	70	Grass	Dark
-Shiftry	90	Grass	Dark
-Taillow	40	Normal	Flying
-Swellow	60	Normal	Flying
-Wingull	40	Water	Flying
-Pelipper	60	Water	Flying
-Ralts	28	Psychic	Fairy
-Kirlia	38	Psychic	Fairy
-Gardevoir	68	Psychic	Fairy
-Surskit	40	Bug	Water
-Masquerain	70	Bug	Flying
-Shroomish	60	Grass	null
-Breloom	60	Grass	Fighting
-Slakoth	60	Normal	null
-Vigoroth	80	Normal	null
-Slaking	150	Normal	null
-Nincada	31	Bug	Ground
-Ninjask	61	Bug	Flying
-Shedinja	1	Bug	Ghost
-Whismur	64	Normal	null
-Loudred	84	Normal	null
-Exploud	104	Normal	null
-Makuhita	72	Fighting	null
-Hariyama	144	Fighting	null
-Azurill	50	Normal	Fairy
-Nosepass	30	Rock	null
-Skitty	50	Normal	null
-Delcatty	70	Normal	null
-Sableye	50	Dark	Ghost
-Mawile	50	Steel	Fairy
-Aron	50	Steel	Rock
-Lairon	60	Steel	Rock
-Aggron	70	Steel	Rock
-Meditite	30	Fighting	Psychic
-Medicham	60	Fighting	Psychic
-Electrike	40	Electric	null
-Manectric	70	Electric	null
-Plusle	60	Electric	null
-Minun	60	Electric	null
-Volbeat	65	Bug	null
-Illumise	65	Bug	null
-Roselia	50	Grass	Poison
-Gulpin	70	Poison	null
-Swalot	100	Poison	null
-Carvanha	45	Water	Dark
-Sharpedo	70	Water	Dark
-Wailmer	130	Water	null
-Wailord	170	Water	null
-Numel	60	Fire	Ground
-Camerupt	70	Fire	Ground
-Torkoal	70	Fire	null
-Spoink	60	Psychic	null
-Grumpig	80	Psychic	null
-Spinda	60	Normal	null
-Trapinch	45	Ground	null
-Vibrava	50	Ground	Dragon
-Flygon	80	Ground	Dragon
-Cacnea	50	Grass	null
-Cacturne	70	Grass	Dark
-Swablu	45	Normal	Flying
-Altaria	75	Dragon	Flying
-Zangoose	73	Normal	null
-Seviper	73	Poison	null
-Lunatone	90	Rock	Psychic
-Solrock	90	Rock	Psychic
-Barboach	50	Water	Ground
-Whiscash	110	Water	Ground
-Corphish	43	Water	null
-Crawdaunt	63	Water	Dark
-Baltoy	40	Ground	Psychic
-Claydol	60	Ground	Psychic
-Lileep	66	Rock	Grass
-Cradily	86	Rock	Grass
-Anorith	45	Rock	Bug
-Armaldo	75	Rock	Bug
-Feebas	20	Water	null
-Milotic	95	Water	null
-Kecleon	60	Normal	null
-Shuppet	44	Ghost	null
-Banette	64	Ghost	null
-Duskull	20	Ghost	null
-Dusclops	40	Ghost	null
-Tropius	99	Grass	Flying
-Chimecho	75	Psychic	null
-Absol	65	Dark	null
-Wynaut	95	Psychic	null
-Snorunt	50	Ice	null
-Glalie	80	Ice	null
-Spheal	70	Ice	Water
-Sealeo	90	Ice	Water
-Walrein	110	Ice	Water
-Clamperl	35	Water	null
-Huntail	55	Water	null
-Gorebyss	55	Water	null
-Relicanth	100	Water	Rock
-Luvdisc	43	Water	null
-Bagon	45	Dragon	null
-Shelgon	65	Dragon	null
-Salamence	95	Dragon	Flying
-Beldum	40	Steel	Psychic
-Metang	60	Steel	Psychic
-Metagross	80	Steel	Psychic
-Regirock	80	Rock	null
-Regice	80	Ice	null
-Registeel	80	Steel	null
-Latias	80	Dragon	Psychic
-Latias	80	Dragon	Psychic
-Latios	80	Dragon	Psychic
-Latios	80	Dragon	Psychic
-Kyogre	100	Water	null
-Groudon	100	Ground	null
-Rayquaza	105	Dragon	Flying
-Rayquaza	105	Dragon	Flying
-Jirachi	100	Steel	Psychic
-Turtwig	55	Grass	null
-Grotle	75	Grass	null
-Torterra	95	Grass	Ground
-Chimchar	44	Fire	null
-Monferno	64	Fire	Fighting
-Infernape	76	Fire	Fighting
-Piplup	53	Water	null
-Prinplup	64	Water	null
-Empoleon	84	Water	Steel
-Starly	40	Normal	Flying
-Staravia	55	Normal	Flying
-Staraptor	85	Normal	Flying
-Bidoof	59	Normal	null
-Bibarel	79	Normal	Water
-Kricketot	37	Bug	null
-Kricketune	77	Bug	null
-Shinx	45	Electric	null
-Luxio	60	Electric	null
-Luxray	80	Electric	null
-Budew	40	Grass	Poison
-Roserade	60	Grass	Poison
-Cranidos	67	Rock	null
-Rampardos	97	Rock	null
-Shieldon	30	Rock	Steel
-Bastiodon	60	Rock	Steel
-Mothim	70	Bug	Flying
-Combee	30	Bug	Flying
-Vespiquen	70	Bug	Flying
-Pachirisu	60	Electric	null
-Buizel	55	Water	null
-Floatzel	85	Water	null
-Cherubi	45	Grass	null
+Zigzagoon (Galarian)	38	Normal	Normal
+Linoone	78	Bicho Bicho	null
+Linoone (Galarian)	78	Bicho	Normal
+Wurmple	45	Normal	null
+Silcoon	50	Normal	null
+Beautifly	60	Normal	Volador
+Cascoon	50	Lucha	null
+Dustox	60	Lucha	Veneno
+Lotad	40	Normal	Planta
+Lombre	60	Piedra	Planta
+Ludicolo	80	Normal	Planta
+Seedot	40	Normal	null
+Nuzleaf	70	Siniestro	Siniestro
+Shiftry	90	Siniestro	Siniestro
+Taillow	40	Acero	Volador
+Swellow	60	Acero	Volador
+Wingull	40	Acero	Volador
+Pelipper	60	Acero	Volador
+Ralts	28	Acero	Hadas
+Kirlia	38	Acero	Hadas
+Gardevoir	68	Lucha	Hadas
+Gardevoir (Mega)	68	Lucha	Hadas
+Surskit	40	Lucha	Aguas
+Masquerain	70	Electrico	Volador
+Shroomish	60	Electrico	null
+Breloom	60	Electrico	Lucha
+Slakoth	60	Electrico	null
+Vigoroth	80	Electrico	null
+Slaking	150	Bicho Bicho	null
+Nincada	31	Planta	Tierra
+Ninjask	61	Veneno	Volador
+Shedinja	1	Veneno	Fantasma
+Whismur	64	Aguas	null
+Loudred	84	Aguas	null
+Exploud	104	Aguas	null
+Makuhita	72	Aguas	null
+Hariyama	144	Aguas	null
+Azurill	50	Fuego Fuego	Hadas
+Nosepass	30	Fuego Fuego	null
+Skitty	50	Psiquico	null
+Delcatty	70	Psiquico	null
+Sableye	50	Normal	Fantasma
+Sableye (Mega)	50	Tierra	Fantasma
+Mawile	50	Tierra	Hadas
+Mawile (Mega)	50	Tierra	Hadas
+Aron	50	Planta	Piedra
+Lairon	60	Planta	Piedra
+Aggron	70	Normal	Piedra
+Aggron (Mega)	70	Dragon	null
+Meditite	30	Dragon	Psiquico
+Medicham	60	Normal	Psiquico
+Medicham (Mega)	60	Veneno	Psiquico
+Electrike	40	Piedra	null
+Manectric	70	Piedra	null
+Manetric (Mega)	70	Aguas	null
+Plusle	60	Aguas	null
+Minun	60	Aguas	null
+Volbeat	65	Aguas	null
+Illumise	65	Tierra	null
+Roselia	50	Tierra	Veneno
+Gulpin	70	Piedra	null
+Swalot	100	Piedra	null
+Carvanha	45	Piedra	Siniestro
+Sharpedo	70	Piedra	Siniestro
+Sharpedo (Mega)	70	Aguas	Siniestro
+Wailmer	130	Aguas	null
+Wailord	170	Normal	null
+Numel	60	Aguas	Tierra
+Camerupt	70	Hielo Fuego	Tierra
+Camerupt (Mega)	70	Normal	Tierra
+Torkoal	70	Fantasma	null
+Spoink	60	Fantasma	null
+Grumpig	80	Fantasma	null
+Spinda	60	Fantasma	null
+Trapinch	45	Fantasma	null
+Vibrava	50	Planta	Dragon
+Flygon	80	Psiquico	Dragon
+Cacnea	50	Siniestro	null
+Cacturne	70	Siniestro	Siniestro
+Swablu	45	Psiquico	Volador
+Altaria	75	Hielo Hielo	Volador
+Altaria (Mega)	75	Hielo Hielo	Hadas
+Zangoose	73	Hielo Hielo	null
+Seviper	73	Aguas	null
+Lunatone	90	Aguas	Psiquico
+Solrock	90	Aguas	Psiquico
+Barboach	50	Aguas	Tierra
+Whiscash	110	Aguas	Tierra
+Corphish	43	Dragon	null
+Crawdaunt	63	Dragon	Siniestro
+Baltoy	40	Dragon	Psiquico
+Claydol	60	Dragon	Psiquico
+Lileep	66	Acero	Planta
+Cradily	86	Acero	Planta
+Anorith	45	Acero	Bicho
+Armaldo	75	Acero	Bicho
+Feebas	20	Piedra Hielo	null
+Milotic	95	Acero	null
+Castform (Normal)	70	Dragon	null
+Castform (Rainy)	70	Dragon	null
+Castform (Snowy)	70	Dragon	null
+Castform (Sunny)	70	Dragon	null
+Kecleon	60	Aguas	null
+Shuppet	44	Aguas	null
+Banette	64	Tierra	null
+Banette (Mega)	64	Tierra	null
+Duskull	20	Dragon	null
+Dusclops	40	Dragon	null
+Tropius	99	Acero	Volador
+Chimecho	75	Psiquico	null
+Absol	65	Psiquico	null
+Absol (Mega)	65	Psiquico	null
+Wynaut	95	Psiquico	null
+Snorunt	50	Planta	null
+Glalie	80	Planta	null
+Glalie (Mega)	80	Planta	null
+Spheal	70	Fuego Fuego	Aguas
+Sealeo	90	Fuego	Aguas
+Walrein	110	Aguas	Aguas
+Clamperl	35	Aguas	null
+Huntail	55	Aguas	null
+Gorebyss	55	Normal	null
+Relicanth	100	Normal	Piedra
+Luvdisc	43	Normal	null
+Bagon	45	Normal	null
+Shelgon	65	Normal	null
+Salamence	95	Bicho Bicho	Volador
+Salamence (Mega)	95	Electrico	Volador
+Beldum	40	Electrico	Psiquico
+Metang	60	Electrico	Psiquico
+Metagross	80	Planta	Psiquico
+Metagross (Mega)	80	Planta	Psiquico
+Regirock	80	Piedra	null
+Regice	80	Piedra	null
+Registeel	80	Piedra	null
+Latias	80	Piedra	Psiquico
+Latias	80	Bicho Bicho	Psiquico
+Latios	80	Bicho Bicho	Psiquico
+Latios	80	Bicho Bicho	Psiquico
+Kyogre	100	Bicho Bicho	null
+Kyogre (Primal)	100	Bicho	null
+Groudon	100	Electrico	null
+Groudon (Primal)	100	Aguas	Fuego
+Rayquaza	105	Aguas	Volador
+Rayquaza	105	Planta	Volador
+Jirachi	100	Planta	Psiquico
+Deoxys (Normal)	50	Planta	null
+Deoxys (Attack)	50	Aguas	null
+Deoxys (Defense)	50	Aguas	null
+Deoxys (Speed)	50	Aguas	null
+Turtwig	55	Aguas	null
+Grotle	75	Normal	null
+Torterra	95	Fantasma	Tierra
+Chimchar	44	Fantasma	null
+Monferno	64	Normal	Lucha
+Infernape	76	Normal	Lucha
+Piplup	53	Normal	null
+Prinplup	64	Fantasma	null
+Empoleon	84	Siniestro	Acero
+Starly	40	Normal	Volador
+Staravia	55	Normal	Volador
+Staraptor	85	Psiquico	Volador
+Bidoof	59	Veneno	null
+Bibarel	79	Veneno	Aguas
+Kricketot	37	Acero	null
+Kricketune	77	Acero	null
+Shinx	45	Piedra	null
+Luxio	60	Psiquico	null
+Luxray	80	Normal	null
+Budew	40	Normal	Veneno
+Roserade	60	Fantasma	Veneno
+Cranidos	67	Dragon	null
+Rampardos	97	Dragon	null
+Shieldon	30	Dragon	Acero
+Bastiodon	60	Dragon	Acero
+Burmy (Plant)	40	Normal	null
+Burmy (Sandy)	40	Lucha	null
+Burmy (Trash)	40	Lucha	null
+Wormadam (Plant)	60	Lucha	Planta
+Wormadam (Sandy)	60	Tierra	Tierra
+Wormadam (Trash)	60	Tierra	Acero
+Mothim	70	Veneno	Volador
+Combee	30	Veneno	Volador
+Vespiquen	70	Veneno	Volador
+Pachirisu	60	Veneno	null
+Buizel	55	Planta	null
+Floatzel	85	Aguas	null
+Cherubi	45	Aguas	null
+Cherrim (Overcast)	70	Aguas	null
+Cherrim (Sunshine)	70	Planta	null
+Shellos (East)	76	Planta	null
+Shellos (West)	76	Planta	null
+Gastrodon (East)	111	Siniestro	Tierra
+Gastrodon (West)	111	Electrico	Tierra
 Ambipom	75	Normal	null
-Drifloon	90	Ghost	Flying
-Drifblim	150	Ghost	Flying
-Buneary	55	Normal	null
-Lopunny	65	Normal	null
-Mismagius	60	Ghost	null
-Honchkrow	100	Dark	Flying
-Glameow	49	Normal	null
-Purugly	71	Normal	null
-Chingling	45	Psychic	null
-Stunky	63	Poison	Dark
-Skuntank	103	Poison	Dark
-Bronzor	57	Steel	Psychic
-Bronzong	67	Steel	Psychic
-Bonsly	50	Rock	null
-Mime Jr.	20	Psychic	Fairy
-Happiny	100	Normal	null
-Chatot	76	Normal	Flying
-Spiritomb	50	Ghost	Dark
-Gible	58	Dragon	Ground
-Gabite	68	Dragon	Ground
-Garchomp	108	Dragon	Ground
-Munchlax	135	Normal	null
-Riolu	40	Fighting	null
-Lucario	70	Fighting	Steel
-Hippopotas	68	Ground	null
-Hippowdon	108	Ground	null
-Skorupi	40	Poison	Bug
-Drapion	70	Poison	Dark
-Croagunk	48	Poison	Fighting
-Toxicroak	83	Poison	Fighting
-Carnivine	74	Grass	null
-Finneon	49	Water	null
-Lumineon	69	Water	null
-Mantyke	45	Water	Flying
-Snover	60	Grass	Ice
-Abomasnow	90	Grass	Ice
-Weavile	70	Dark	Ice
-Magnezone	70	Electric	Steel
-Lickilicky	110	Normal	null
-Rhyperior	115	Ground	Rock
-Tangrowth	100	Grass	null
-Electivire	75	Electric	null
-Magmortar	75	Fire	null
-Togekiss	85	Fairy	Flying
-Yanmega	86	Bug	Flying
-Leafeon	65	Grass	null
-Glaceon	65	Ice	null
-Gliscor	75	Ground	Flying
-Mamoswine	110	Ice	Ground
+Drifloon	90	Tierra	Volador
+Drifblim	150	Planta	Volador
+Buneary	55	Electrico	null
+Lopunny	65	Fuego Hadas	null
+Lopunny (Mega)	65	Bicho	Lucha
+Mismagius	60	Planta	null
+Honchkrow	100	Hielo	Volador
+Glameow	49	Tierra	null
+Purugly	71	Hielo	null
+Chingling	45	Normal	null
+Stunky	63	Psiquico	Siniestro
+Skuntank	103	Psiquico	Siniestro
+Bronzor	57	Piedra	Psiquico
+Bronzong	67	Fantasma	Psiquico
+Bonsly	50	Hielo	null
+Mime Jr.	20	Electrico	Hadas
+Happiny	100	Electrico	null
+Chatot	76	Electrico	Volador
+Spiritomb	50	Electrico	Siniestro
+Gible	58	Electrico	Tierra
+Gabite	68	Electrico	Tierra
+Garchomp	108	Psiquico	Tierra
+Garchomp (Mega)	108	Psiquico	Tierra
+Munchlax	135	Psiquico	null
+Riolu	40	Acero	null
+Lucario	70	Acero	Acero
+Lucario (Mega)	70	Aguas	Acero
+Hippopotas	68	Aguas	null
+Hippowdon	108	Fuego	null
+Skorupi	40	Normal	Bicho
+Drapion	70	Fantasma	Siniestro
+Croagunk	48	Fantasma	Lucha
+Toxicroak	83	Psiquico	Lucha
+Carnivine	74	Aguas	null
+Finneon	49	Aguas	null
+Lumineon	69	Siniestro	null
+Mantyke	45	Planta	Volador
+Snover	60	Planta	Hielo
+Abomasnow	90	Normal	Hielo
+Abomasnow (Mega)	90	Psiquico	Hielo
+Weavile	70	Planta	Hielo
+Magnezone	70	Planta	Acero
+Lickilicky	110	Planta	null
+Rhyperior	115	Fuego Fuego	Piedra
+Tangrowth	100	Fuego	null
+Electivire	75	Aguas	null
+Magmortar	75	Aguas	null
+Togekiss	85	Aguas	Volador
+Yanmega	86	Aguas	Volador
+Leafeon	65	Normal	null
+Glaceon	65	Normal	null
+Gliscor	75	Normal	Volador
+Mamoswine	110	Normal	Tierra
 Porygon-Z	85	Normal	null
-Gallade	68	Psychic	Fighting
-Probopass	60	Rock	Steel
-Dusknoir	45	Ghost	null
-Froslass	70	Ice	Ghost
-Rotom	50	Electric	Ghost
-Uxie	75	Psychic	null
-Mesprit	80	Psychic	null
-Azelf	75	Psychic	null
-Heatran	91	Fire	Steel
-Regigigas	110	Normal	null
-Cresselia	120	Psychic	null
-Phione	80	Water	null
-Manaphy	100	Water	null
-Darkrai	70	Dark	null
-Arceus	120	Normal	null
-Victini	100	Psychic	Fire
-Snivy	45	Grass	null
-Servine	60	Grass	null
-Serperior	75	Grass	null
-Tepig	65	Fire	null
-Pignite	90	Fire	Fighting
-Emboar	110	Fire	Fighting
-Oshawott	55	Water	null
-Dewott	75	Water	null
-Samurott	95	Water	null
-Patrat	45	Normal	null
-Watchog	60	Normal	null
-Lillipup	45	Normal	null
-Herdier	65	Normal	null
-Stoutland	85	Normal	null
-Purrloin	41	Dark	null
-Liepard	64	Dark	null
-Pansage	50	Grass	null
-Simisage	75	Grass	null
-Pansear	50	Fire	null
-Simisear	75	Fire	null
-Panpour	50	Water	null
-Simipour	75	Water	null
-Munna	76	Psychic	null
-Musharna	116	Psychic	null
-Pidove	50	Normal	Flying
-Tranquill	62	Normal	Flying
-Unfezant	80	Normal	Flying
-Blitzle	45	Electric	null
-Zebstrika	75	Electric	null
-Roggenrola	55	Rock	null
-Boldore	70	Rock	null
-Gigalith	85	Rock	null
-Woobat	65	Psychic	Flying
-Swoobat	67	Psychic	Flying
-Drilbur	60	Ground	null
-Excadrill	110	Ground	Steel
+Gallade	68	Siniestro	Lucha
+Gallade (Mega)	68	Siniestro	Lucha
+Probopass	60	Planta	Acero
+Dusknoir	45	Planta	null
+Froslass	70	Fuego Fuego	Fantasma
+Rotom	50	Aguas	Fantasma
+Rotom (Heat)	50	Aguas	Fuego
+Rotom (Wash)	50	Psiquico	Aguas
+Rotom (Frost)	50	Psiquico	Hielo
+Rotom (Fan)	50	Normal	Volador
+Rotom (Mow)	50	Normal	Planta
+Uxie	75	Normal	null
+Mesprit	80	Electrico	null
+Azelf	75	Electrico	null
+Dialga (Altered)	100	Piedra	Dragon
+Dialga (Origin)	100	Piedra	Dragon
+Palkia (Altered)	90	Piedra	Dragon
+Palkia (Origin)	90	Psiquico	Dragon
+Heatran	91	Psiquico	Acero
+Regigigas	110	Tierra	null
+Giratina (Altered)	150	Tierra	Dragon
+Giratina (Origin)	150	Normal	Dragon
+Cresselia	120	Normal	null
+Phione	80	Lucha	null
+Manaphy	100	Lucha	null
+Darkrai	70	Lucha	null
+Shaymin (Land)	100	Aguas	null
+Shaymin (Sky)	100	Aguas	Volador
+Arceus	120	Aguas	null
+Victini	100	Lucha	Fuego
+Snivy	45	Lucha	null
+Servine	60	Bicho Bicho	null
+Serperior	75	Bicho Bicho	null
+Tepig	65	Bicho Bicho	null
+Pignite	90	Planta	Lucha
+Emboar	110	Planta	Lucha
+Oshawott	55	Planta	null
+Dewott	75	Planta	null
+Samurott	95	Planta	null
+Samurott (Hisuian)	90	Aguas	Siniestro
+Patrat	45	Aguas	null
+Watchog	60	Aguas	null
+Lillipup	45	Tierra	null
+Herdier	65	Tierra	null
+Stoutland	85	Tierra	null
+Purrloin	41	Fuego Hielo	null
+Liepard	64	Fuego Fuego	null
+Pansage	50	Hielo Hielo	null
+Simisage	75	Planta	null
+Pansear	50	Bicho Bicho	null
+Simisear	75	Siniestro	null
+Panpour	50	Siniestro	null
+Simipour	75	Psiquico	null
+Munna	76	Fantasma	null
+Musharna	116	Tierra	null
+Pidove	50	Fantasma	Volador
+Tranquill	62	Aguas	Volador
+Unfezant	80	Aguas	Volador
+Blitzle	45	Piedra	null
+Zebstrika	75	Piedra	null
+Roggenrola	55	Veneno	null
+Boldore	70	Veneno	null
+Gigalith	85	Siniestro	null
+Woobat	65	Normal	Volador
+Swoobat	67	Siniestro	Volador
+Drilbur	60	Normal	null
+Excadrill	110	Normal	Acero
 Audino	103	Normal	null
-Timburr	75	Fighting	null
-Gurdurr	85	Fighting	null
-Conkeldurr	105	Fighting	null
-Tympole	50	Water	null
-Palpitoad	75	Water	Ground
-Seismitoad	105	Water	Ground
-Throh	120	Fighting	null
-Sawk	75	Fighting	null
-Sewaddle	45	Bug	Grass
-Swadloon	55	Bug	Grass
-Leavanny	75	Bug	Grass
-Venipede	30	Bug	Poison
-Whirlipede	40	Bug	Poison
-Scolipede	60	Bug	Poison
-Cottonee	40	Grass	Fairy
-Whimsicott	60	Grass	Fairy
-Petilil	45	Grass	null
-Lilligant	70	Grass	null
-Sandile	50	Ground	Dark
-Krokorok	60	Ground	Dark
-Krookodile	95	Ground	Dark
-Darumaka	70	Fire	null
-Darmanitan	105	Fire	null
-Maractus	75	Grass	null
-Dwebble	50	Bug	Rock
-Crustle	70	Bug	Rock
-Scraggy	50	Dark	Fighting
-Scrafty	65	Dark	Fighting
-Sigilyph	72	Psychic	Flying
-Yamask	38	Ghost	null
-Cofagrigus	58	Ghost	null
-Tirtouga	54	Water	Rock
-Carracosta	74	Water	Rock
-Archen	55	Rock	Flying
-Archeops	75	Rock	Flying
-Trubbish	50	Poison	null
-Garbodor	80	Poison	null
-Zorua	40	Dark	null
-Zoroark	60	Dark	null
+Audino (Mega)	103	Psiquico	Hadas
+Timburr	75	Psiquico	null
+Gurdurr	85	Psiquico	null
+Conkeldurr	105	Psiquico	null
+Tympole	50	Psiquico	null
+Palpitoad	75	Psiquico	Tierra
+Seismitoad	105	Aguas	Tierra
+Throh	120	Aguas	null
+Sawk	75	Hielo Hielo	null
+Sewaddle	45	Hielo	Planta
+Swadloon	55	Normal	Planta
+Leavanny	75	Normal	Planta
+Venipede	30	Normal	Veneno
+Whirlipede	40	Normal	Veneno
+Scolipede	60	Normal	Veneno
+Cottonee	40	Electrico	Hadas
+Whimsicott	60	Bicho Bicho	Hadas
+Petilil	45	Planta	null
+Lilligant	70	Planta	null
+Lilligant (Hisuian)	70	Aguas	Lucha
+Basculin (Red-Striped)	70	Aguas	null
+Basculin (Blue-STriped)	70	Aguas	null
+Basculin (Hisuian)	70	Bicho Bicho	null
+Sandile	50	Planta	Siniestro
+Krokorok	60	Planta	Siniestro
+Krookodile	95	Acero	Siniestro
+Darumaka	70	Acero	null
+Darumaka (Galarian)	70	Acero	null
+Darmanitan	105	Electrico	null
+Darmanitan (Zen Mode)	105	Electrico	Psiquico
+Darmanitan (Galarian)	105	Electrico	null
+Darmanitan (Galarian, Zen Mode)	105	Psiquico	Fuego
+Maractus	75	Psiquico	null
+Dwebble	50	Fantasma	Piedra
+Crustle	70	Fantasma	Piedra
+Scraggy	50	Fantasma	Lucha
+Scrafty	65	Dragon	Lucha
+Sigilyph	72	Dragon	Volador
+Yamask	38	Dragon	null
+Yamask (Galarian)	38	Hielo Hielo	Fantasma
+Cofagrigus	58	Hielo Bicho	null
+Tirtouga	54	Bicho	Piedra
+Carracosta	74	Tierra	Piedra
+Archen	55	Tierra	Volador
+Archeops	75	Lucha	Volador
+Trubbish	50	Lucha	null
+Garbodor	80	Dragon	null
+Zorua	40	Tierra	null
+Zorua (Hisuian)	35	Tierra	Fantasma
+Zoroark	60	Siniestro	null
+Zoroark (Hisuian)	55	Siniestro	Fantasma
 Minccino	55	Normal	null
 Cinccino	75	Normal	null
-Gothita	45	Psychic	null
-Gothorita	60	Psychic	null
-Gothitelle	70	Psychic	null
-Solosis	45	Psychic	null
-Duosion	65	Psychic	null
-Reuniclus	110	Psychic	null
-Ducklett	62	Water	Flying
-Swanna	75	Water	Flying
-Vanillite	36	Ice	null
-Vanillish	51	Ice	null
-Vanilluxe	71	Ice	null
-Sawsbuck	80	Normal	Grass
-Emolga	55	Electric	Flying
-Karrablast	50	Bug	null
-Escavalier	70	Bug	Steel
-Foongus	69	Grass	Poison
-Amoonguss	114	Grass	Poison
-Frillish	55	Water	Ghost
-Jellicent	100	Water	Ghost
-Alomomola	165	Water	null
-Joltik	50	Bug	Electric
-Galvantula	70	Bug	Electric
-Ferroseed	44	Grass	Steel
-Ferrothorn	74	Grass	Steel
-Klink	40	Steel	null
-Klang	60	Steel	null
-Klinklang	60	Steel	null
-Tynamo	35	Electric	null
-Eelektrik	65	Electric	null
-Eelektross	85	Electric	null
-Elgyem	55	Psychic	null
-Beheeyem	75	Psychic	null
-Litwick	50	Ghost	Fire
-Lampent	60	Ghost	Fire
-Chandelure	60	Ghost	Fire
-Axew	46	Dragon	null
-Fraxure	66	Dragon	null
-Haxorus	76	Dragon	null
-Cubchoo	55	Ice	null
-Beartic	95	Ice	null
-Cryogonal	80	Ice	null
-Shelmet	50	Bug	null
-Accelgor	80	Bug	null
-Stunfisk	109	Ground	Electric
-Mienfoo	45	Fighting	null
-Mienshao	65	Fighting	null
-Druddigon	77	Dragon	null
-Golett	59	Ground	Ghost
-Golurk	89	Ground	Ghost
-Pawniard	45	Dark	Steel
-Bisharp	65	Dark	Steel
-Bouffalant	95	Normal	null
-Rufflet	70	Normal	Flying
-Braviary	100	Normal	Flying
-Vullaby	70	Dark	Flying
-Mandibuzz	110	Dark	Flying
-Heatmor	85	Fire	null
-Durant	58	Bug	Steel
-Deino	52	Dark	Dragon
-Zweilous	72	Dark	Dragon
-Hydreigon	92	Dark	Dragon
-Larvesta	55	Bug	Fire
-Volcarona	85	Bug	Fire
-Cobalion	91	Steel	Fighting
-Terrakion	91	Rock	Fighting
-Virizion	91	Grass	Fighting
-Reshiram	100	Dragon	Fire
-Zekrom	100	Dragon	Electric
-Kyurem	125	Dragon	Ice
-Keldeo	91	Water	Fighting
-Genesect	71	Bug	Steel
-Chespin	56	Grass	null
-Quilladin	61	Grass	null
-Chesnaught	88	Grass	Fighting
-Fennekin	40	Fire	null
-Braixen	59	Fire	null
-Delphox	75	Fire	Psychic
-Froakie	41	Water	null
-Frogadier	54	Water	null
-Greninja	72	Water	Dark
-Ash-Greninja	72	Water	Dark
-Bunnelby	38	Normal	null
-Diggersby	85	Normal	Ground
-Fletchling	45	Normal	Flying
-Fletchinder	62	Fire	Flying
-Talonflame	78	Fire	Flying
-Scatterbug	38	Bug	null
-Spewpa	45	Bug	null
-Litleo	62	Fire	Normal
-Pyroar	86	Fire	Normal
-FlabŽbŽ	44	Fairy	null
-Floette	54	Fairy	null
-Florges	78	Fairy	null
-Skiddo	66	Grass	null
-Gogoat	123	Grass	null
-Pancham	67	Fighting	null
-Pangoro	95	Fighting	Dark
+Gothita	45	Normal	null
+Gothorita	60	Psiquico	null
+Gothitelle	70	Siniestro	null
+Solosis	45	Siniestro Fuego	null
+Duosion	65	Bicho	null
+Reuniclus	110	Siniestro	null
+Ducklett	62	Siniestro	Volador
+Swanna	75	Siniestro	Volador
+Vanillite	36	Bicho Bicho	null
+Vanillish	51	Acero	null
+Vanilluxe	71	Piedra	null
+Deerling (Spring)	60	Planta	Planta
+Deerling (Summer)	60	Volador	Planta
+Deerling (Autumn)	60	Volador	Planta
+Deerling (Winter)	60	Electrico	Planta
+Sawsbuck	80	Electrico	Planta
+Emolga	55	Dragon	Volador
+Karrablast	50	Dragon	null
+Escavalier	70	Tierra	Acero
+Foongus	69	Tierra	Veneno
+Amoonguss	114	Dragon	Veneno
+Frillish	55	Dragon	Fantasma
+Jellicent	100	Dragon	Fantasma
+Alomomola	165	Aguas	null
+Joltik	50	Normal	Electrico
+Galvantula	70	Normal	Electrico
+Ferroseed	44	Bicho	Acero
+Ferrothorn	74	Planta	Acero
+Klink	40	Planta	null
+Klang	60	Planta	null
+Klinklang	60	Fuego Fuego	null
+Tynamo	35	Fuego	null
+Eelektrik	65	Aguas	null
+Eelektross	85	Aguas	null
+Elgyem	55	Aguas	null
+Beheeyem	75	Aguas	null
+Litwick	50	Normal	Fuego
+Lampent	60	Normal	Fuego
+Chandelure	60	Normal	Fuego
+Axew	46	Fuego Fuego	null
+Fraxure	66	Bicho Bicho	null
+Haxorus	76	Bicho Bicho	null
+Cubchoo	55	Bicho Bicho	null
+Beartic	95	Bicho Bicho	null
+Cryogonal	80	Bicho Bicho	null
+Shelmet	50	Bicho Fuego	null
+Accelgor	80	Fuego Hadas	null
+Stunfisk	109	Hadas	Electrico
+Stunfisk (Galarian)	109	Hadas	Acero
+Mienfoo	45	Planta	null
+Mienshao	65	Planta	null
+Druddigon	77	Lucha	null
+Golett	59	Lucha	Fantasma
+Golurk	89	Normal	Fantasma
+Pawniard	45	Psiquico	Acero
+Bisharp	65	Psiquico	Acero
+Bouffalant	95	Psiquico	null
+Rufflet	70	Acero	Volador
+Braviary	100	Acero	Volador
+Braviary (Hisuian)	110	Acero	Volador
+Vullaby	70	Acero	Volador
+Mandibuzz	110	Hadas	Volador
+Heatmor	85	Hadas	null
+Durant	58	Hadas	Acero
+Deino	52	Hadas	Dragon
+Zweilous	72	Siniestro	Dragon
+Hydreigon	92	Siniestro	Dragon
+Larvesta	55	Piedra	Fuego
+Volcarona	85	Piedra	Fuego
+Cobalion	91	Veneno	Lucha
+Terrakion	91	Veneno	Lucha
+Virizion	91	Aguas	Lucha
+Tornadus (Incarnate)	79	Aguas	null
+Tornadus (Therian)	79	Electrico	null
+Thundurus (Incarnate)	79	Electrico	Volador
+Thundurus (Therian)	79	Piedra	Volador
+Reshiram	100	Piedra	Fuego
+Zekrom	100	Piedra	Electrico
+Landorus (Incarnate)	89	Piedra	Volador
+Landorus (Therian)	89	Hadas	Volador
+Kyurem	125	Lucha	Hielo
+Kyurem (Black)	125	Electrico	Hielo
+Kyurem (White)	125	Piedra	Hielo
+Keldeo	91	Dragon	Lucha
+Meloetta (Aria)	100	Dragon	Psiquico
+Meloetta (Pirouette)	100	Acero	Lucha
+Genesect	71	Dragon	Acero
+Chespin	56	Acero	null
+Quilladin	61	Acero	null
+Chesnaught	88	Fantasma	Lucha
+Fennekin	40	Fantasma	null
+Braixen	59	Fantasma	null
+Delphox	75	Fantasma	Psiquico
+Froakie	41	Fantasma	null
+Frogadier	54	Fantasma	null
+Greninja	72	Fantasma	Siniestro
+Ash-Greninja	72	Fantasma	Siniestro
+Bunnelby	38	Fantasma	null
+Diggersby	85	Fantasma	Tierra
+Fletchling	45	Hielo Hielo	Volador
+Fletchinder	62	Hielo	Volador
+Talonflame	78	Volador	Volador
+Scatterbug	38	Volador	null
+Spewpa	45	Hadas	null
+Vivillon (Meadow/Fancy)	80	Siniestro	Volador
+Vivillon (Polar/Tundra/Marine)	80	Dragon	Volador
+Vivillon (Continental)	80	Dragon	Volador
+Vivillon (Garden/Savanna/Jungle)	80	Dragon	Volador
+Vivillon (Elegant)	80	Piedra	Volador
+Vivillon (Icy Snow)	80	Piedra	Volador
+Vivillon (Mod/Sun/Ocean/Poke Ball)	80	Psiquico	Volador
+Vivillon (HiPl/SS/Arch/Riv)	80	Psiquico	Volador
+Vivillon (Monsoon)	80	Fuego	Volador
+Litleo	62	Planta	Normal
+Pyroar	86	Planta	Normal
+Flab‚b‚	44	Planta	null
+Floette	54	Planta	null
+Florges	78	Fuego Fuego	null
+Skiddo	66	Fuego	null
+Gogoat	123	Aguas	null
+Pancham	67	Aguas	null
+Pangoro	95	Aguas	Siniestro
 Furfrou	75	Normal	null
-Espurr	62	Psychic	null
-Honedge	45	Steel	Ghost
-Doublade	59	Steel	Ghost
-Spritzee	78	Fairy	null
-Aromatisse	101	Fairy	null
-Swirlix	62	Fairy	null
-Slurpuff	82	Fairy	null
-Inkay	53	Dark	Psychic
-Malamar	86	Dark	Psychic
-Binacle	42	Rock	Water
-Barbaracle	72	Rock	Water
-Skrelp	50	Poison	Water
-Dragalge	65	Poison	Dragon
-Clauncher	50	Water	null
-Clawitzer	71	Water	null
-Helioptile	44	Electric	Normal
-Heliolisk	62	Electric	Normal
-Tyrunt	58	Rock	Dragon
-Tyrantrum	82	Rock	Dragon
-Amaura	77	Rock	Ice
-Aurorus	123	Rock	Ice
-Sylveon	95	Fairy	null
-Hawlucha	78	Fighting	Flying
-Dedenne	67	Electric	Fairy
-Carbink	50	Rock	Fairy
-Goomy	45	Dragon	null
-Sliggoo	68	Dragon	null
-Goodra	90	Dragon	null
-Klefki	57	Steel	Fairy
-Phantump	43	Ghost	Grass
-Trevenant	85	Ghost	Grass
-Bergmite	55	Ice	null
-Avalugg	95	Ice	null
-Noibat	40	Flying	Dragon
-Noivern	85	Flying	Dragon
-Xerneas	126	Fairy	null
-Yveltal	126	Dark	Flying
-Diancie	50	Rock	Fairy
-Volcanion	80	Fire	Water
-Rowlet	68	Grass	Flying
-Dartrix	78	Grass	Flying
-Decidueye	78	Grass	Ghost
-Litten	45	Fire	null
-Torracat	65	Fire	null
-Incineroar	95	Fire	Dark
-Popplio	50	Water	null
-Brionne	60	Water	null
-Primarina	80	Water	Fairy
-Pikipek	35	Normal	Flying
-Trumbeak	55	Normal	Flying
-Toucannon	80	Normal	Flying
-Yungoos	48	Normal	null
-Gumshoos	88	Normal	null
-Grubbin	47	Bug	null
-Charjabug	57	Bug	Electric
-Vikavolt	77	Bug	Electric
-Crabrawler	47	Fighting	null
-Crabominable	97	Fighting	Ice
-Cutiefly	40	Bug	Fairy
-Ribombee	60	Bug	Fairy
-Rockruff	45	Rock	null
-Mareanie	50	Poison	Water
-Toxapex	50	Poison	Water
-Mudbray	70	Ground	null
-Mudsdale	100	Ground	null
-Dewpider	38	Water	Bug
-Araquanid	68	Water	Bug
-Fomantis	40	Grass	null
-Lurantis	70	Grass	null
-Morelull	40	Grass	Fairy
-Shiinotic	60	Grass	Fairy
-Salandit	48	Poison	Fire
-Salazzle	68	Poison	Fire
-Stufful	70	Normal	Fighting
-Bewear	120	Normal	Fighting
-Bounsweet	42	Grass	null
-Steenee	52	Grass	null
-Tsareena	72	Grass	null
-Comfey	51	Fairy	null
-Oranguru	90	Normal	Psychic
-Passimian	100	Fighting	null
-Wimpod	25	Bug	Water
-Golisopod	75	Bug	Water
-Sandygast	55	Ghost	Ground
-Palossand	85	Ghost	Ground
-Pyukumuku	55	Water	null
-Type: Null	95	Normal	null
-Silvally	95	Normal	null
-Komala	65	Normal	null
-Turtonator	60	Fire	Dragon
-Togedemaru	65	Electric	Steel
-Mimikyu	55	Ghost	Fairy
-Bruxish	68	Water	Psychic
-Drampa	78	Normal	Dragon
-Dhelmise	70	Ghost	Grass
-Jangmo-o	45	Dragon	null
-Hakamo-o	55	Dragon	Fighting
-Kommo-o	75	Dragon	Fighting
-Tapu Koko	70	Electric	Fairy
-Tapu Lele	70	Psychic	Fairy
-Tapu Bulu	70	Grass	Fairy
-Tapu Fini	70	Water	Fairy
-Cosmog	43	Psychic	null
-Cosmoem	43	Psychic	null
-Solgaleo	137	Psychic	Steel
-Lunala	137	Psychic	Ghost
-Nihilego	109	Rock	Poison
-Buzzwole	107	Bug	Fighting
-Pheromosa	71	Bug	Fighting
-Xurkitree	83	Electric	null
-Celesteela	97	Steel	Flying
-Kartana	59	Grass	Steel
-Guzzlord	223	Dark	Dragon
-Necrozma	97	Psychic	null
-Magearna	80	Steel	Fairy
-Marshadow	90	Fighting	Ghost
-Poipole	67	Poison	null
-Naganadel	73	Poison	Dragon
-Stakataka	61	Rock	Steel
-Blacephalon	53	Fire	Ghost
-Zeraora	88	Electric	null
-Meltan	46	Steel	null
-Melmetal	135	Steel	null
-Grookey	50	Grass	null
-Thwackey	70	Grass	null
-Rillaboom	100	Grass	null
-Scorbunny	50	Fire	null
-Raboot	65	Fire	null
-Cinderace	80	Fire	null
-Sobble	50	Water	null
-Drizzile	65	Water	null
-Inteleon	70	Water	null
-Skwovet	70	Normal	null
-Greedent	120	Normal	null
-Rookidee	38	Flying	null
-Corvisquire	68	Flying	null
-Corviknight	98	Flying	Steel
-Blipbug	25	Bug	null
-Dottler	50	Bug	Psychic
-Orbeetle	60	Bug	Psychic
-Nickit	40	Dark	null
-Thievul	70	Dark	null
-Gossifleur	40	Grass	null
-Eldegoss	60	Grass	null
-Wooloo	42	Normal	null
-Dubwool	72	Normal	null
-Chewtle	50	Water	null
-Drednaw	90	Water	Rock
-Yamper	59	Electric	null
-Boltund	69	Electric	null
-Rolycoly	30	Rock	null
-Carkol	80	Rock	Fire
-Coalossal	110	Rock	Fire
-Applin	40	Grass	Dragon
-Flapple	70	Grass	Dragon
-Appletun	110	Grass	Dragon
-Silicobra	52	Ground	null
-Sandaconda	72	Ground	null
-Cramorant	70	Flying	Water
-Arrokuda	41	Water	null
-Barraskewda	61	Water	null
-Toxel	40	Electric	Poison
-Sizzlipede	50	Fire	Bug
-Centiskorch	100	Fire	Bug
-Clobbopus	50	Fighting	null
-Grapploct	80	Fighting	null
-Sinistea	40	Ghost	null
-Polteageist	60	Ghost	null
-Hatenna	42	Psychic	null
-Hattrem	57	Psychic	null
-Hatterene	57	Psychic	Fairy
-Impidimp	45	Dark	Fairy
-Morgrem	65	Dark	Fairy
-Grimmsnarl	95	Dark	Fairy
-Obstagoon	93	Dark	Normal
-Perrserker	70	Steel	null
-Cursola	60	Ghost	null
-Sirfetch'd	62	Fighting	null
-Mr. Rime	80	Ice	Psychic
-Runerigus	58	Ground	Ghost
-Milcery	45	Fairy	null
-Falinks	65	Fighting	null
-Pincurchin	48	Electric	null
-Snom	30	Ice	Bug
-Frosmoth	70	Ice	Bug
-Stonjourner	100	Rock	null
-Cufant	72	Steel	null
-Copperajah	122	Steel	null
-Dracozolt	90	Electric	Dragon
-Arctozolt	90	Electric	Ice
-Dracovish	90	Water	Dragon
-Arctovish	90	Water	Ice
-Duraludon	70	Steel	Dragon
-Dreepy	28	Dragon	Ghost
-Drakloak	68	Dragon	Ghost
-Dragapult	88	Dragon	Ghost
-Eternatus	140	Poison	Dragon
-Kubfu	60	Fighting	null
-Zarude	105	Dark	Grass
-Regieleki	80	Electric	null
-Regidrago	200	Dragon	null
-Glastrier	100	Ice	null
-Spectrier	100	Ghost	null
-Calyrex	100	Psychic	Grass
-Wyrdeer	103	Normal	Psychic
-Kleavor	70	Bug	Rock
-Ursaluna	130	Ground	Normal
-Sneasler	80	Fighting	Poison
-Overqwil	85	Dark	Poison
-Sprigatito	40	Grass	null
-Floragato	61	Grass	null
-Meowscarada	76	Grass	Dark
-Fuecoco	67	Fire	null
-Crocalor	81	Fire	null
-Skeledirge	104	Fire	Ghost
-Quaxly	55	Water	null
-Quaxwell	70	Water	null
-Quaquaval	85	Water	Fighting
-Lechonk	54	Normal	null
-Tarountula	35	Bug	null
-Spidops	60	Bug	null
-Nymble	33	Bug	null
-Lokix	71	Bug	Dark
-Pawmi	45	Electric	null
-Pawmo	60	Electric	Fighting
-Pawmot	70	Electric	Fighting
-Tandemaus	50	Normal	null
-Fidough	37	Fairy	null
-Dachsbun	57	Fairy	null
-Smoliv	41	Grass	Normal
-Dolliv	52	Grass	Normal
-Arboliva	78	Grass	Normal
-Nacli	55	Rock	null
-Naclstack	60	Rock	null
-Garganacl	100	Rock	null
-Charcadet	40	Fire	null
-Armarouge	85	Fire	Psychic
-Ceruledge	75	Fire	Ghost
-Tadbulb	61	Electric	null
-Bellibolt	109	Electric	null
-Wattrel	40	Electric	Flying
-Kilowattrel	70	Electric	Flying
-Maschiff	60	Dark	null
-Mabosstiff	80	Dark	null
-Shroodle	40	Poison	Normal
-Grafaiai	63	Poison	Normal
-Bramblin	40	Grass	Ghost
-Brambleghast	55	Grass	Ghost
-Toedscool	40	Ground	Grass
-Toedscruel	80	Ground	Grass
-Klawf	70	Rock	null
-Capsakid	50	Grass	null
-Scovillain	65	Grass	Fire
-Rellor	41	Bug	null
-Rabsca	75	Bug	Psychic
-Flittle	30	Psychic	null
-Espathra	95	Psychic	null
-Tinkatink	50	Fairy	Steel
-Tinkatuff	65	Fairy	Steel
-Tinkaton	85	Fairy	Steel
-Wiglett	10	Water	null
-Wugtrio	35	Water	null
-Bombirdier	70	Flying	Dark
-Finizen	70	Water	null
-Varoom	45	Steel	Poison
-Revavroom	80	Steel	Poison
-Cyclizar	70	Dragon	Normal
-Orthworm	70	Steel	null
-Glimmet	48	Rock	Poison
-Glimmora	83	Rock	Poison
-Greavard	50	Ghost	null
-Houndstone	72	Ghost	null
-Flamigo	82	Flying	Fighting
-Cetoddle	108	Ice	null
-Cetitan	170	Ice	null
-Veluza	90	Water	Psychic
-Dondozo	150	Water	null
-Annihilape	110	Fighting	Ghost
-Clodsire	130	Poison	Ground
-Farigiraf	120	Normal	Psychic
-Kingambit	100	Dark	Steel
-Great Tusk	115	Ground	Fighting
-Scream Tail	115	Fairy	Psychic
-Brute Bonnet	111	Grass	Dark
-Flutter Mane	55	Ghost	Fairy
-Slither Wing	85	Bug	Fighting
-Sandy Shocks	85	Electric	Ground
-Iron Treads	90	Ground	Steel
-Iron Bundle	56	Ice	Water
-Iron Hands	154	Fighting	Electric
-Iron Jugulis	94	Dark	Flying
-Iron Moth	80	Fire	Poison
-Iron Thorns	100	Rock	Electric
-Frigibax	65	Dragon	Ice
-Arctibax	90	Dragon	Ice
-Baxcalibur	115	Dragon	Ice
-Gholdengo	87	Steel	Ghost
-Wo-Chien	85	Dark	Grass
-Chien-Pao	80	Dark	Ice
-Ting-Lu	155	Dark	Ground
-Chi-Yu	55	Dark	Fire
-Roaring Moon	105	Dragon	Dark
-Iron Valiant	74	Fairy	Fighting
-Koraidon	100	Fighting	Dragon
-Miraidon	100	Electric	Dragon
+Espurr	62	Normal	null
+Meowstic (Female)	74	Normal	null
+Meowstic (Male)	74	Normal	null
+Honedge	45	Normal	Fantasma
+Doublade	59	Bicho Bicho	Fantasma
+Aegislash (Shield)	60	Bicho	Fantasma
+Aegislash (Blade)	60	Lucha	Fantasma
+Spritzee	78	Lucha	null
+Aromatisse	101	Fuego	null
+Swirlix	62	Psiquico	null
+Slurpuff	82	Electrico	null
+Inkay	53	Fantasma	Psiquico
+Malamar	86	Bicho Bicho	Psiquico
+Binacle	42	Piedra	Aguas
+Barbaracle	72	Piedra	Aguas
+Skrelp	50	Piedra	Aguas
+Dragalge	65	Piedra	Dragon
+Clauncher	50	Piedra	null
+Clawitzer	71	Aguas	null
+Helioptile	44	Aguas	Normal
+Heliolisk	62	Veneno	Normal
+Tyrunt	58	Veneno	Dragon
+Tyrantrum	82	Tierra	Dragon
+Amaura	77	Tierra	Hielo
+Aurorus	123	Aguas	Hielo
+Sylveon	95	Aguas	null
+Hawlucha	78	Planta	Volador
+Dedenne	67	Planta	Hadas
+Carbink	50	Planta	Hadas
+Goomy	45	Planta	null
+Sliggoo	68	Veneno	null
+Sliggoo (Hisuian)	58	Veneno	Dragon
+Goodra	90	Normal	null
+Goodra (Hisuian)	80	Normal	Dragon
+Klefki	57	Planta	Hadas
+Phantump	43	Planta	Planta
+Trevenant	85	Planta	Planta
+Pumpkaboo (Small)	44	Hadas	Planta
+Pumpkaboo (Average)	49	Normal	Planta
+Pumpkaboo (Large)	54	Lucha	Planta
+Pumpkaboo (Super Size)	59	Bicho Bicho	Planta
+Gourgeist (Small)	55	Fantasma	Planta
+Gourgeist (Average)	65	Fantasma	Planta
+Gourgeist (Large)	75	Aguas	Planta
+Gourgeist (Super Size)	85	Normal	Planta
+Bergmite	55	Normal	null
+Avalugg	95	Piedra	null
+Avalugg (Hisuian)	95	Piedra	Piedra
+Noibat	40	Piedra	Dragon
+Noivern	85	Piedra	Dragon
+Xerneas	126	Piedra	null
+Yveltal	126	Piedra	Volador
+Zygarde (10%)	54	Piedra	Tierra
+Zygarde (50%)	108	Piedra	Tierra
+Zygarde (Complete)	216	Normal	Tierra
+Diancie	50	Fuego	Hadas
+Diancie (Mega)	50	Electrico	Hadas
+Hoopa (Confined)	80	Fantasma	Fantasma
+Hoopa (Unbound)	80	Aguas	Siniestro
+Volcanion	80	Normal	Aguas
+Rowlet	68	Fantasma	Volador
+Dartrix	78	Dragon	Volador
+Decidueye	78	Dragon	Fantasma
+Decidueye (Hisuian)	88	Dragon	Lucha
+Litten	45	Electrico	null
+Torracat	65	Psiquico	null
+Incineroar	95	Planta	Siniestro
+Popplio	50	Aguas	null
+Brionne	60	Psiquico	null
+Primarina	80	Psiquico	Hadas
+Pikipek	35	Psiquico	Volador
+Trumbeak	55	Psiquico	Volador
+Toucannon	80	Piedra	Volador
+Yungoos	48	Bicho Bicho	null
+Gumshoos	88	Electrico	null
+Grubbin	47	Acero	null
+Charjabug	57	Planta	Electrico
+Vikavolt	77	Siniestro	Electrico
+Crabrawler	47	Psiquico	null
+Crabominable	97	Psiquico	Hielo
+Oricorio (Baile)	75	Psiquico	Volador
+Oricorio (Pa'u)	75	Psiquico	Volador
+Oricorio (Pom-Pom)	75	Acero	Volador
+Oricorio (Sensu)	75	Acero	Volador
+Cutiefly	40	Lucha	Hadas
+Ribombee	60	Veneno	Hadas
+Rockruff	45	Veneno	null
+Rockruff (Own Tempo)	45	Piedra	null
+Lycanroc (Midday)	75	Fuego	null
+Lycanroc (Midnight)	85	Electrico	null
+Lycanroc (Dusk)	75	Acero	null
+Wishiwashi (Solo)	45	Acero	null
+Wishiwashi (School)	45	Planta	null
+Mareanie	50	Planta	Aguas
+Toxapex	50	Planta	Aguas
+Mudbray	70	Fuego Fuego	null
+Mudsdale	100	Fuego	null
+Dewpider	38	Aguas	Bicho
+Araquanid	68	Aguas	Bicho
+Fomantis	40	Aguas	null
+Lurantis	70	Normal	null
+Morelull	40	Normal	Hadas
+Shiinotic	60	Volador	Hadas
+Salandit	48	Volador	Fuego
+Salazzle	68	Volador	Fuego
+Stufful	70	Bicho Bicho	Lucha
+Bewear	120	Bicho	Lucha
+Bounsweet	42	Siniestro	null
+Steenee	52	Siniestro	null
+Tsareena	72	Planta	null
+Comfey	51	Planta	null
+Oranguru	90	Normal	Psiquico
+Passimian	100	Normal	null
+Wimpod	25	Aguas	Aguas
+Golisopod	75	Aguas	Aguas
+Sandygast	55	Electrico	Tierra
+Palossand	85	Electrico	Tierra
+Pyukumuku	55	Piedra	null
+Type: Null	95	Piedra	null
+Silvally	95	Piedra	null
+Minior (Meteor)	60	Planta	Volador
+Minior (Red Core)	60	Planta	Volador
+Minior (Orange Core)	60	Planta	Volador
+Minior (Yellow Core)	60	Tierra	Volador
+Minior (Green Core)	60	Tierra	Volador
+Minior (Blue Core)	60	Volador	Volador
+Minior (Indigo Core)	60	Aguas	Volador
+Minior (Violet Core)	60	Aguas	Volador
+Komala	65	Electrico	null
+Turtonator	60	Electrico	Dragon
+Togedemaru	65	Electrico	Acero
+Mimikyu	55	Fuego Fuego	Hadas
+Bruxish	68	Lucha	Psiquico
+Drampa	78	Lucha	Dragon
+Dhelmise	70	Fantasma	Planta
+Jangmo-o	45	Fantasma	null
+Hakamo-o	55	Psiquico	Lucha
+Kommo-o	75	Psiquico	Lucha
+Tapu Koko	70	Psiquico	Hadas
+Tapu Lele	70	Siniestro	Hadas
+Tapu Bulu	70	Siniestro	Hadas
+Tapu Fini	70	Siniestro	Hadas
+Cosmog	43	Siniestro	null
+Cosmoem	43	Acero	null
+Solgaleo	137	Fantasma	Acero
+Lunala	137	Lucha	Fantasma
+Nihilego	109	Hielo	Veneno
+Buzzwole	107	Tierra	Lucha
+Pheromosa	71	Hadas	Lucha
+Xurkitree	83	Hadas	null
+Celesteela	97	Hadas	Volador
+Kartana	59	Hadas	Acero
+Guzzlord	223	Hadas	Dragon
+Necrozma	97	Hadas	null
+Necrozma (Dusk Mane)	97	Hadas	Acero
+Necrozma (Dawn Wings)	97	Lucha	Fantasma
+Necrozma (Ultra)	97	Electrico	Dragon
+Magearna	80	Hielo Hielo	Hadas
+Magearna (Original Color)	80	Piedra Hielo	Hadas
+Marshadow	90	Hielo	Fantasma
+Poipole	67	Psiquico	null
+Naganadel	73	Psiquico	Dragon
+Stakataka	61	Electrico	Acero
+Blacephalon	53	Electrico	Fantasma
+Zeraora	88	Acero	null
+Meltan	46	Acero	null
+Melmetal	135	Electrico	null
+Grookey	50	Electrico	null
+Thwackey	70	Aguas	null
+Rillaboom	100	Aguas	null
+Scorbunny	50	Acero	null
+Raboot	65	Dragon	null
+Cinderace	80	Dragon	null
+Sobble	50	Dragon	null
+Drizzile	65	Hadas	null
+Inteleon	70	Hadas	null
+Skwovet	70	Lucha	null
+Greedent	120	Lucha	null
+Rookidee	38	Veneno	null
+Corvisquire	68	Lucha	null
+Corviknight	98	Lucha	Acero
+Blipbug	25	Lucha	null
+Dottler	50	Siniestro	Psiquico
+Orbeetle	60	Electrico	Psiquico
+Nickit	40	Dragon	null
+Thievul	70	Hielo	null
+Gossifleur	40	Fantasma	null
+Eldegoss	60	Psiquico	null
+Wooloo	42	Psiquico	null
+Dubwool	72	Psiquico	null
+Chewtle	50	Normal	null
+Drednaw	90	Bicho	Piedra
+Yamper	59	Tierra	null
+Boltund	69	Aguas	null
+Rolycoly	30	Aguas	null
+Carkol	80	Lucha	Fuego
+Coalossal	110	Siniestro	Fuego
+Applin	40	Hadas	Dragon
+Flapple	70	Hadas	Dragon
+Appletun	110	Planta	Dragon
+Silicobra	52	Planta	null
+Sandaconda	72	Planta	null
+Cramorant	70	Fuego Fuego	Aguas
+Arrokuda	41	Fuego	null
+Barraskewda	61	Aguas	null
+Toxel	40	Aguas	Veneno
+Toxtricity (Amped)	75	Aguas	Veneno
+Toxtricity (Low Key)	75	Normal	Veneno
+Sizzlipede	50	Normal	Bicho
+Centiskorch	100	Normal	Bicho
+Clobbopus	50	Bicho Bicho	null
+Grapploct	80	Bicho Bicho	null
+Sinistea	40	Electrico	null
+Polteageist	60	Electrico	null
+Hatenna	42	Electrico	null
+Hattrem	57	Normal	null
+Hatterene	57	Normal	Hadas
+Impidimp	45	Normal	Hadas
+Morgrem	65	Hadas	Hadas
+Grimmsnarl	95	Hadas	Hadas
+Obstagoon	93	Planta	Normal
+Perrserker	70	Planta	null
+Cursola	60	Planta	null
+Sirfetch'd	62	Normal	null
+Mr. Rime	80	Normal	Psiquico
+Runerigus	58	Normal	Fantasma
+Milcery	45	Normal	null
+Alcremie (VaCr/SaCr)	65	Piedra	null
+Alcremie (RuCr)	65	Piedra	null
+Alcremie (MaCr)	65	Piedra	null
+Alcremie (MiCr)	65	Fuego Fuego	null
+Alcremie (LeCr/RuSw/RaSw)	65	Fuego	null
+Alcremie (CaSw)	65	Electrico	null
+Falinks	65	Electrico	null
+Pincurchin	48	Electrico	null
+Snom	30	Electrico	Bicho
+Frosmoth	70	Siniestro	Bicho
+Stonjourner	100	Siniestro	null
+Eiscue (Ice Face)	75	Veneno	null
+Eiscue (No Ice Face)	75	Veneno	null
+Indeedee (Male)	60	Planta	Normal
+Indeedee (Female)	70	Planta	Normal
+Morpeko (Full Belly)	58	Tierra	Siniestro
+Morpeko (Hangry)	58	Tierra	Siniestro
+Cufant	72	Piedra	null
+Copperajah	122	Planta	null
+Dracozolt	90	Planta	Dragon
+Arctozolt	90	Bicho Bicho	Hielo
+Dracovish	90	Psiquico	Dragon
+Arctovish	90	Psiquico	Hielo
+Duraludon	70	Hadas	Dragon
+Dreepy	28	Hadas	Fantasma
+Drakloak	68	Hadas	Fantasma
+Dragapult	88	Aguas	Fantasma
+Zacian (Hero)	92	Aguas	null
+Zacian (Crowned)	92	Volador	Acero
+Zamazenta (Hero)	92	Aguas	null
+Zamazenta (Crowned)	92	Aguas	Acero
+Eternatus	140	Aguas	Dragon
+Kubfu	60	Acero	null
+Urshifu (Single Strike)	100	Acero	Siniestro
+Urshifu (Rapid Strike)	100	Dragon	Aguas
+Zarude	105	Acero	Planta
+Regieleki	80	Piedra	null
+Regidrago	200	Piedra	null
+Glastrier	100	Fantasma	null
+Spectrier	100	Fantasma	null
+Calyrex	100	Volador	Planta
+Calyrex (Ice Rider)	100	Hielo Hielo	Hielo
+Calyrex (Shadow Rider)	100	Aguas	Fantasma
+Wyrdeer	103	Aguas	Psiquico
+Kleavor	70	Dragon	Piedra
+Ursaluna	130	Dragon	Normal
+Basculegion (Male)	120	Dragon	Fantasma
+Basculegion (Female)	120	Lucha	Fantasma
+Sneasler	80	Veneno	Veneno
+Overqwil	85	Normal	Veneno
+Enamorus (Incarnate)	74	Normal	Volador
+Enamorus (Therian)	74	Normal	Volador
+Sprigatito	40	Siniestro	null
+Floragato	61	Tierra	null
+Meowscarada	76	Hadas	Siniestro
+Fuecoco	67	Planta	null
+Crocalor	81	Fantasma	null
+Skeledirge	104	Bicho	Fantasma
+Quaxly	55	Electrico	null
+Quaxwell	70	Tierra	null
+Quaquaval	85	Hielo	Lucha
+Lechonk	54	Lucha	null
+Oinkologne (Male)	110	Siniestro Fuego	null
+Oinkologne (Female)	115	Piedra	null
+Tarountula	35	Dragon	null
+Spidops	60	Dragon	null
+Nymble	33	Dragon	null
+Lokix	71	Fantasma	Siniestro
+Pawmi	45	Fantasma	null
+Pawmo	60	Acero	Lucha
+Pawmot	70	Siniestro	Lucha
+Tandemaus	50	Siniestro	null
+Maushold (Family of 4)	74	Siniestro	null
+Maushold (Family of 3)	74	Siniestro	null
+Fidough	37	Dragon	null
+Dachsbun	57	Hadas	null
+Smoliv	41	Lucha	Normal
+Dolliv	52	Electrico	Normal

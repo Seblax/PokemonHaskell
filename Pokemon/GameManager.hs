@@ -17,18 +17,18 @@ main = do
     menuScreen
     --Input del jugador
     n <- instruccionColor "Elige un botón del menú:" yellow
-    menuBehavior n habilidades
+    menuBehavior n habilidades tipos
 
 
-menuBehavior :: String -> [Habilidad] -> IO ()
-menuBehavior s h
-  | s == "Start" = do wantToContinue h
+menuBehavior :: String -> [Habilidad] -> [Tipo] -> IO ()
+menuBehavior s h t
+  | s == "Start" = do wantToContinue h t
   | s == "Load" = do putStr $ green ++ "Has seleccionado LOAD!" ++ none
   | s == "Exit" = do putStr $ red ++ "¡Hasta otra entrenador!" ++ none
   | otherwise = main
 
-wantToContinue :: [Habilidad] -> IO()
-wantToContinue h = do
+wantToContinue :: [Habilidad] -> [Tipo] -> IO()
+wantToContinue h t = do
     clearScreen
     putStrLn "##########################################################################"
     putStrLn $ "Se va a generar un equipo pokemon aleatoriamente, si deseas volver atrás \n simplemente escriba " ++ red ++  "'Atrás' "++ none  ++ ", si deseas continuar escriba" ++  green ++" 'Ok'" ++ none
@@ -38,16 +38,18 @@ wantToContinue h = do
     where
         respuestaSelecionada :: String -> IO()
         respuestaSelecionada r 
-            | r == "Ok" = batalla h
+            | r == "Ok" = batalla h t
             | r == "Atrás" = putStr "Has dicho Atrás"
-            | otherwise = wantToContinue h 
+            | otherwise = wantToContinue h t
     
 
 
-batalla :: [Habilidad] -> IO ()
-batalla h = do
+batalla :: [Habilidad] -> [Tipo] -> IO ()
+batalla h t = do
   clearScreen
-  pokemonBattleUI [squirtle, charizard]
+  pokemons <- loadPokemons t h
+  --Coger ahora 4 pokemons Randoms
+  pokemonBattleUI [head pokemons, last pokemons]
   putStrLn $ habilidadesUI h
 
 --Carga los tipos de los pokemons
@@ -67,5 +69,10 @@ loadHabilities =  do
     let res = parsearHabilidades lineas
     return res
 
-loadPokemons :: IO()
-loadPokemons = undefined
+loadPokemons :: [Tipo] -> [Habilidad] ->IO [Pokemon]
+loadPokemons tipos habilidades =  do 
+    fichero <- readFile "Data/Pokemons.txt"
+    let lineas = (lines fichero)
+    seed <- (instruccionColor "Añadir Seed de la partida (formato INT):" green)
+    let res = parsearPokemons lineas tipos habilidades (read seed)
+    return res

@@ -78,21 +78,6 @@ ataque18 = Habilidad 0 "Hada" 70 "Hada"
 
 --------------------------------------------------------
 
-squirtle :: Pokemon
-squirtle = Pokemon "Squirtle                   e" (tipo1, tipo2) 150 [0..12]
-    where 
-        tipo1 :: Tipo
-        tipo1 = agua
-        tipo2 :: Tipo
-        tipo2 = piedra
-
-charizard :: Pokemon
-charizard = Pokemon "Charizard                  e" (tipo1, tipo2) 750 [0..12]
-    where 
-        tipo1 :: Tipo
-        tipo1 = fuego
-        tipo2 :: Tipo
-        tipo2 = volador
 
 
 --------------------------------------------------------------
