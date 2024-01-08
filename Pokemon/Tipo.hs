@@ -3,12 +3,14 @@
 module Tipo where
 import PokemonData
 
+{-
 acero::Tipo
 acero = Nombre "Acero" (aceroAtaque,aceroDefensa)
 aceroAtaque :: Tipo
 aceroAtaque = Ataques [ Debil ["Acero","Fuego","Agua","Eléctrico"], Fuerte ["Roca","Hielo","Hada"]]
 aceroDefensa :: Tipo
 aceroDefensa = Defensas [Debil ["Lucha", "Fuego", "Tierra"], Fuerte ["Normal", "Volador", "Roca", "Bicho", "Acero", "Planta", "Psíquico", "Hielo", "Dragón", "Hada"], Inmune ["Veneno"]]
+-}
 
 {-
     Dado un Tipo, devuelvel el nombre del contructor: data Tipo = Principal Nombre [Tipo] | 
@@ -77,17 +79,19 @@ getEficaciaAtaques tipo1 tipo2
     | esInmune tipo1 tipo2 = 0.0
     | otherwise = 1.0
 
--- Funciones auxiliares para verificar la relación de ataque
+-- Aux para comprobar si es débil
 esDebil :: Tipo -> Tipo -> Bool
-esDebil (Nombre _ (_, Ataques [Debil debilidades])) (Nombre tipo2 _) = elem tipo2 debilidades
+esDebil (Nombre _ (_, Ataques [Debil debilidades,_,_])) (Nombre nom _) = elem nom debilidades
 esDebil _ _ = False
 
+-- Aux para comprobar si es fuerte
 esFuerte :: Tipo -> Tipo -> Bool
-esFuerte (Nombre _ (_, Ataques [Fuerte fortalezas])) (Nombre tipo2 _) = elem tipo2 fortalezas
+esFuerte (Nombre _ (_, Ataques [_,Fuerte fortalezas,_])) (Nombre nom _) = elem nom fortalezas
 esFuerte _ _ = False
 
+-- Aux para comprobar si es inmune
 esInmune :: Tipo -> Tipo -> Bool
-esInmune (Nombre _ (_, Ataques [Inmune inmunidades])) (Nombre tipo2 _) = elem tipo2 inmunidades
+esInmune (Nombre _ (_, Ataques [_,_,Inmune inmunidades])) (Nombre nom _) = elem nom inmunidades
 esInmune _ _ = False
 
 
@@ -107,6 +111,27 @@ esInmune _ _ = False
                 Acero -> Veneno -> x0    
 -}
 
+getEficaciaDefensas :: Tipo -> Tipo -> Double
+getEficaciaDefensas tipo1 tipo2
+    | esDebil' tipo1 tipo2 = 2.0
+    | esFuerte' tipo1 tipo2 = 0.5
+    | esInmune' tipo1 tipo2 = 0.0
+    | otherwise = 1.0
+
+-- Aux para comprobar si es débil
+esDebil' :: Tipo -> Tipo -> Bool
+esDebil' (Nombre _ (Defensas [Debil debilidades,_,_], _)) (Nombre nom _) = elem nom debilidades
+esDebil' _ _ = False
+
+-- Aux para comprobar si es fuerte
+esFuerte' :: Tipo -> Tipo -> Bool
+esFuerte' (Nombre _ (Defensas [_,Fuerte fortalezas,_], _)) (Nombre nom _) = elem nom fortalezas
+esFuerte' _ _ = False
+
+-- Aux para comprobar si es inmune
+esInmune' :: Tipo -> Tipo -> Bool
+esInmune' (Nombre _ (Defensas [_,_,Inmune inmunidades], _)) (Nombre nom _) = elem nom inmunidades
+esInmune' _ _ = False
 
 
 {-

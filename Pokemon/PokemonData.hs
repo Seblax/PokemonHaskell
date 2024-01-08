@@ -24,7 +24,7 @@ data Tipo = Nombre Nombre (Tipo,Tipo) |
     Ataques [Tipo] | 
     Debil [Nombre] | Fuerte [Nombre] | Inmune [Nombre] | Tipo Nombre |
     Null
-    deriving Show
+    deriving (Show, Eq)
 
 -- Pokemons con varios tipos, amazing -------------------------------------------
 
@@ -147,4 +147,19 @@ piedra = Nombre "Piedra" (
         Fuerte ["Planta", "Hada"],
         Inmune ["Acero"]
         ])
+
+acero :: Tipo
+acero = Nombre "Acero" (
+    Defensas [
+        Debil["Lucha", "Fuego", "Tierra"],
+        Fuerte["Normal", "Volador", "Roca", "Bicho", "Acero", "Planta", "Psíquico", "Hielo", "Dragón", "Hada"], 
+        Inmune ["Veneno"]
+        ], 
+    Ataques [
+        Debil ["Acero","Fuego","Agua","Eléctrico"],
+        Fuerte ["Roca","Hielo","Hada"],
+        Inmune []
+        ])
+
+
 
