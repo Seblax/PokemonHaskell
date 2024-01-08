@@ -67,51 +67,30 @@ getAtkDef _ = error "El Pokemon/Ataque carece de tipo!"
 
 -}
 
+--getEficaciaAtaques :: Tipo -> Tipo -> Double
+--getEficaciaAtaques = undefined
+
 getEficaciaAtaques :: Tipo -> Tipo -> Double
 getEficaciaAtaques tipo1 tipo2
-    | esDebil tipo2 = 0.5 -- si es débil : eficacia = 0.5
-    | esFuerte tipo2 = 2.0 -- si es fuerte : eficacia = 2.0
-    | esInmune tipo2 = 0.0 -- si es inmune : eficacia = 0.0
-    | otherwise = 1.0 -- eoc : eficacia = 1.0
+    | esDebil tipo1 tipo2 = 0.5
+    | esFuerte tipo1 tipo2 = 2.0
+    | esInmune tipo1 tipo2 = 0.0
+    | otherwise = 1.0
+
+-- Funciones auxiliares para verificar la relación de ataque
+esDebil :: Tipo -> Tipo -> Bool
+esDebil (Nombre _ (_, Ataques [Debil debilidades])) (Nombre tipo2 _) = elem tipo2 debilidades
+esDebil _ _ = False
+
+esFuerte :: Tipo -> Tipo -> Bool
+esFuerte (Nombre _ (_, Ataques [Fuerte fortalezas])) (Nombre tipo2 _) = elem tipo2 fortalezas
+esFuerte _ _ = False
+
+esInmune :: Tipo -> Tipo -> Bool
+esInmune (Nombre _ (_, Ataques [Inmune inmunidades])) (Nombre tipo2 _) = elem tipo2 inmunidades
+esInmune _ _ = False
 
 
-{-
-    Aux para comprobar que el ataque sea débil: 
--}
-esDebil :: Tipo -> Bool
-esDebil (Ataques atk) = any (`elem` tipo) (tipoDebiles atk)
-    where 
-        tipo = [x | Debil xs <- atk, x <- xs]
-esDebil _ = False
-
-tipoDebiles :: [Tipo] -> [Nombre]
-tipoDebiles tipos = [x | Debil xs <- tipos, x <- xs]
-
-
-{-
-    Aux para comprobar que el ataque sea fuerte: 
--}
-esFuerte :: Tipo -> Bool
-esFuerte (Ataques atk) = any (`elem` tipo) (tipoFuertes atk)
-    where 
-        tipo = [x | Fuerte xs <- atk, x <- xs]
-esFuerte _ = False
-
-tipoFuertes :: [Tipo] -> [Nombre]
-tipoFuertes tipos = [x | Fuerte xs <- tipos, x <- xs]
-
-
-{-
-    Aux para comprobar que el ataque sea inmune: 
--}
-esInmune :: Tipo -> Bool
-esInmune (Ataques atk) = any (`elem` tipo) (tipoInmunes atk)
-    where 
-        tipo = [x | Inmune xs <- atk, x <- xs]
-esInmune _ = False
-
-tipoInmunes :: [Tipo] -> [Nombre]
-tipoInmunes tipos = [x | Inmune xs <- tipos, x <- xs]
 
 
 {-
