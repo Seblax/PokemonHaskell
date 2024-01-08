@@ -68,40 +68,51 @@ getAtkDef _ = error "El Pokemon/Ataque carece de tipo!"
 -}
 
 getEficaciaAtaques :: Tipo -> Tipo -> Double
-getEficaciaAtaques (Nombre _ (Ataques atk1, _)) (Nombre _ (Ataques atk2, _)) = calculaEficacia atk1 atk2
-getEficaciaAtaques _ _ = error "No se puede calcular la eficacia!"
-
---Aux para calcular eficacia
-calculaEficacia :: [Tipo] -> [Tipo] -> Double
-calculaEficacia [] _ = 1.0  
-calculaEficacia _ [] = 1.0
-calculaEficacia (a:as) t2
-    | esDebil a t2 = 0.5 -- Si es débil : eficacia = 0.5
-    | esFuerte a t2 = 2.0 -- Si es fuerte : eficacia = 2.0
-    | esInmune a t2 = 0.0 -- Si es inmune : eficacia = 0.0
-    | otherwise = 1.0
+getEficaciaAtaques tipo1 tipo2
+    | esDebil tipo2 = 0.5 -- si es débil : eficacia = 0.5
+    | esFuerte tipo2 = 2.0 -- si es fuerte : eficacia = 2.0
+    | esInmune tipo2 = 0.0 -- si es inmune : eficacia = 0.0
+    | otherwise = 1.0 -- eoc : eficacia = 1.0
 
 
---Aux para saber si es débil
-esDebil :: Tipo -> [Tipo] -> Bool
-esDebil _ [] = False
-esDebil (Debil ds) (Nombre n _ : resto)
-    | elem n ds = True
-    | otherwise = esDebil (Debil ds) resto
+{-
+    Aux para comprobar que el ataque sea débil: 
+-}
+esDebil :: Tipo -> Bool
+esDebil (Ataques atk) = any (`elem` tipo) (tipoDebiles atk)
+    where 
+        tipo = [x | Debil xs <- atk, x <- xs]
+esDebil _ = False
 
---Aux para saber si es fuerte
-esFuerte :: Tipo -> [Tipo] -> Bool
-esFuerte _ [] = False
-esFuerte (Fuerte fs) (Nombre n _ : resto)
-    | elem n fs = True
-    | otherwise = esFuerte (Fuerte fs) resto
+tipoDebiles :: [Tipo] -> [Nombre]
+tipoDebiles tipos = [x | Debil xs <- tipos, x <- xs]
 
---Aux para saber si es inmune
-esInmune :: Tipo -> [Tipo] -> Bool
-esInmune _ [] = False
-esInmune (Inmune is) (Nombre n _ : resto)
-    | elem n is = True
-    | otherwise = esInmune (Inmune is) resto
+
+{-
+    Aux para comprobar que el ataque sea fuerte: 
+-}
+esFuerte :: Tipo -> Bool
+esFuerte (Ataques atk) = any (`elem` tipo) (tipoFuertes atk)
+    where 
+        tipo = [x | Fuerte xs <- atk, x <- xs]
+esFuerte _ = False
+
+tipoFuertes :: [Tipo] -> [Nombre]
+tipoFuertes tipos = [x | Fuerte xs <- tipos, x <- xs]
+
+
+{-
+    Aux para comprobar que el ataque sea inmune: 
+-}
+esInmune :: Tipo -> Bool
+esInmune (Ataques atk) = any (`elem` tipo) (tipoInmunes atk)
+    where 
+        tipo = [x | Inmune xs <- atk, x <- xs]
+esInmune _ = False
+
+tipoInmunes :: [Tipo] -> [Nombre]
+tipoInmunes tipos = [x | Inmune xs <- tipos, x <- xs]
+
 
 {-
     Calcula si un tipo es defensivo contra otro Tipo. Exactamente
@@ -117,8 +128,7 @@ esInmune (Inmune is) (Nombre n _ : resto)
                 Acero -> Veneno -> x0    
 -}
 
-getEficaciasDefensas :: Tipo -> Tipo -> Double
-getEficaciasDefensas = undefined
+
 
 {-
     GetTipoPorNombre obtiene como parámetros una lista de tipos y un String
