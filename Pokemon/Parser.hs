@@ -1,8 +1,9 @@
-module Parser (parsearHabilidades, parsearTipos, parsearPokemons) where
+module Parser (parsearHabilidades, parsearTipos, parsearPokemons, parseoSemilla, get2RandomsPokemons) where
 
 import PokemonData
 import Tipo
 import System.Random
+import UIColors
 
 {-
     Función que separa un String en función de un Predicado dado.
@@ -125,9 +126,29 @@ parsearUnSoloPokemon p t h seed = Pokemon nombre (t1, t2) vida habilidades
 
 pokemonSetHabilidades :: [Habilidad] -> [Habilidad] -> Int -> [Habilidad]
 pokemonSetHabilidades t ac seed
-    | length ac < 4 = pokemonSetHabilidades t ((t!!rand) : ac) (seed + 1)
+    | length ac < 4 = pokemonSetHabilidades t (nuevoAtaque ++ ac) (seed + 1)
     | otherwise = ac
     where
         generator = mkStdGen seed
         n = length t
         (rand, _) = randomR (0,(n-1)) generator
+        nuevoAtaque 
+            | elem (t!!rand) ac = []
+            | otherwise = [(t!!rand)]
+
+get2RandomsPokemons :: [Pokemon] -> Int -> (Pokemon,Pokemon)
+get2RandomsPokemons p seed = (p!!rand, p!!rand2)
+    where
+        generator = mkStdGen seed
+        generator2 = mkStdGen (seed*97)
+        n = length p
+        (rand, _) = randomR (0,(n-1)) generator
+        (rand2, _) = randomR (0,(n-1)) generator2
+
+parseoSemilla :: String -> (Int, Int)
+parseoSemilla s 
+    | and [(length s2 <= 8),(length s1 <=8)] = (read s1, read s2)
+    | otherwise = error $ "El formato de la " ++ red ++ "semilla" ++ none ++ " no es correcto"
+    where 
+        semillas = splitText (=='-') s
+        (s1, s2) = (head semillas, last semillas) 

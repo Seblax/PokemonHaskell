@@ -8,49 +8,52 @@ import UIColors
 import Parser
 import GameUI
 
+import Pokemon
+
 main :: IO()
 main = do
-    tipos <- loadTipos              --Todos los tipos 
-    habilidades <- loadHabilities   --Todos los Ataques
-    
-    --Carga el Menu
     menuScreen
     --Input del jugador
     n <- instruccionColor "Elige un botón del menú:" yellow
-    menuBehavior n habilidades tipos
+    menuBehavior n
 
 
-menuBehavior :: String -> [Habilidad] -> [Tipo] -> IO ()
-menuBehavior s h t
-  | s == "Start" = do wantToContinue h t
+menuBehavior :: String -> IO ()
+menuBehavior s
+  | s == "Start" = do wantToContinue
   | s == "Load" = do putStr $ green ++ "Has seleccionado LOAD!" ++ none
   | s == "Exit" = do putStr $ red ++ "¡Hasta otra entrenador!" ++ none
   | otherwise = main
 
-wantToContinue :: [Habilidad] -> [Tipo] -> IO()
-wantToContinue h t = do
+wantToContinue :: IO()
+wantToContinue = do
     clearScreen
-    putStrLn "##########################################################################"
-    putStrLn $ "Se va a generar un equipo pokemon aleatoriamente, si deseas volver atrás \n simplemente escriba " ++ red ++  "'Atrás' "++ none  ++ ", si deseas continuar escriba" ++  green ++" 'Ok'" ++ none
-    putStrLn "##########################################################################"
-    respuesta <- instruccionColor "¿Desea generar tus nuevos Pokemons?" green
+    textBox $ "Se va a generar un equipo pokemon aleatoriamente, si deseas volver atrás   simplemente escriba " ++ red ++  "Back "++ none  ++ ", si deseas continuar escriba" ++  green ++" Ok" ++ none
+    respuesta <- instruccionColor "¿Desea crear una nueva partida?" green
     respuestaSelecionada respuesta
     where
         respuestaSelecionada :: String -> IO()
         respuestaSelecionada r 
-            | r == "Ok" = batalla h t
-            | r == "Atrás" = putStr "Has dicho Atrás"
-            | otherwise = wantToContinue h t
+            | r == "Ok" = generaBattle
+            | r == "Back" = main
+            | otherwise = wantToContinue
     
 
 
-batalla :: [Habilidad] -> [Tipo] -> IO ()
-batalla h t = do
+generaBattle :: IO ()
+generaBattle = do
   clearScreen
-  pokemons <- loadPokemons t h
-  --Coger ahora 4 pokemons Randoms
-  pokemonBattleUI [head pokemons, last pokemons]
-  putStrLn $ habilidadesUI h
+  t <- loadTipos
+  h <- loadHabilities
+
+  textBox "La Seed sirve para generar una partida aleatoria con Pokemons y sus respec-tivas Habilidades randomizadas, para poder disfrutar de una partida única  cada vez que se añada una seed distinta. El formato de la Seed debe de ser el sifuiente xxxxxxxx-xxxxxxxx conformada por números enteros. \nPor ejemplo: 12345678-12345678"
+  seed <- (instruccionColor "Añadir Seed de la partida 'XXXXXXXX-XXXXXXXX':" green)
+  let (semillaPokemon, semillaHabilidades) = parseoSemilla seed
+
+  pokemons <- loadPokemons t h semillaHabilidades
+  
+  pokemonBattleUI (get2RandomsPokemons pokemons semillaPokemon)
+  putStrLn $ habilidadesUI (getPokemonHabilidades (head pokemons))
 
 --Carga los tipos de los pokemons
 loadTipos :: IO [Tipo]
@@ -69,10 +72,9 @@ loadHabilities =  do
     let res = parsearHabilidades lineas
     return res
 
-loadPokemons :: [Tipo] -> [Habilidad] ->IO [Pokemon]
-loadPokemons tipos habilidades =  do 
+loadPokemons :: [Tipo] -> [Habilidad] -> Int ->IO [Pokemon]
+loadPokemons tipos habilidades seed =  do 
     fichero <- readFile "Data/Pokemons.txt"
     let lineas = (lines fichero)
-    seed <- (instruccionColor "Añadir Seed de la partida (formato INT):" green)
-    let res = parsearPokemons lineas tipos habilidades (read seed)
+    let res = parsearPokemons lineas tipos habilidades seed
     return res

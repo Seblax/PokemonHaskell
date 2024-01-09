@@ -1,3 +1,5 @@
+module Pokemon (getPokemonHabilidades) where
+
 import PokemonData
 import Tipo(getNombreTipo)
 {-
@@ -20,3 +22,6 @@ getPokemonTipo (Pokemon _ (tipo1, tipo2) _ _) = (getNombreTipo tipo1, getNombreT
 
 getPokemonVida :: Pokemon -> Hp
 getPokemonVida (Pokemon _ _ vida _)= vida
+
+getPokemonHabilidades :: Pokemon -> [Habilidad]
+getPokemonHabilidades (Pokemon _ _ _ x) = x

@@ -31,13 +31,22 @@ readFileSprites path = do
   xs <- fmap lines $ readFile path
   mapM_ putStrLn xs
 
+-------------------------------------------
+-------------------------------------------
+
 instruccionColor :: String -> Color -> IO String
 instruccionColor s c = do
   putStrLn (c ++ s ++ none)
   getLine
 
+-------------------------------------------
+-------------------------------------------
+
 buttonUI :: String -> Color -> String
 buttonUI s c = blue ++ "-=" ++ c ++ s ++ blue ++ "=-" ++ none
+
+-------------------------------------------
+-------------------------------------------
 
 habilidadesUI :: [Habilidad] -> String
 habilidadesUI [] = ""
@@ -57,10 +66,11 @@ clearScreen = putStr clear
 
 -------------------------------------------
 -------------------------------------------
-pokemonBattleUI :: [Pokemon] -> IO()
-pokemonBattleUI ps = do
-  pokemonShow (last ps) 100
-  pokemonShow (head ps) 0
+pokemonBattleUI :: (Pokemon,Pokemon) -> IO()
+pokemonBattleUI (p1,p2) = do
+  clearScreen
+  pokemonShow p1 100
+  pokemonShow p2 0
 
 pokemonShow :: Pokemon -> Int -> IO ()
 pokemonShow (Pokemon n (t1, t2) hp _) i = do
@@ -71,3 +81,20 @@ pokemonShow (Pokemon n (t1, t2) hp _) i = do
   where
     tiposDelPokemon :: String
     tiposDelPokemon = " [" ++ setTipoColorPokemonBatalla t1 ++ "-" ++ setTipoColorPokemonBatalla t2 ++ "]"
+
+-------------------------------------------
+-------------------------------------------
+textBox :: String -> IO()
+textBox s = do
+  putStrLn boxes
+  textoSplit s
+    where 
+      boxes = "###########################################################################"
+      textoSplit :: String -> IO()
+      textoSplit s 
+        | length s > 75 = do
+          putStrLn (take 75 s)
+          textoSplit (drop 75 s)
+        | otherwise = do 
+          putStrLn s 
+          putStrLn boxes

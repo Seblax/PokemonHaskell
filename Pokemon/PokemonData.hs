@@ -13,7 +13,7 @@ type Nombre = String
 --      Habilidad = Habilidad 0 "Energi Bola" 70 "Eléctrico"
 --Maximo tamaño de nombre 12
 data Habilidad = Habilidad ID Nombre Daño Nombre
-    deriving Show
+    deriving (Show, Eq)
 
 --Tipos-----------------------------------------------------
 -- Estructura de los tipos:
