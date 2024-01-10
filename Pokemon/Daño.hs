@@ -63,8 +63,13 @@ esCritico = do
 --esSTAB-----------------------------------------------------------
 -- Debe de volver un Double [x1, x1.5], si alguno de los dos Tipos del pokemon es el mismo que el Tipo de la Habilidad
 -------------------------------------------------------------------
-esSTAB :: Pokemon -> Habilidad -> Bool
-esSTAB = Silvia
+esSTAB :: Pokemon -> Habilidad -> Double
+esSTAB (Pokemon _ (tipo1, tipo2) _ _) habilidad
+    | elem tipoHabilidad [getNombreTipo tipo1, getNombreTipo tipo2] = 1.5
+    | otherwise = 1.0
+    where tipoHabilidad :: String
+          tipoHabilidad = getTipoHabilidad habilidad
+
 
 --esEficaz-------------------------------------------------------------
 -- Devolverá un Double [x0,x0.5,x1,x2] si el ataque es inmmune, debil, neutro o fuerte contra el pokemon que se 
@@ -76,8 +81,35 @@ esSTAB = Silvia
 -----------------------------------------------------------------------
 
 esEficaz :: Pokemon -> Habilidad -> Double
-esEficaz = Silvia
+esEficaz (Pokemon _ (tipo1, tipo2) _ _) habilidad =
+    (getEficaciaHabilidad tipo1 habilidad) * (getEficaciaHabilidad tipo2 habilidad)
 
+
+--Aux para calcular la eficacia de una habilidad respecto al tipo de ataque del pokemon enemigo
+getEficaciaHabilidad :: Tipo -> Habilidad -> Double
+getEficaciaHabilidad tipo habilidad
+    | habDebil tipo habilidad = 0.5
+    | habFuerte tipo habilidad = 2.0
+    | habInmune tipo habilidad = 0.0
+    | otherwise = 1.0
+
+--Aux para comprobar que la habilidad sea débil al pokemon enemigo
+habDebil :: Tipo -> Habilidad -> Bool
+habDebil (Debil debilidades) (Habilidad _ _ _ h) = elem h debilidades
+habDebil _ _ = False
+    
+
+--Aux para comprobar que la habilidad sea fuerte al pokemon enemigo
+habFuerte :: Tipo -> Habilidad -> Bool
+habFuerte (Fuerte fortalezas) (Habilidad _ _ _ h) = elem h fortalezas
+habFuerte _ _ = False
+    
+
+--Aux para comprobar que la habilidad sea fuerte al pokemon enemigo
+habInmune :: Tipo -> Habilidad -> Bool
+habInmune (Inmune inmunidades) (Habilidad _ _ _ h) = elem h inmunidades
+habInmune _ _ = False
+   
 {-
     Calcula si un tipo es eficaz contra otro Tipo. 
     
@@ -125,5 +157,6 @@ esInmune _ _ = False
 -- Estrucutra de habilidad:
 --      data Habilidad = Habilidad ID Nombre Daño Nombre
 -----------------------------------------------------------------------
+
 obtenerPotenciaHabilidad :: Habilidad -> Double
-obtenerPotenciaHabilidad = Silvia
+obtenerPotenciaHabilidad (Habilidad _ _ x _) = fromIntegral x
