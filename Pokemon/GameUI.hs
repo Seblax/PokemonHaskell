@@ -9,9 +9,6 @@ import Tipo
 
 type Screen = String
 
-replace :: (Eq a) => a -> a -> [a] -> [a]
-replace a b = map $ \c -> if c == a then b else c
-
 justifyRight :: Int -> a -> [a] -> [a]
 justifyRight n c s = replicate (n - length s) c ++ s
 
@@ -26,12 +23,14 @@ menuScreen = do
   putStrLn (justifyRight 55 ' ' (buttonUI "Load" green))
   putStrLn (justifyRight 58 ' ' (buttonUI "Exit" red))
 
+--Para mostrar la imagen del principio
 readFileSprites :: String -> IO ()
 readFileSprites path = do
   xs <- fmap lines $ readFile path
   mapM_ putStrLn xs
 
 -------------------------------------------
+-- Obtiene le input del jugador, además permite modificar el color del texto
 -------------------------------------------
 
 instruccionColor :: String -> Color -> IO String
@@ -40,14 +39,15 @@ instruccionColor s c = do
   getLine
 
 -------------------------------------------
+-- Botones del menú
 -------------------------------------------
 
 buttonUI :: String -> Color -> String
 buttonUI s c = blue ++ "-=" ++ c ++ s ++ blue ++ "=-" ++ none
 
 -------------------------------------------
+-- Muestra las habilidades de los pokemons por pantalla
 -------------------------------------------
-
 habilidadesUI :: [Habilidad] -> String
 habilidadesUI [] = ""
 habilidadesUI (a1 : a2 : xs) = boxes ++ boxeshabilidadesUI ++ boxesTipo ++ boxes ++ habilidadesUI xs
@@ -60,11 +60,13 @@ habilidadesUI (a1 : a2 : xs) = boxes ++ boxeshabilidadesUI ++ boxesTipo ++ boxes
 
 
 -------------------------------------------
+-- Limpia la Pantalla por completo
 -------------------------------------------
 clearScreen :: IO()
 clearScreen = putStr clear
 
 -------------------------------------------
+--Muestra los Pokemons en pantalla
 -------------------------------------------
 pokemonBattleUI :: (Pokemon,Pokemon) -> IO()
 pokemonBattleUI (p1,p2) = do
@@ -85,6 +87,10 @@ pokemonShow (Pokemon n (t1, t2) hp _) i = do
       | otherwise = " [" ++ setTipoColorPokemonBatalla t1 ++ "-" ++ setTipoColorPokemonBatalla t2 ++ "]"
 
 -------------------------------------------
+--Sirve para poner las cajas de texto de dialogos
+--"###########################################################################"
+-- Esto es un Ejemplo de diálogo
+--"###########################################################################"
 -------------------------------------------
 textBox :: String -> IO()
 textBox s = do
