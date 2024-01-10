@@ -131,6 +131,9 @@ esInmune' :: Tipo -> Tipo -> Bool
 esInmune' (Nombre _ (Defensas [_,_,Inmune inmunidades], _)) (Nombre nom _) = elem nom inmunidades
 esInmune' _ _ = False
 
+esNull :: Tipo -> Bool
+esNull (Null) = True
+esNull _ = False
 
 {-
     GetTipoPorNombre obtiene como parámetros una lista de tipos y un String

@@ -125,3 +125,6 @@ setColorTipo s
 setTipoColorPokemonBatalla :: Tipo -> String
 setTipoColorPokemonBatalla (Nombre s _) = setColorTipo s ++ take 2 s ++ none
 setTipoColorPokemonBatalla _ = ""
+
+setColor :: Color -> String -> String
+setColor color s = color ++ s ++ none

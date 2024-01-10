@@ -1,4 +1,4 @@
-module Pokemon (getPokemonHabilidades) where
+module Pokemon where
 
 import PokemonData
 import Tipo(getNombreTipo)
@@ -25,3 +25,12 @@ getPokemonVida (Pokemon _ _ vida _)= vida
 
 getPokemonHabilidades :: Pokemon -> [Habilidad]
 getPokemonHabilidades (Pokemon _ _ _ x) = x
+
+getPokemonNombreHabilidades :: Pokemon -> [String]
+getPokemonNombreHabilidades (Pokemon _ _ _ xs) = [ getNombreHabilidades x | x <- xs]
+
+getNombreHabilidades:: Habilidad -> String
+getNombreHabilidades (Habilidad _ n _ _ ) = n 
+
+getPokemonNombre :: Pokemon -> String
+getPokemonNombre (Pokemon n _ _ _) = n

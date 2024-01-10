@@ -80,7 +80,9 @@ pokemonShow (Pokemon n (t1, t2) hp _) i = do
   putStrLn (justifyRight i ' ' "###################")
   where
     tiposDelPokemon :: String
-    tiposDelPokemon = " [" ++ setTipoColorPokemonBatalla t1 ++ "-" ++ setTipoColorPokemonBatalla t2 ++ "]"
+    tiposDelPokemon 
+      | esNull t2 = " [" ++ setTipoColorPokemonBatalla t1 ++ "]"
+      | otherwise = " [" ++ setTipoColorPokemonBatalla t1 ++ "-" ++ setTipoColorPokemonBatalla t2 ++ "]"
 
 -------------------------------------------
 -------------------------------------------
