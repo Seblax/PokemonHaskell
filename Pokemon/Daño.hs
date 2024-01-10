@@ -81,8 +81,11 @@ esSTAB (Pokemon _ (tipo1, tipo2) _ _) habilidad
 -----------------------------------------------------------------------
 
 esEficaz :: Pokemon -> Habilidad -> Double
-esEficaz (Pokemon _ (tipo1, tipo2) _ _) habilidad =
-    (getEficaciaHabilidad tipo1 habilidad) * (getEficaciaHabilidad tipo2 habilidad)
+esEficaz (Pokemon _ (tipo1, tipo2) _ _) habilidad
+    | esNull tipo1 && esNull tipo2 = 0.0
+    | esNull tipo2 = getEficaciaHabilidad tipo1 habilidad
+    | esNull tipo1 = getEficaciaHabilidad tipo2 habilidad
+    | otherwise = (getEficaciaHabilidad tipo1 habilidad) * (getEficaciaHabilidad tipo2 habilidad)
 
 
 --Aux para calcular la eficacia de una habilidad respecto al tipo de ataque del pokemon enemigo
