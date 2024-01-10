@@ -10,6 +10,8 @@ import GameUI
 
 import Pokemon
 
+import Daño
+
 main :: IO()
 main = do
     menuScreen
@@ -72,6 +74,22 @@ setBattle pokemons@(p1,p2) comentario= do
     putStrLn ""
     pokemonBattleUI pokemons
     textBox comentario  
+    
+    ----------------------
+    putStrLn $ "\nPokemon: " ++ getPokemonNombre p1 
+    putStrLn $ "EsEficaz: " ++ show (esEficaz p1 (getPokemonHabilidades p2!!3) )
+    putStrLn $ "Habilidad: " ++ show ((getPokemonHabilidades p2)!!3)
+    ----------------------
+
+    ----------------------
+    putStrLn $ "\n\nPokemon: " ++ getPokemonNombre p2
+    putStrLn $ "Tiene STAB: " ++ show (esSTAB p2 (getPokemonHabilidades p2!!3) ) ++ "\t Habilidad: " ++ show (getPokemonHabilidades p2!!3)
+    putStrLn $ "Habilidades: " ++ show (getPokemonHabilidades p2)
+    ----------------------
+    c <- esCritico
+    putStrLn $ "\n\nCrítico: " ++ show c
+
+
     eleccion <- instruccionColor yellow $ "Elige una acción: " ++ setColor red "[Atacar] " ++ setColor blue "[Cambiar]"
     if eleccion == "Atacar" then 
         do
@@ -80,7 +98,6 @@ setBattle pokemons@(p1,p2) comentario= do
     else 
         do 
             setBattle pokemons $ "No puedes cambiar ahora," ++ setColor red "no tienes más Pokemons" ++ ". Vaya torpe, ni contar sus pokemons sabe."
-
 
 setAttack :: (Pokemon, Pokemon) -> String -> IO()
 setAttack pokemons@(p1,p2) s = do   

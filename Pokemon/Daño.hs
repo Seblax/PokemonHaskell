@@ -1,3 +1,5 @@
+module Daño where
+
 import Data.Time.Clock.POSIX (getPOSIXTime)
 import System.Random
 import System.IO
@@ -5,6 +7,7 @@ import System.IO
 import PokemonData
 import Tipo
 import Pokemon
+import UIColors
 
 {-
 Antes que nada, la fórmula de daño de Pokemon está guardada en un archivo .png llamada FormulaDeDaño, pero en nuestro caso
@@ -81,37 +84,11 @@ esSTAB (Pokemon _ (tipo1, tipo2) _ _) habilidad
 -----------------------------------------------------------------------
 
 esEficaz :: Pokemon -> Habilidad -> Double
-esEficaz (Pokemon _ (tipo1, tipo2) _ _) habilidad
-    | esNull tipo1 && esNull tipo2 = 0.0
-    | esNull tipo2 = getEficaciaHabilidad tipo1 habilidad
-    | esNull tipo1 = getEficaciaHabilidad tipo2 habilidad
-    | otherwise = (getEficaciaHabilidad tipo1 habilidad) * (getEficaciaHabilidad tipo2 habilidad)
-
-
---Aux para calcular la eficacia de una habilidad respecto al tipo de ataque del pokemon enemigo
-getEficaciaHabilidad :: Tipo -> Habilidad -> Double
-getEficaciaHabilidad tipo habilidad
-    | habDebil tipo habilidad = 0.5
-    | habFuerte tipo habilidad = 2.0
-    | habInmune tipo habilidad = 0.0
-    | otherwise = 1.0
-
---Aux para comprobar que la habilidad sea débil al pokemon enemigo
-habDebil :: Tipo -> Habilidad -> Bool
-habDebil (Debil debilidades) (Habilidad _ _ _ h) = elem h debilidades
-habDebil _ _ = False
-    
-
---Aux para comprobar que la habilidad sea fuerte al pokemon enemigo
-habFuerte :: Tipo -> Habilidad -> Bool
-habFuerte (Fuerte fortalezas) (Habilidad _ _ _ h) = elem h fortalezas
-habFuerte _ _ = False
-    
-
---Aux para comprobar que la habilidad sea fuerte al pokemon enemigo
-habInmune :: Tipo -> Habilidad -> Bool
-habInmune (Inmune inmunidades) (Habilidad _ _ _ h) = elem h inmunidades
-habInmune _ _ = False
+esEficaz (Pokemon _ (tipo1, tipo2) _ _) (Habilidad _ _ _ tipoH)
+    | esNull tipo1 && esNull tipo2 = error $ setColor red "El pokemon carece de tipo"
+    | esNull tipo2 = getEficaciaAtaque tipoH tipo1
+    | esNull tipo1 = getEficaciaAtaque tipoH tipo2
+    | otherwise = (getEficaciaAtaque tipoH tipo1) * (getEficaciaAtaque tipoH tipo2)
    
 {-
     Calcula si un tipo es eficaz contra otro Tipo. 
@@ -131,27 +108,24 @@ habInmune _ _ = False
                 Fantasma -> Normal -> x0
 -}
 
-getEficaciaAtaques :: Tipo -> Tipo -> Double
-getEficaciaAtaques tipo1 tipo2
-    | esDebil tipo1 tipo2 = 0.5
-    | esFuerte tipo1 tipo2 = 2.0
-    | esInmune tipo1 tipo2 = 0.0
+getEficaciaAtaque :: String -> Tipo -> Double
+getEficaciaAtaque tipoHabilidad tipoPokemon
+    | esDebil tipoHabilidad tipoPokemon = 2.0
+    | esFuerte tipoHabilidad tipoPokemon = 0.5
+    | esInmune tipoHabilidad tipoPokemon = 0.0
     | otherwise = 1.0
 
 -- Aux para comprobar si es débil
-esDebil :: Tipo -> Tipo -> Bool
-esDebil (Nombre _ (_, Ataques [Debil debilidades,_,_])) (Nombre nom _) = elem nom debilidades
-esDebil _ _ = False
+esDebil :: String -> Tipo -> Bool
+esDebil h (Nombre _ (_,Defensas [Debil debilidades,_,_])) = elem h debilidades
 
 -- Aux para comprobar si es fuerte
-esFuerte :: Tipo -> Tipo -> Bool
-esFuerte (Nombre _ (_, Ataques [_,Fuerte fortalezas,_])) (Nombre nom _) = elem nom fortalezas
-esFuerte _ _ = False
+esFuerte :: String -> Tipo -> Bool
+esFuerte h (Nombre _ (_,Defensas [_,Fuerte fortalezas,_])) = elem h fortalezas
 
 -- Aux para comprobar si es inmune
-esInmune :: Tipo -> Tipo -> Bool
-esInmune (Nombre _ (_, Ataques [_,_,Inmune inmunidades])) (Nombre nom _) = elem nom inmunidades
-esInmune _ _ = False
+esInmune :: String -> Tipo -> Bool
+esInmune h (Nombre _ (_,Defensas [_,_,Inmune inmunidades])) = elem h inmunidades
 
 
 --obtenerPotenciaHabilidad-------------------------------------------------------------
