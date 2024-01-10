@@ -6,6 +6,7 @@ import System.Directory
 import System.IO
 import UIColors
 import Tipo
+import Pokemon
 
 type Screen = String
 
@@ -58,7 +59,6 @@ habilidadesUI (a1 : a2 : xs) = boxes ++ boxeshabilidadesUI ++ boxesTipo ++ boxes
     getAtaque (Habilidad i n _ _) = "\t#  " ++ n ++ "\t\t"
     colorAtaque (Habilidad _ _ _ tipo) = setColorTipo tipo
 
-
 -------------------------------------------
 -- Limpia la Pantalla por completo
 -------------------------------------------
@@ -106,3 +106,20 @@ textBox s = do
         | otherwise = do 
           putStrLn s 
           putStrLn boxes
+
+
+-------------------------------------------
+-- generarComentario pa h (e,d,c)
+generarComentario :: Pokemon -> Habilidad -> (Double, Double) -> String
+generarComentario p h (e,c) = "Nuestro entrenador ha usado " ++  setColorHabilidad h ++ " contra " ++ getPokemonNombre p ++ ". " ++ eficaz ++ critico
+  where
+    eficaz 
+      | e == 4 = "Madre mía, el ataque ha dejado temblando al oponente ¡ES SUPER EFICAZ! "
+      | e == 2 = "Que buen ataque, como sabe nuestro entrenador las debilidades de su oponente, ha hecho una taque muy eficaz. "
+      | e == 0.5 = "¡Vaya, no sé que le  habrá dado a nuestro entrenador usando ese ataque poco eficaz contra su oponente! "
+      | e == 0.25 = "¡El oponente no ha sentido ni cosquillas con ese ataque tan débil! "
+      | e == 0 = "Enserio... Le has hecho un ataque al cual tu oponente es inmune... ¡ESPÁVILA! "
+      |otherwise = ""
+    critico 
+      | c == 2 = setColor red "¡Ha sido un golpe crítico!"
+      | otherwise = ""

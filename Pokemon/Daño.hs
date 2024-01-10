@@ -17,7 +17,7 @@ ya que estamos haciendo un pokemon mucho más simplificado, nuestra formula de d
 
                                 1.2 * P
             0.01 * B * E * ( ______________ + 2 ) * C
-                                25 * D
+                                 25
 
         #################################################
 
@@ -137,3 +137,50 @@ esInmune h (Nombre _ (_,Defensas [_,_,Inmune inmunidades])) = elem h inmunidades
 
 obtenerPotenciaHabilidad :: Habilidad -> Double
 obtenerPotenciaHabilidad (Habilidad _ _ x _) = fromIntegral x
+
+
+------------------------------------------------------------------------------------------
+
+
+esDefensivo :: Pokemon -> Habilidad -> Double
+esDefensivo (Pokemon _ (tipo1, tipo2) _ _) (Habilidad _ _ _ tipoH)
+    | esNull tipo1 && esNull tipo2 = error $ setColor red "El pokemon carece de tipo"
+    | esNull tipo2 = getEficaciaDefensas tipoH tipo1
+    | esNull tipo1 = getEficaciaDefensas tipoH tipo2
+    | otherwise = (getEficaciaDefensas tipoH tipo1) * (getEficaciaDefensas tipoH tipo2)
+
+{-
+    Calcula si un tipo es defensivo contra otro Tipo. Exactamente
+    recíproco a la función anterior. Pero en este caso, si el tipo 2
+    es Debil, devolverá x2, y si el segudno tipo es fuerte devolverá
+    x0.5, e inmunne se queda igual x0. Esto es porque el Acero, por ejemplo,
+    es fuerte defendiendose contra el Normal (x0.5), pero Debil defendiendose
+    contra el tipo Lucha (x2) y el veneno no afecta al Acero (x0)
+
+            Ejemplo:
+                Acero -> Normal -> x0.5       
+                Acero -> Lucha -> x2                    
+                Acero -> Veneno -> x0    
+-}
+
+getEficaciaDefensas :: String -> Tipo -> Double
+getEficaciaDefensas h tipo2
+    | esDebil' h tipo2 = 2.0
+    | esFuerte' h tipo2 = 0.5
+    | esInmune' h tipo2 = 0.0
+    | otherwise = 1.0
+
+-- Aux para comprobar si es débil
+esDebil' :: String -> Tipo -> Bool
+esDebil' h (Nombre _ (_, Ataques [Debil debilidades,_,_])) = elem h debilidades
+esDebil' _ _ = False
+
+-- Aux para comprobar si es fuerte
+esFuerte' :: String -> Tipo -> Bool
+esFuerte' h (Nombre _ (_, Ataques  [_,Fuerte fortalezas,_])) = elem h fortalezas
+esFuerte' _ _ = False
+
+-- Aux para comprobar si es inmune
+esInmune' :: String -> Tipo -> Bool
+esInmune' h (Nombre _ (_, Ataques  [_,_,Inmune inmunidades])) = elem h inmunidades
+esInmune' _ _ = False

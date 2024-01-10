@@ -128,3 +128,6 @@ setTipoColorPokemonBatalla _ = ""
 
 setColor :: Color -> String -> String
 setColor color s = color ++ s ++ none
+
+setColorHabilidad :: Habilidad -> String
+setColorHabilidad (Habilidad _ n _ tipo) = setColorTipo tipo ++ n ++ none

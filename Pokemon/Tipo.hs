@@ -46,42 +46,6 @@ getAtkDef :: Tipo -> ([Tipo],[Tipo])
 getAtkDef (Nombre _ (Ataques atk, Defensas def)) = (atk, def)
 getAtkDef _ = error "El Pokemon/Ataque carece de tipo!" 
 
-{-
-    Calcula si un tipo es defensivo contra otro Tipo. Exactamente
-    recíproco a la función anterior. Pero en este caso, si el tipo 2
-    es Debil, devolverá x2, y si el segudno tipo es fuerte devolverá
-    x0.5, e inmunne se queda igual x0. Esto es porque el Acero, por ejemplo,
-    es fuerte defendiendose contra el Normal (x0.5), pero Debil defendiendose
-    contra el tipo Lucha (x2) y el veneno no afecta al Acero (x0)
-
-            Ejemplo:
-                Acero -> Normal -> x0.5       
-                Acero -> Lucha -> x2                    
-                Acero -> Veneno -> x0    
--}
-
-getEficaciaDefensas :: Tipo -> Tipo -> Double
-getEficaciaDefensas tipo1 tipo2
-    | esDebil' tipo1 tipo2 = 2.0
-    | esFuerte' tipo1 tipo2 = 0.5
-    | esInmune' tipo1 tipo2 = 0.0
-    | otherwise = 1.0
-
--- Aux para comprobar si es débil
-esDebil' :: Tipo -> Tipo -> Bool
-esDebil' (Nombre _ (Defensas [Debil debilidades,_,_], _)) (Nombre nom _) = elem nom debilidades
-esDebil' _ _ = False
-
--- Aux para comprobar si es fuerte
-esFuerte' :: Tipo -> Tipo -> Bool
-esFuerte' (Nombre _ (Defensas [_,Fuerte fortalezas,_], _)) (Nombre nom _) = elem nom fortalezas
-esFuerte' _ _ = False
-
--- Aux para comprobar si es inmune
-esInmune' :: Tipo -> Tipo -> Bool
-esInmune' (Nombre _ (Defensas [_,_,Inmune inmunidades], _)) (Nombre nom _) = elem nom inmunidades
-esInmune' _ _ = False
-
 esNull :: Tipo -> Bool
 esNull (Null) = True
 esNull _ = False

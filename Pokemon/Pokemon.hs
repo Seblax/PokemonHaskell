@@ -23,6 +23,12 @@ getPokemonTipo (Pokemon _ (tipo1, tipo2) _ _) = (getNombreTipo tipo1, getNombreT
 getPokemonVida :: Pokemon -> Hp
 getPokemonVida (Pokemon _ _ vida _)= vida
 
+setPokemonVida :: Pokemon -> Double -> Pokemon
+setPokemonVida (Pokemon n t hp h) daño = (Pokemon n t pupita h)
+    where
+        pupita = hp - (round (daño) :: Int)
+
+
 getPokemonHabilidades :: Pokemon -> [Habilidad]
 getPokemonHabilidades (Pokemon _ _ _ x) = x
 
@@ -30,7 +36,10 @@ getPokemonNombreHabilidades :: Pokemon -> [String]
 getPokemonNombreHabilidades (Pokemon _ _ _ xs) = [ getNombreHabilidades x | x <- xs]
 
 getNombreHabilidades:: Habilidad -> String
-getNombreHabilidades (Habilidad _ n _ _ ) = n 
+getNombreHabilidades (Habilidad _ n _ _ ) = n
+
+getPokemonHabilidadPorNombre :: String -> [Habilidad] -> Habilidad
+getPokemonHabilidadPorNombre n hs = head [ h | h@(Habilidad _ nom _ _) <- hs, n == nom]
 
 getPokemonNombre :: Pokemon -> String
 getPokemonNombre (Pokemon n _ _ _) = n
