@@ -1,219 +1,364 @@
-1	Struggle	10	Lucha
-2	Double-Edge	15	Fuego
-3	Dream Eater	15	Hielo
-4	Poison Gas	20	Volador
-5	Belly Drum	20	Volador
-6	Chip Away	20	Volador
-7	Leaf Blade	25	Lucha
-8	Vine Whip	30	Lucha
-9	Endure	30	Tierra
-10	Sonic Boom	40	Bicho
-11	Strength	40	Veneno
-12	Dragon Rage	40	Fuego
-13	Meditate	40	Hielo
-14	Reversal	40	Aguas
-15	Powder Snow	40	Aguas
-16	Charm*	40	Aguas
-17	Baton Pass	40	Hielo
-18	Whirlpool	40	Psiquico
-19	Power Gem	40	Aguas
-20	Giga Impact	40	Hielo
-21	Ice Fang	40	Volador
-22	Charge Beam	40	Lucha
-23	Wild Charge	40	Planta
-24	Electrify	40	Planta
-25	Karate Chop	50	Bicho
-26	Fury Attack	50	Fuego
-27	Explosion	50	Electrico
-28	Slash	50	Tierra
-29	Sweet Scent	50	Tierra
-30	Slack Off	50	Veneno
-31	Meteor Mash	50	Psiquico
-32	Bounce	50	Psiquico
-33	Judgment	50	Volador
-34	Hurricane	50	Veneno
-35	Noble Roar	50	Veneno
-36	Vice Grip	55	Fuego
-37	Leech Seed	55	Aguas
-38	Dragon Tail	55	Psiquico
-39	Mega Kick	60	Veneno
-40	Pin Missile	60	Bicho
-41	Waterfall	60	Volador
-42	Psych Up	60	Aguas
-43	Mud Sport	60	Tierra
-44	Odor Sleuth	60	Psiquico
-45	Magnet Rise	60	Fantasma
-46	Gunk Shot	60	Lucha
-47	Chatter	60	Hielo
-48	Dark Void	60	Lucha
-49	Entrainment	60	Hadas
-50	Sky Drop	60	Veneno
-51	Volt Switch	60	Aguas
-52	Bulldoze	60	Fantasma
-53	Drill Run	60	Hielo
-54	Blizzard	65	Hadas
-55	Swagger	65	Fuego
-56	Ice Shard	65	Lucha
-57	Wonder Room	65	Acero
-58	Razor Shell	65	Planta
-59	Heat Crash	65	Hadas
-60	Transform	70	Psiquico
-61	Iron Tail	70	Piedra
-62	Will-O-Wisp	70	Fantasma
-63	Grudge	70	Psiquico
-64	Camouflage	70	Aguas
-65	Tail Glow	70	Siniestro
-66	Poison Jab	70	Fuego
-67	Avalanche	70	Siniestro
-68	Smack Down	70	Psiquico
-69	Round	70	Normal
-70	Acrobatics	70	Lucha
-71	Fire Pledge	70	Fantasma
-72	Fire Punch	75	Normal
-73	Ice Punch	75	Normal
-74	Bonemerang	75	Volador
-75	Recycle	75	Fuego
-76	Hyper Voice	75	Tierra
-77	Aqua Tail	75	Normal
-78	Dual Chop	75	Normal
-79	Horn Leech	75	Veneno
-80	Mega Punch	80	Fuego
-81	Razor Wind	80	Aguas
-82	Hyper Beam	80	Planta
-83	Counter	80	Fuego
-84	Bone Club	80	Normal
-85	Sharpen	80	Aguas
-86	Rain Dance	80	Bicho
-87	Mirror Coat	80	Fantasma
-88	Snatch	80	Tierra
-89	Signal Beam	80	Hielo
-90	Block	80	Aguas
-91	Last Resort	80	Planta
-92	Aura Sphere	80	Normal
-93	Rock Polish	80	Normal
-94	Night Slash	80	Planta
-95	Seed Bomb	80	Lucha
-96	Mud Bomb	80	Volador
-97	Trick Room	80	Veneno
-98	Power Split	80	Planta
-99	Quick Guard	80	Dragon
-100	Electroweb	80	Piedra
-101	Bolt Strike	80	Electrico
-102	Happy Hour	80	Psiquico
-103	Infestation	80	Psiquico
-104	Horn Drill	85	Acero
-105	Steamroller	85	Acero
-106	Gear Grind	85	Bicho
-107	Ice Burn	85	Psiquico
-108	Wing Attack	90	Normal
-109	Body Slam	90	Aguas
-110	Water Gun	90	Fuego
-111	Hydro Pump	90	Lucha
-112	Toxic	90	Piedra
-113	Sweet Kiss*	90	Veneno
-114	Needle Arm	90	Siniestro
-115	Water Sport	90	Siniestro
-116	Dark Pulse	90	Aguas
-117	Air Slash	90	Planta
-118	Energy	90	Volador
-119	Mirror Shot	90	Bicho
-120	Wood Hammer	90	Bicho
-121	Work Up	90	Dragon
-122	Heart Stamp	90	Dragon
-123	Sticky Web	90	Piedra
-124	Storm Throw	95	Lucha
-125	Low Sweep	95	Planta
-126	Play Rough	95	Tierra
-127	Double Kick	100	Normal
-128	Thunder	100	Siniestro
-129	Mirror Move	100	Acero
-130	Flail	100	Hielo
-131	Safeguard	100	Fantasma
-132	Sacred Fire	100	Electrico
-133	Rapid Spin	100	Hielo
-134	Moonlight*	100	Fuego
-135	Miracle Eye	100	Fantasma
-136	Bug Buzz	100	Tierra
-137	Iron Head	100	Psiquico
-138	Grass Knot	100	Psiquico
-139	Double Hit	100	Acero
-140	Head Charge	100	Dragon
-141	V-create	100	Fuego
-142	Stomp	120	Piedra
-143	Take Down	120	Veneno
-144	Growth	120	Acero
-145	Octazooka	120	Piedra
-146	Magnitude	120	Planta
-147	Assist	120	Volador
-148	Poison Tail	120	Normal
-149	Metal Burst	120	Bicho
-150	Aqua Ring	120	Electrico
-151	Drain Punch	120	Planta
-152	Focus Blast	120	Bicho
-153	Lava Plume	120	Bicho
-154	Bug Bite	120	Normal
-155	Lunar Dance	120	Psiquico
-156	Magma Storm	120	Fuego
-157	Seed Flare	120	Siniestro
-158	Tail Slap	120	Planta
-159	Glaciate	130	Psiquico
-160	Leech Life	140	Psiquico
-161	Water Pulse	140	Piedra
-162	Blue Flare	140	Lucha
-163	Fiery Dance	140	Bicho
-164	Fairy Wind	140	Electrico
-165	Bubble Beam	150	Fuego
-166	Memento	150	Veneno
-167	Poison Fang	150	Lucha
-168	Crush Claw	150	Normal
-169	Earth Power	150	Normal
-170	Leaf Storm	150	Normal
-171	Head Smash	150	Lucha
-172	Snarl	180	Normal
-173	Splash	100	Volador
-174	Thunderbolt	110	Acero
-175	Sludge	110	Fuego
-176	Psystrike	110	Volador
-177	Stun Spore	120	Lucha
-178	Bone Rush	120	Normal
-179	Clamp	130	Fuego
-180	Kinesis	130	Planta
-181	Fake Tears	130	Electrico
-182	Defog	130	Bicho
-183	Discharge	130	Tierra
-184	Shock Wave	140	Dragon
-185	Guard Swap	140	Normal
-186	Metronome	200	Electrico
-187	Sheer Cold	25	Electrico
-188	Bullet Seed	25	Tierra
-189	Acid Armor	250	Dragon
-190	Egg Bomb	30	Planta
-191	Brine	30	Aguas
-192	String Shot	35	Fuego
-193	Sky Attack	40	Siniestro
-194	Milk Drink	40	Psiquico
-195	Shadow	40	Normal
-196	Nightmare	50	Volador
-197	Sketch	60	Acero
-198	Synthesis	60	Fuego
-199	Overheat	60	Normal
-200	Mud Shot	60	Lucha
-201	Magic Room	60	Electrico
-202	Shift Gear	60	Fuego
-203	Brick Break	65	Hielo
-204	Shell Smash	65	Hielo
-205	Facade	70	Fuego
-206	Gravity	70	Fuego
-207	Outrage	75	Lucha
-208	Dragon Rush	75	Tierra
-209	Earthquake	80	Bicho
-210	Flare Blitz	80	Normal
-211	Bestow	80	Planta
-212	Inferno	80	Planta
-213	X-Scissor	85	Hadas
-214	Fire Spin	90	Electrico
-215	Beat Up	90	Hadas
-216	Blast Burn	90	Hadas
-217	Sand Tomb	90	Normal
-218	Vacuum Wave	90	Electrico
-219	Spit Up	95	Bicho
+1	Karate Chop	Lucha	50
+2	Fire Punch	Fuego	75
+3	Ice Punch	Hielo	75
+4	Wing Attack	Volador	60
+5	Vine Whip	Planta	45
+6	Double Kick	Lucha	30
+7	Jump Kick	Lucha	100
+8	Sand Attack	Tierra	60
+9	Twineedle	Bicho	25
+10	Pin Missile	Bicho	25
+11	Ember	Fuego	40
+12	Water Gun	Aguas	40
+13	Hydro Pump	Aguas	110
+14	Ice Beam	Hielo	90
+15	Blizzard	Hielo	110
+16	Psybeam	Psiquico	65
+17	Bubble Beam	Aguas	65
+18	Aurora Beam	Hielo	65
+19	Drill Peck	Volador	80
+20	Submission	Lucha	80
+21	Low Kick	Lucha	60
+22	Counter	Lucha	60
+23	Absorb	Planta	20
+24	Mega Drain	Planta	40
+25	Leech Seed	Planta	60
+26	Razor Leaf	Planta	55
+27	Solar Beam	Planta	120
+28	Stun Spore	Planta	60
+29	Petal Dance	Planta	120
+30	String Shot	Bicho	60
+31	Dragon Rage	Dragon	120
+32	Fire Spin	Fuego	35
+33	Thunderbolt	Electrico	90
+34	Thunder	Electrico	110
+35	Rock Throw	Piedra	50
+36	Earthquake	Tierra	100
+37	Fissure	Tierra	60
+38	Toxic	Veneno	60
+39	Confusion	Psiquico	50
+40	Psychic	Psiquico	90
+41	Hypnosis	Psiquico	60
+42	Meditate	Psiquico	60
+43	Agility	Psiquico	60
+44	Teleport	Psiquico	60
+45	Night Shade	Fantasma	60
+46	Confuse Ray	Fantasma	60
+47	Withdraw	Aguas	60
+48	Barrier	Psiquico	60
+49	Reflect	Psiquico	60
+50	Mirror Move	Volador	60
+51	Sludge	Veneno	65
+52	Bone Club	Tierra	65
+53	Fire Blast	Fuego	110
+54	Waterfall	Aguas	80
+55	Clamp	Aguas	35
+56	Amnesia	Psiquico	60
+57	Kinesis	Psiquico	60
+58	Dream Eater	Psiquico	100
+59	Poison Gas	Veneno	60
+60	Leech Life	Bicho	20
+61	Sky Attack	Volador	140
+62	Bubble	Aguas	40
+63	Spore	Planta	60
+64	Psywave	Psiquico	60
+65	Acid Armor	Veneno	60
+66	Crabhammer	Aguas	100
+67	Bonemerang	Tierra	50
+68	Rock Slide	Piedra	75
+69	Triple Kick	Lucha	10
+70	Thief	Siniestro	60
+71	Spider Web	Bicho	60
+72	Nightmare	Fantasma	60
+73	Flame Wheel	Fuego	60
+74	Curse	Fantasma	60
+75	Aeroblast	Volador	100
+76	Reversal	Lucha	60
+77	Spite	Fantasma	60
+78	Powder Snow	Hielo	40
+79	Mach Punch	Lucha	40
+80	Sweet Kiss	Hadas	60
+81	Sludge Bomb	Veneno	90
+82	Mud-Slap	Tierra	20
+83	Octazooka	Aguas	65
+84	Spikes	Tierra	60
+85	Zap Cannon	Electrico	120
+86	Icy Wind	Hielo	55
+87	Detect	Lucha	60
+88	Bone Rush	Tierra	25
+89	Outrage	Dragon	120
+90	Sandstorm	Piedra	60
+91	Giga Drain	Planta	75
+92	Charm	Hadas	60
+93	Rollout	Piedra	30
+94	Spark	Electrico	65
+95	Fury Cutter	Bicho	40
+96	Steel Wing	Acero	70
+97	Sacred Fire	Fuego	100
+98	Magnitude	Tierra	60
+99	Megahorn	Bicho	120
+100	Pursuit	Siniestro	40
+101	Iron Tail	Acero	100
+102	Metal Claw	Acero	50
+103	Vital Throw	Lucha	70
+104	Synthesis	Planta	60
+105	Moonlight	Hadas	60
+106	Cross Chop	Lucha	100
+107	Twister	Dragon	40
+108	Rain Dance	Aguas	60
+109	Sunny Day	Fuego	60
+110	Crunch	Siniestro	80
+111	Mirror Coat	Psiquico	60
+112	Shadow	Fantasma	80
+113	Rock Smash	Lucha	40
+114	Whirlpool	Aguas	35
+115	Beat Up	Siniestro	60
+116	Heat Wave	Fuego	95
+117	Torment	Siniestro	60
+118	Flatter	Siniestro	60
+119	Will-O-Wisp	Fuego	60
+120	Memento	Siniestro	60
+121	Focus Punch	Lucha	150
+122	Follow Me	Normal	60
+123	Charge	Electrico	60
+124	Taunt	Siniestro	60
+125	Trick	Psiquico	60
+126	Role Play	Psiquico	60
+127	Assist	Normal	60
+128	Ingrain	Planta	60
+129	Superpower	Lucha	120
+130	Magic Coat	Psiquico	60
+131	Recycle	Normal	60
+132	Revenge	Lucha	60
+133	Brick Break	Lucha	75
+134	Knock Off	Siniestro	65
+135	Endeavor	Normal	60
+136	Eruption	Fuego	60
+137	Skill Swap	Psiquico	60
+138	Imprison	Psiquico	60
+139	Refresh	Normal	60
+140	Grudge	Fantasma	60
+141	Snatch	Siniestro	60
+142	Arm Thrust	Lucha	15
+143	Camouflage	Normal	60
+144	Tail Glow	Bicho	60
+145	Blaze Kick	Fuego	85
+146	Mud Sport	Tierra	60
+147	Needle Arm	Planta	60
+148	Slack Off	Normal	60
+149	Hyper Voice	Normal	90
+150	Poison Fang	Veneno	50
+151	Crush Claw	Normal	75
+152	Blast Burn	Fuego	150
+153	Meteor Mash	Acero	90
+154	Astonish	Fantasma	30
+155	Weather	Normal	50
+156	Fake Tears	Siniestro	60
+157	Air Cutter	Volador	60
+158	Overheat	Fuego	130
+159	Odor Sleuth	Normal	60
+160	Rock Tomb	Piedra	60
+161	Silver Wind	Bicho	60
+162	Metal Sound	Acero	60
+163	Tickle	Normal	60
+164	Water Spout	Aguas	60
+165	Signal Beam	Bicho	75
+166	Sand Tomb	Tierra	35
+167	Sheer Cold	Hielo	60
+168	Muddy Water	Aguas	90
+169	Bullet Seed	Planta	25
+170	Aerial Ace	Volador	60
+171	Block	Normal	60
+172	Dragon Claw	Dragon	80
+173	Bulk Up	Lucha	60
+174	Bounce	Volador	85
+175	Mud Shot	Tierra	55
+176	Poison Tail	Veneno	50
+177	Covet	Normal	60
+178	Volt Tackle	Electrico	120
+179	Water Sport	Aguas	60
+180	Calm Mind	Psiquico	60
+181	Leaf Blade	Planta	90
+182	Rock Blast	Piedra	25
+183	Shock Wave	Electrico	60
+184	Water Pulse	Aguas	60
+185	Doom Desire	Acero	140
+186	Roost	Volador	60
+187	Gravity	Psiquico	60
+188	Miracle Eye	Psiquico	60
+189	Hammer Arm	Lucha	100
+190	Brine	Aguas	65
+191	Feint	Normal	30
+192	Pluck	Volador	60
+193	Tailwind	Volador	60
+194	Acupressure	Normal	60
+195	Metal Burst	Acero	60
+196	U-turn	Bicho	70
+197	Payback	Siniestro	50
+198	Assurance	Siniestro	60
+199	Embargo	Siniestro	60
+200	Fling	Siniestro	60
+201	Trump Card	Normal	60
+202	Heal Block	Psiquico	60
+203	Wring Out	Normal	60
+204	Power Trick	Psiquico	60
+205	Gastro Acid	Veneno	60
+206	Lucky Chant	Normal	60
+207	Me First	Normal	60
+208	Copycat	Normal	60
+209	Power Swap	Psiquico	60
+210	Guard Swap	Psiquico	60
+211	Punishment	Siniestro	60
+212	Last Resort	Normal	140
+213	Worry Seed	Planta	60
+214	Heart Swap	Psiquico	60
+215	Aqua Ring	Aguas	60
+216	Magnet Rise	Electrico	60
+217	Flare Blitz	Fuego	120
+218	Force Palm	Lucha	60
+219	Aura Sphere	Lucha	80
+220	Rock Polish	Piedra	60
+221	Poison Jab	Veneno	80
+222	Dark Pulse	Siniestro	80
+223	Night Slash	Siniestro	70
+224	Aqua Tail	Aguas	90
+225	Seed Bomb	Planta	80
+226	Air Slash	Volador	75
+227	X-Scissor	Bicho	80
+228	Bug Buzz	Bicho	90
+229	Dragon Rush	Dragon	100
+230	Power Gem	Piedra	80
+231	Drain Punch	Lucha	75
+232	Vacuum Wave	Lucha	40
+233	Focus Blast	Lucha	120
+234	Energy	Planta	90
+235	Brave Bird	Volador	120
+236	Earth Power	Tierra	90
+237	Switcheroo	Siniestro	60
+238	Giga Impact	Normal	150
+239	Nasty Plot	Siniestro	60
+240	Avalanche	Hielo	60
+241	Ice Shard	Hielo	40
+242	Shadow Claw	Fantasma	70
+243	Ice Fang	Hielo	65
+244	Fire Fang	Fuego	65
+245	Mud Bomb	Tierra	65
+246	Psycho Cut	Psiquico	70
+247	Mirror Shot	Acero	65
+248	Rock Climb	Normal	90
+249	Defog	Volador	60
+250	Trick Room	Psiquico	60
+251	Discharge	Electrico	80
+252	Lava Plume	Fuego	80
+253	Leaf Storm	Planta	130
+254	Power Whip	Planta	120
+255	Gunk Shot	Veneno	120
+256	Iron Head	Acero	80
+257	Magnet Bomb	Acero	60
+258	Stone Edge	Piedra	100
+259	Captivate	Normal	60
+260	Grass Knot	Planta	60
+261	Chatter	Volador	65
+262	Judgment	Normal	100
+263	Bug Bite	Bicho	60
+264	Charge Beam	Electrico	50
+265	Wood Hammer	Planta	120
+266	Aqua Jet	Aguas	40
+267	Heal Order	Bicho	60
+268	Head Smash	Piedra	150
+269	Double Hit	Normal	35
+270	Lunar Dance	Psiquico	60
+271	Crush Grip	Normal	60
+272	Magma Storm	Fuego	120
+273	Dark Void	Siniestro	60
+274	Seed Flare	Planta	120
+275	Hone Claws	Siniestro	60
+276	Wide Guard	Piedra	60
+277	Guard Split	Psiquico	60
+278	Power Split	Psiquico	60
+279	Wonder Room	Psiquico	60
+280	Psyshock	Psiquico	80
+281	Venoshock	Veneno	65
+282	Autotomize	Acero	60
+283	Rage Powder	Bicho	60
+284	Telekinesis	Psiquico	60
+285	Magic Room	Psiquico	60
+286	Smack Down	Piedra	50
+287	Storm Throw	Lucha	60
+288	Flame Burst	Fuego	70
+289	Sludge Wave	Veneno	95
+290	Heavy Slam	Acero	60
+291	Electro	Electrico	60
+292	Low Sweep	Lucha	65
+293	Acid Spray	Veneno	40
+294	Foul Play	Siniestro	95
+295	Simple Beam	Normal	60
+296	Entrainment	Normal	60
+297	After You	Normal	60
+298	Round	Normal	60
+299	Chip Away	Normal	70
+300	Clear Smog	Veneno	50
+301	Quick Guard	Lucha	60
+302	Ally Switch	Psiquico	60
+303	Scald	Aguas	80
+304	Shell Smash	Normal	60
+305	Heal Pulse	Psiquico	60
+306	Sky Drop	Volador	60
+307	Shift Gear	Acero	60
+308	Incinerate	Fuego	60
+309	Quash	Siniestro	60
+310	Acrobatics	Volador	55
+311	Retaliate	Normal	70
+312	Bestow	Normal	60
+313	Inferno	Fuego	100
+314	Fire Pledge	Fuego	80
+315	Volt Switch	Electrico	70
+316	Bulldoze	Tierra	60
+317	Dragon Tail	Dragon	60
+318	Work Up	Normal	60
+319	Electroweb	Electrico	55
+320	Wild Charge	Electrico	90
+321	Drill Run	Tierra	80
+322	Dual Chop	Dragon	40
+323	Heart Stamp	Psiquico	60
+324	Horn Leech	Planta	75
+325	Razor Shell	Aguas	75
+326	Heat Crash	Fuego	60
+327	Steamroller	Bicho	65
+328	Night Daze	Siniestro	85
+329	Psystrike	Psiquico	100
+330	Tail Slap	Normal	25
+331	Hurricane	Volador	110
+332	Head Charge	Normal	120
+333	Gear Grind	Acero	50
+334	Relic Song	Normal	75
+335	Glaciate	Hielo	65
+336	Bolt Strike	Electrico	130
+337	Blue Flare	Fuego	130
+338	Fiery Dance	Fuego	80
+339	Ice Burn	Hielo	140
+340	Snarl	Siniestro	55
+341	V-create	Fuego	180
+342	Fusion Bolt	Electrico	100
+343	Mat Block	Lucha	60
+344	Belch	Veneno	120
+345	Rototiller	Tierra	60
+346	Sticky Web	Bicho	60
+347	Noble Roar	Normal	60
+348	Ion Deluge	Electrico	60
+349	Freeze-Dry	Hielo	70
+350	Topsy-Turvy	Siniestro	60
+351	Electrify	Electrico	60
+352	Play Rough	Hadas	90
+353	Fairy Wind	Hadas	40
+354	Moonblast	Hadas	95
+355	Boomburst	Normal	140
+356	Fairy Lock	Hadas	60
+357	Play Nice	Normal	60
+358	Confide	Normal	60
+359	Powder	Bicho	60
+360	Geomancy	Hadas	60
+361	Happy Hour	Normal	60
+362	Celebrate	Normal	60
+363	Nuzzle	Electrico	20
+364	Infestation	Bicho	20

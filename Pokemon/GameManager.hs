@@ -9,6 +9,8 @@ import GameUI
 import Pokemon
 import Daño
 import Enemigo
+import GameUI (textBox, readFileSprites, clearScreen, pokemonBattleUI)
+import UIColors (colorLucha, colorPlanta)
 
 main :: IO()
 main = do
@@ -58,9 +60,10 @@ generaBattle = do
   --Obtengo la Semilla y la parseo
   let (semillaPokemon, semillaHabilidades) = parseoSemilla seed
 
-  pokemons <- loadPokemons t h semillaHabilidades
+  pokemonAliado <- loadPokemons t h semillaHabilidades
+  pokemonEnemigo <- loadPokemons t h (semillaHabilidades*79)
 
-  let team@(enemigo,_) = get2RandomsPokemons pokemons semillaPokemon
+  let team@(enemigo,_) = (getPokemonRandom pokemonEnemigo (semillaPokemon*79) ,getPokemonRandom pokemonAliado semillaPokemon)
   setBattle team ("El enemigo ha sacado a " ++ setColor red (getPokemonNombre enemigo) ++ ". ¿Qué hará nuestro entrenador?") True
 
 {-
@@ -70,9 +73,10 @@ setBattle :: (Pokemon, Pokemon) -> String -> Bool -> IO()
 setBattle pokemons@(p1,_) comentario turno = do
     clearScreen
     pokemonBattleUI pokemons
-    textBox comentario
 
-    getLine
+    endGame pokemons comentario
+    
+    textBox comentario
 
     if turno then 
         do
@@ -86,6 +90,7 @@ setBattle pokemons@(p1,_) comentario turno = do
                     setBattle pokemons ("No puedes cambiar ahora," ++ setColor red "no tienes más Pokemons" ++ ". Vaya torpe, ni contar sus pokemons sabe.") True
     else
         do
+            getLine
             (comentario, newPokemons) <- generateEnemyAttack pokemons
             setBattle (p1,newPokemons) comentario True
 
@@ -94,7 +99,7 @@ setAttack :: (Pokemon, Pokemon) -> String -> IO()
 setAttack pokemons@(p1,p2) s = do   
     clearScreen
     pokemonBattleUI pokemons
-    putStrLn $ habilidadesUI (getPokemonHabilidades p1)
+    putStrLn $ habilidadesUI (getPokemonHabilidades p2)
     ataque <- instruccionColor s yellow
     input ataque
     where
@@ -119,6 +124,38 @@ setAttack pokemons@(p1,p2) s = do
                     setAttack pokemons $ "Ese ataque no sirve mamawebo " ++ "¿Qué Ataque eligirá nuestro (bobo) Entrenador?"
 
 
+--End Game
+endGame :: (Pokemon, Pokemon) -> String -> IO()
+endGame (p1,p2) comentario
+    | getPokemonVida p1 <= 0 = ganar comentario
+    | getPokemonVida p2 <= 0 = perder comentario
+    | otherwise = putStr "" 
+
+ganar :: String -> IO()
+ganar s = do 
+    textBox $ s ++ setColor colorPlanta "¡ENHORABUENA HAS GANADO A UN BOT QUE ELIGE ATAQUES ALEATORIOS CON UNA POSIBILIDAD DEL 25% CADA ATAQUE! QUÉ MÁQUINA, TA TO ESHO UN COSINITA"
+    getLine
+    clearScreen
+    putStr colorLucha
+    readFileSprites "Data/win.txt"
+    putStr yellow
+    readFileSprites "Data/gameOver.txt"
+    putStr none
+    getLine
+    main
+
+perder :: String -> IO()
+perder s = do 
+    textBox $ s ++ setColor colorLucha "Nuestro Entrenador ha quedado totalmente fuera de combate ¡Valiente despojo Humano!"
+    getLine
+    clearScreen
+    putStr green
+    readFileSprites "Data/perder.txt"
+    putStr blue
+    readFileSprites "Data/gameOver.txt"
+    putStr none
+    getLine
+    main
 
 --Carga los tipos de los pokemons
 loadTipos :: IO [Tipo]

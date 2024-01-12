@@ -114,27 +114,27 @@ generarComentario :: Pokemon -> Habilidad -> (Double, Double) -> String
 generarComentario p h (e,c) = "Nuestro entrenador ha usado " ++  setColorHabilidad h ++ " contra " ++ getPokemonNombre p ++ ". " ++ eficaz ++ critico
   where
     eficaz 
-      | e == 4 = "Madre mía, el ataque ha dejado temblando al oponente ¡ES SUPER EFICAZ! "
-      | e == 2 = "Que buen ataque, como sabe nuestro entrenador las debilidades de su oponente, ha hecho una taque muy eficaz. "
+      | e == 4 = "Madre mía, el ataque ha dejado temblando al oponente, ha sido un x4... ¡ES SUPER EFICAZ! "
+      | e == 2 = "Que buen ataque, como sabe nuestro entrenador las debilidades de su oponente, ha hecho un ataque muy eficaz. "
       | e == 0.5 = "¡Vaya, no sé que le  habrá dado a nuestro entrenador usando ese ataque poco eficaz contra su oponente! "
       | e == 0.25 = "¡El oponente no ha sentido ni cosquillas con ese ataque tan débil! "
       | e == 0 = "Enserio... Le has hecho un ataque al cual tu oponente es inmune... ¡ESPABILA! "
-      |otherwise = ""
+      |otherwise = "Un ataque bastante normal, ha optado por lo seguro nuestro Entrenador. "
     critico 
-      | c == 2 = setColor red "¡Ha sido un golpe crítico!"
+      | c == 2 = setColor red "¡Ha sido un golpe crítico! "
       | otherwise = ""
 
 
 generarComentarioEnemigo :: Pokemon -> Habilidad -> (Double, Double) -> String
-generarComentarioEnemigo p h (e,c) = "El pokemon enemigo ha usado " ++  setColorHabilidad h ++ " contra " ++ getPokemonNombre p ++ ". " ++ eficaz ++ critico
+generarComentarioEnemigo p h (e,c) = "El pokemon enemigo ha usado " ++  setColorHabilidad h ++ " sobre tu " ++ getPokemonNombre p ++ ". " ++ eficaz ++ critico
   where
     eficaz 
-      | e == 4 = "Enemigo putiaso"
-      | e == 2 = "Enemigo putiaso"
-      | e == 0.5 = "Enemigo putiaso"
-      | e == 0.25 = "Enemigo putiaso "
-      | e == 0 = "Enemigo putiaso"
-      |otherwise = ""
+      | e == 4 = "¡DIOS! un x4 a tu pokemon, suerte si ha sobrevivido a eso... "
+      | e == 2 = "¡Qué buen ataque! Es un ataque muy eficaz contra tu pokemon. "
+      | e == 0.5 = "El Pokemon de nuestro entrenador ha aguantado el ataque sin mucho risego. "
+      | e == 0.25 = "¡NI SE HA INMUTADO! Cómo aguanta este pokemon. "
+      | e == 0 = "¿Inmunne? Oh venga ya, prestad más atención a los tipos, señores. "
+      |otherwise = "Ha sido un ataque neutral para tu pokemon. "
     critico 
-      | c == 2 = setColor red "Vaya hostión Willy"
+      | c == 2 = setColor red " Vaya hostión Willy, le ha dao un crítico a tu pokemon. "
       | otherwise = ""

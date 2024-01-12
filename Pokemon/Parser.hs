@@ -1,4 +1,4 @@
-module Parser (parsearHabilidades, parsearTipos, parsearPokemons, parseoSemilla, get2RandomsPokemons) where
+module Parser (parsearHabilidades, parsearTipos, parsearPokemons, parseoSemilla, getPokemonRandom) where
 
 import PokemonData
 import Tipo
@@ -104,8 +104,8 @@ parseoUnaSolaHabilidad h = (Habilidad id nombreHabilidad poder tipo)
         lista = splitText (=='\t') h
         id = (read.head) lista
         nombreHabilidad = lista!!1
-        poder = read (lista!!2)
-        tipo = lista!!3
+        poder = read (lista!!3)
+        tipo = lista!!2
 
 
 --Parseo de Pokemons----------------------------------------------------------
@@ -137,14 +137,12 @@ pokemonSetHabilidades t ac seed
             | elem (t!!rand) ac = []
             | otherwise = [t!!rand]
 
-get2RandomsPokemons :: [Pokemon] -> Int -> (Pokemon,Pokemon)
-get2RandomsPokemons p seed = (p!!rand, p!!rand2)
+getPokemonRandom :: [Pokemon] -> Int -> Pokemon
+getPokemonRandom p seed = p!!rand
     where
         generator = mkStdGen seed
-        generator2 = mkStdGen (seed*97)
         n = length p
-        (rand, _) = randomR (0,n-1) generator
-        (rand2, _) = randomR (0,n-1) generator2
+        (rand, _) = randomR (0,n) generator
 
 parseoSemilla :: String -> (Int, Int)
 parseoSemilla s 
