@@ -4,13 +4,11 @@ import System.Directory
 import Tipo
 import PokemonData
 import UIColors
-
 import Parser
 import GameUI
-
 import Pokemon
-
 import Daño
+import Enemigo
 
 main :: IO()
 main = do
@@ -63,26 +61,34 @@ generaBattle = do
   pokemons <- loadPokemons t h semillaHabilidades
 
   let team@(enemigo,_) = get2RandomsPokemons pokemons semillaPokemon
-  setBattle team $ "El enemigo ha sacado a " ++ setColor red (getPokemonNombre enemigo) ++ ". ¿Qué hará nuestro entrenador?"
+  setBattle team ("El enemigo ha sacado a " ++ setColor red (getPokemonNombre enemigo) ++ ". ¿Qué hará nuestro entrenador?") True
 
 {-
     Muestra la batalla por pantalla
 -}
-setBattle :: (Pokemon, Pokemon) -> String -> IO()
-setBattle pokemons@(p1,p2) comentario = do
+setBattle :: (Pokemon, Pokemon) -> String -> Bool -> IO()
+setBattle pokemons@(p1,_) comentario turno = do
     clearScreen
-    putStrLn ""
     pokemonBattleUI pokemons
-    textBox comentario  
+    textBox comentario
 
-    eleccion <- instruccionColor yellow $ "Elige una acción: " ++ setColor red "[Atacar] " ++ setColor blue "[Cambiar]"
-    if eleccion == "Atacar" then 
+    getLine
+
+    if turno then 
         do
-            setAttack pokemons "\n¿Qué ataque quieres realizar? [Back] "
-          
-    else 
-        do 
-            setBattle pokemons $ "No puedes cambiar ahora," ++ setColor red "no tienes más Pokemons" ++ ". Vaya torpe, ni contar sus pokemons sabe."
+            eleccion <- instruccionColor yellow $ "Elige una acción: " ++ setColor red "[Atacar] " ++ setColor blue "[Cambiar]"
+            if eleccion == "Atacar" then 
+                do
+                    setAttack pokemons "\n¿Qué ataque quieres realizar? [Back] "
+                
+            else 
+                do 
+                    setBattle pokemons ("No puedes cambiar ahora," ++ setColor red "no tienes más Pokemons" ++ ". Vaya torpe, ni contar sus pokemons sabe.") True
+    else
+        do
+            (comentario, newPokemons) <- generateEnemyAttack pokemons
+            setBattle (p1,newPokemons) comentario True
+
 
 setAttack :: (Pokemon, Pokemon) -> String -> IO()
 setAttack pokemons@(p1,p2) s = do   
@@ -96,15 +102,14 @@ setAttack pokemons@(p1,p2) s = do
             | elem ataque (getPokemonNombreHabilidades p2) =
                 do
                     let habilidadSelec = getPokemonHabilidadPorNombre ataque (getPokemonHabilidades p2)
-                    let pokemonEnemig = p1
-                    let pokemonAliado = p2
                     
                     critico <- esCritico
 
-                    hacerElDaño (pokemonEnemig,pokemonAliado) habilidadSelec critico
+                    let (comentario,p1) = hacerElDaño pokemons habilidadSelec critico True
+                    setBattle (p1,p2) comentario False
             | ataque == "Back" = 
                 do
-                    setBattle pokemons "Vaya, parece que nuestro entrenador se ha arrepentido de atacar ¿De qué     otra acción se arrepentirá?"
+                    setBattle pokemons "Vaya, parece que nuestro entrenador se ha arrepentido de atacar ¿De qué     otra acción se arrepentirá?" True
             | otherwise =
                 do 
                     putStr red
@@ -112,48 +117,6 @@ setAttack pokemons@(p1,p2) s = do
                     putStr none
                     getLine
                     setAttack pokemons $ "Ese ataque no sirve mamawebo " ++ "¿Qué Ataque eligirá nuestro (bobo) Entrenador?"
-
-{-
-Antes que nada, la fórmula de daño de Pokemon está guardada en un archivo .png llamada FormulaDeDaño, pero en nuestro caso
-ya que estamos haciendo un pokemon mucho más simplificado, nuestra formula de daño quedaría de la siguiente forma:
-
-        #################################################
-
-                                1.2 * P
-            0.01 * B * E * ( ______________ + 2 ) * C
-                                 25
-
-        #################################################
-
-    Donde:
-        B.- Bonificación de daño si el pokemon que lo lanza es del mismo tipo que el ataque (x1.5 o x1)
-
-        E.- Efectividad del ataque, si el ataque es bueno contra el tipo del pokemon Rival
-
-        P.- Poder del ataque, que sería la potencia que tiene la habilidad
-
-        C.- Crítico o no, con una posibilidad del 10%, multiplicando la potencia del ataque x2
-    
-    Por lo tanto, vamos a realizar una función auxiliar por cada uno de los atributos variables
-    como lo son B (STAB), E (Defensas del enemigo), P (Poder del ataque) y C (es Crítico)
--}
-
-hacerElDaño :: (Pokemon,Pokemon) -> Habilidad -> Bool -> IO()
-hacerElDaño pokemons@(pe,pa) h crit = 
-    do
-        let daño = b * e * (((1.2*p)/(25)) + 2) * c * 2
-
-        let pokemonEnemigo = setPokemonVida pe daño
-
-        let comentario = generarComentario pe h (e,c)
-
-        setBattle (pokemonEnemigo,pa) comentario
-        where 
-            b = esSTAB pa h
-            e = esEficaz pe h
-            p = obtenerPotenciaHabilidad h 
-            c | crit = 2
-              | otherwise = 1
 
 
 

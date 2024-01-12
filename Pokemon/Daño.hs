@@ -1,4 +1,4 @@
-module Daño where
+module Daño (tiempo, esCritico, esSTAB, esEficaz, esDefensivo, obtenerPotenciaHabilidad, hacerElDaño) where 
 
 import Data.Time.Clock.POSIX (getPOSIXTime)
 import System.Random
@@ -8,9 +8,10 @@ import PokemonData
 import Tipo
 import Pokemon
 import UIColors
+import GameUI 
 
 {-
-Antes que nada, la fórmula de daño de Pokemon está guardada en un archivo .png llamada FormulaDeDaño, pero en nuestro caso
+Antes que nada, la fórmula de daño de Pokemon está guardada en un archivo .png llamada FormulaDeDaño, pObjetivoro en nuestro caso
 ya que estamos haciendo un pokemon mucho más simplificado, nuestra formula de daño quedaría de la siguiente forma:
 
         #################################################
@@ -41,8 +42,8 @@ ya que estamos haciendo un pokemon mucho más simplificado, nuestra formula de d
 -----------------------------------------------------------------------------------------
 
 {-
-tiempo:
-    Tiempo coge el tiempo actual en milisegundos, lo parseo (x1000) para que no sea float y sea Int para poder usarlo como semilla
+rand:
+    rand coge el rand actual en milisegundos, lo pAtacanterseo (x1000) pAtacantera que no sea float y sea Int pAtacantera poder usarlo como semilla
     Enlace donde he cogido referencias: 
         https://stackoverflow.com/questions/42843882/how-do-you-get-a-millisecond-precision-unix-timestamp-in-haskell
 -}
@@ -78,7 +79,7 @@ esSTAB (Pokemon _ (tipo1, tipo2) _ _) habilidad
 -- Devolverá un Double [x0,x0.5,x1,x2] si el ataque es inmmune, debil, neutro o fuerte contra el pokemon que se 
 -- está utilizando dicho ataque
 -- 
--- Parámetros de entrada:
+-- pAtacanterámetros de entrada:
 --      -. Pokemon enemigo (2 tipos o ninguno)
 --      -. Habilidad
 -----------------------------------------------------------------------
@@ -115,15 +116,15 @@ getEficaciaAtaque tipoHabilidad tipoPokemon
     | esInmune tipoHabilidad tipoPokemon = 0.0
     | otherwise = 1.0
 
--- Aux para comprobar si es débil
+-- Aux pAtacantera comprobar si es débil
 esDebil :: String -> Tipo -> Bool
 esDebil h (Nombre _ (_,Defensas [Debil debilidades,_,_])) = elem h debilidades
 
--- Aux para comprobar si es fuerte
+-- Aux pAtacantera comprobar si es fuerte
 esFuerte :: String -> Tipo -> Bool
 esFuerte h (Nombre _ (_,Defensas [_,Fuerte fortalezas,_])) = elem h fortalezas
 
--- Aux para comprobar si es inmune
+-- Aux pAtacantera comprobar si es inmune
 esInmune :: String -> Tipo -> Bool
 esInmune h (Nombre _ (_,Defensas [_,_,Inmune inmunidades])) = elem h inmunidades
 
@@ -151,10 +152,10 @@ esDefensivo (Pokemon _ (tipo1, tipo2) _ _) (Habilidad _ _ _ tipoH)
 
 {-
     Calcula si un tipo es defensivo contra otro Tipo. Exactamente
-    recíproco a la función anterior. Pero en este caso, si el tipo 2
+    recíproco a la función anterior. PObjetivoro en este caso, si el tipo 2
     es Debil, devolverá x2, y si el segudno tipo es fuerte devolverá
     x0.5, e inmunne se queda igual x0. Esto es porque el Acero, por ejemplo,
-    es fuerte defendiendose contra el Normal (x0.5), pero Debil defendiendose
+    es fuerte defendiendose contra el Normal (x0.5), pObjetivoro Debil defendiendose
     contra el tipo Lucha (x2) y el veneno no afecta al Acero (x0)
 
             Ejemplo:
@@ -170,17 +171,76 @@ getEficaciaDefensas h tipo2
     | esInmune' h tipo2 = 0.0
     | otherwise = 1.0
 
--- Aux para comprobar si es débil
+-- Aux pAtacantera comprobar si es débil
 esDebil' :: String -> Tipo -> Bool
 esDebil' h (Nombre _ (_, Ataques [Debil debilidades,_,_])) = elem h debilidades
 esDebil' _ _ = False
 
--- Aux para comprobar si es fuerte
+-- Aux pAtacantera comprobar si es fuerte
 esFuerte' :: String -> Tipo -> Bool
 esFuerte' h (Nombre _ (_, Ataques  [_,Fuerte fortalezas,_])) = elem h fortalezas
 esFuerte' _ _ = False
 
--- Aux para comprobar si es inmune
+-- Aux pAtacantera comprobar si es inmune
 esInmune' :: String -> Tipo -> Bool
 esInmune' h (Nombre _ (_, Ataques  [_,_,Inmune inmunidades])) = elem h inmunidades
 esInmune' _ _ = False
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+{-
+Antes que nada, la fórmula de daño de Pokemon está guardada en un archivo .png llamada FormulaDeDaño, pObjetivoro en nuestro caso
+ya que estamos haciendo un pokemon mucho más simplificado, nuestra formula de daño quedaría de la siguiente forma:
+
+        #################################################
+
+                                1.2 * P
+            0.01 * B * E * ( ______________ + 2 ) * C
+                                 25
+
+        #################################################
+
+    Donde:
+        B.- Bonificación de daño si el pokemon que lo lanza es del mismo tipo que el ataque (x1.5 o x1)
+
+        E.- Efectividad del ataque, si el ataque es bueno contra el tipo del pokemon Rival
+
+        P.- Poder del ataque, que sería la potencia que tiene la habilidad
+
+        C.- Crítico o no, con una posibilidad del 10%, multiplicando la potencia del ataque x2
+    
+    Por lo tanto, vamos a realizar una función auxiliar por cada uno de los atributos variables
+    como lo son B (STAB), E (Defensas del enemigo), P (Poder del ataque) y C (es Crítico)
+-}
+
+hacerElDaño :: (Pokemon,Pokemon) -> Habilidad -> Bool -> Bool -> (String,Pokemon)
+hacerElDaño (pObjetivo,pAtacante) h crit turno = (comentario,nuevoPokemonObjetivo)
+        where 
+            comentario 
+                | turno = generarComentario pObjetivo h (e,c)
+                | otherwise = generarComentarioEnemigo pObjetivo h (e,c)
+            b = esSTAB pAtacante h
+            e = esEficaz pObjetivo h
+            p = obtenerPotenciaHabilidad h 
+            c | crit = 2
+              | otherwise = 1
+            daño = b * e * (((1.2*p)/25) + 2) * c * 2
+            nuevoPokemonObjetivo = (setPokemonVida pObjetivo daño)::Pokemon

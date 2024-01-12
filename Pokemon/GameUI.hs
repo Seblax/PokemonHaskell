@@ -123,3 +123,18 @@ generarComentario p h (e,c) = "Nuestro entrenador ha usado " ++  setColorHabilid
     critico 
       | c == 2 = setColor red "¡Ha sido un golpe crítico!"
       | otherwise = ""
+
+
+generarComentarioEnemigo :: Pokemon -> Habilidad -> (Double, Double) -> String
+generarComentarioEnemigo p h (e,c) = "El pokemon enemigo ha usado " ++  setColorHabilidad h ++ " contra " ++ getPokemonNombre p ++ ". " ++ eficaz ++ critico
+  where
+    eficaz 
+      | e == 4 = "Enemigo putiaso"
+      | e == 2 = "Enemigo putiaso"
+      | e == 0.5 = "Enemigo putiaso"
+      | e == 0.25 = "Enemigo putiaso "
+      | e == 0 = "Enemigo putiaso"
+      |otherwise = ""
+    critico 
+      | c == 2 = setColor red "Vaya hostión Willy"
+      | otherwise = ""

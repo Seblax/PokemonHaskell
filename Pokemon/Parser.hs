@@ -4,6 +4,7 @@ import PokemonData
 import Tipo
 import System.Random
 import UIColors
+import Pokemon (getPokemonNombre)
 
 {-
     Función que separa un String en función de un Predicado dado.
@@ -122,7 +123,7 @@ parsearUnSoloPokemon p t h seed = Pokemon nombre (t1, t2) vida habilidades
         t1 = getTipoPorNombre t (lista!!2)
         t2 | lista!!3 == "null" = Null
            | otherwise = getTipoPorNombre t (lista!!3)  
-        habilidades = pokemonSetHabilidades h [] seed
+        habilidades = pokemonSetHabilidades h [] (seed)
 
 pokemonSetHabilidades :: [Habilidad] -> [Habilidad] -> Int -> [Habilidad]
 pokemonSetHabilidades t ac seed
