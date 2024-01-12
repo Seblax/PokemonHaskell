@@ -131,10 +131,10 @@ pokemonSetHabilidades t ac seed
     where
         generator = mkStdGen seed
         n = length t
-        (rand, _) = randomR (0,(n-1)) generator
+        (rand, _) = randomR (0,n-1) generator
         nuevoAtaque 
             | elem (t!!rand) ac = []
-            | otherwise = [(t!!rand)]
+            | otherwise = [t!!rand]
 
 get2RandomsPokemons :: [Pokemon] -> Int -> (Pokemon,Pokemon)
 get2RandomsPokemons p seed = (p!!rand, p!!rand2)
@@ -142,12 +142,12 @@ get2RandomsPokemons p seed = (p!!rand, p!!rand2)
         generator = mkStdGen seed
         generator2 = mkStdGen (seed*97)
         n = length p
-        (rand, _) = randomR (0,(n-1)) generator
-        (rand2, _) = randomR (0,(n-1)) generator2
+        (rand, _) = randomR (0,n-1) generator
+        (rand2, _) = randomR (0,n-1) generator2
 
 parseoSemilla :: String -> (Int, Int)
 parseoSemilla s 
-    | and [(length s2 <= 8),(length s1 <=8)] = (read s1, read s2)
+    | length s2 <= 8 && length s1 <=8 = (read s1, read s2)
     | otherwise = error $ "El formato de la " ++ red ++ "semilla" ++ none ++ " no es correcto"
     where 
         semillas = splitText (=='-') s

@@ -55,7 +55,7 @@ generaBattle = do
   h <- loadHabilities
 
   textBox "La Seed sirve para generar una partida aleatoria con Pokemons y sus respec-tivas Habilidades randomizadas, para poder disfrutar de una partida única  cada vez que se añada una seed distinta. El formato de la Seed debe de ser el sifuiente xxxxxxxx-xxxxxxxx conformada por números enteros. \nPor ejemplo: 12345678-12345678"
-  seed <- (instruccionColor "Añadir Seed de la partida 'XXXXXXXX-XXXXXXXX':" green)
+  seed <- instruccionColor "Añadir Seed de la partida 'XXXXXXXX-XXXXXXXX':" green
 
   --Obtengo la Semilla y la parseo
   let (semillaPokemon, semillaHabilidades) = parseoSemilla seed
@@ -190,13 +190,13 @@ loadTipos = do
 loadHabilities :: IO [Habilidad]
 loadHabilities =  do 
     fichero <- readFile "Data/Habilidades.txt"
-    let lineas = (lines fichero)
+    let lineas = lines fichero
     let res = parsearHabilidades lineas
     return res
 
 loadPokemons :: [Tipo] -> [Habilidad] -> Int ->IO [Pokemon]
 loadPokemons tipos habilidades seed =  do 
     fichero <- readFile "Data/Pokemons.txt"
-    let lineas = (lines fichero)
+    let lineas = lines fichero
     let res = parsearPokemons lineas tipos habilidades seed
     return res

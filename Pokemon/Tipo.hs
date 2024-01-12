@@ -2,24 +2,7 @@ module Tipo where
 import PokemonData
 
 {-
-acero::Tipo
-acero = Nombre "Acero" (aceroAtaque,aceroDefensa)
-aceroAtaque :: Tipo
-aceroAtaque = Ataques [ Debil ["Acero","Fuego","Agua","Eléctrico"], Fuerte ["Roca","Hielo","Hada"]]
-aceroDefensa :: Tipo
-aceroDefensa = Defensas [Debil ["Lucha", "Fuego", "Tierra"], Fuerte ["Normal", "Volador", "Roca", "Bicho", "Acero", "Planta", "Psíquico", "Hielo", "Dragón", "Hada"], Inmune ["Veneno"]]
--}
-
-{-
-    Dado un Tipo, devuelvel el nombre del contructor: data Tipo = Principal Nombre [Tipo] | 
-                                                                        Defensa [Tipo] | 
-                                                                        Ataques [Tipo] | 
-                                                                        Debil Nombre | 
-                                                                        Fuerte Nombre | 
-                                                                        Inmune Nombre | 
-                                                                        Tipo Nombre |
-                                                                        Null
-
+    Dado un Tipo, devuelvel el nombre del tipo
         Ej
             fuego::Tipo
             fuego = Principal "Fuego" [Debil "Agua", Fuerte "Planta"]
@@ -31,8 +14,7 @@ getNombreTipo Null = ""
 getNombreTipo _ = error "Error al extraer el nombre del tipo!"
 
 {-
-    Dado un Ataque, devuelvel el nombre del tipo del ataque con el contructor: Ataque ID Nombre Daño String
-
+    Dado una Habilidad, devuelv el nombre del tipo de la Habilidad 
         Ej:
             hidropulso :: Ataque
             hidropulso = Ataque 0 "Hidropulso" 70 "Agua"
@@ -42,12 +24,8 @@ getNombreTipo _ = error "Error al extraer el nombre del tipo!"
 getTipoHabilidad :: Habilidad -> String
 getTipoHabilidad (Habilidad _ _ _ x) = x
 
-getAtkDef :: Tipo -> ([Tipo],[Tipo])
-getAtkDef (Nombre _ (Ataques atk, Defensas def)) = (atk, def)
-getAtkDef _ = error "El Pokemon/Ataque carece de tipo!" 
-
 esNull :: Tipo -> Bool
-esNull (Null) = True
+esNull Null = True
 esNull _ = False
 
 {-

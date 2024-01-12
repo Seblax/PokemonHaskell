@@ -1,18 +1,19 @@
-Acero
-Aguas
-Bicho
-Dragón
-Eléctrico
-Fantasma
-Fuego
-Hadas
-Hielo
-Lucha
-Normal
-Planta
-Psíquico
-Roca
-Siniestro
-Tierra
-Veneno
-Volador
+#Numero de semillas donde salen estos Pokemons
+Acero :2-XXXXXXXX
+Aguas :333-XXXXXXXX
+Bicho :4-XXXXXXXX
+Dragón :1234-XXXXXXXX
+Eléctrico :5-XXXXXXXX
+Fantasma :3211-XXXXXXXX
+Fuego :12-XXXXXXXX
+Hadas :12345-XXXXXXXX
+Hielo :6-XXXXXXXX
+Lucha :2-XXXXXXXX
+Normal :3211-XXXXXXXX
+Planta :2-XXXXXXXX
+Psíquico :1-XXXXXXXX
+Piedra :321-XXXXXXXX
+Siniestro :1234-XXXXXXXX
+Tierra :12-XXXXXXXX
+Veneno :4-XXXXXXXX
+Volador :12345-XXXXXXXX

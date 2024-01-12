@@ -145,6 +145,3 @@ acero = Nombre "Acero" (
         Fuerte ["Roca","Hielo","Hada"],
         Inmune []
         ])
-
-
-

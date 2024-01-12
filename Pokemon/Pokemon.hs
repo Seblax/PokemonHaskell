@@ -24,9 +24,9 @@ getPokemonVida :: Pokemon -> Hp
 getPokemonVida (Pokemon _ _ vida _)= vida
 
 setPokemonVida :: Pokemon -> Double -> Pokemon
-setPokemonVida (Pokemon n t hp h) daño = (Pokemon n t pupita h)
+setPokemonVida (Pokemon n t hp h) daño = Pokemon n t pupita h
     where
-        pupita = hp - (round (daño) :: Int)
+        pupita = hp - (round daño :: Int)
 
 
 getPokemonHabilidades :: Pokemon -> [Habilidad]

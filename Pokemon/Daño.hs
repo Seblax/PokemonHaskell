@@ -47,7 +47,7 @@ tiempo:
         https://stackoverflow.com/questions/42843882/how-do-you-get-a-millisecond-precision-unix-timestamp-in-haskell
 -}
 tiempo :: IO Int
-tiempo =  (round . (* 1000)) <$> getPOSIXTime
+tiempo = round . (* 1000) <$> getPOSIXTime
 
 {-
     Una vez obtenido el tiempo en milisegundos, simplemente genero un numero aleatorio dodne la semilla sea el tiempo en milisegundo
