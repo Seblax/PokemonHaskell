@@ -74,33 +74,11 @@ setBattle pokemons@(p1,p2) comentario = do
     putStrLn ""
     pokemonBattleUI pokemons
     textBox comentario  
-    
-    -- ----------------------
-    -- putStrLn $ "\nPokemon: " ++ getPokemonNombre p1 
-    -- putStrLn $ "Es Eficaz: " ++ show (esEficaz p1 (getPokemonHabilidades p2!!3) )
-    -- putStrLn $ "Habilidad: " ++ show ((getPokemonHabilidades p2)!!3)
-    -- ----------------------
-        
-    -- ----------------------
-    -- putStrLn $ "\nPokemon: " ++ getPokemonNombre p1 
-    -- putStrLn $ "Es Defensivo: " ++ show (esDefensivo p1 (getPokemonHabilidades p2!!3) )
-    -- putStrLn $ "Habilidad: " ++ show ((getPokemonHabilidades p2)!!3)
-    -- ----------------------
-
-    -- ----------------------
-    -- putStrLn $ "\n\nPokemon: " ++ getPokemonNombre p2
-    -- putStrLn $ "Tiene STAB: " ++ show (esSTAB p2 (getPokemonHabilidades p2!!3) ) ++ "\t Habilidad: " ++ show (getPokemonHabilidades p2!!3)
-    -- putStrLn $ "Habilidades: " ++ show (getPokemonHabilidades p2)
-    -- ----------------------
-
-    -- c <- esCritico
-    -- putStrLn $ "\n\nCrítico: " ++ show c
-
 
     eleccion <- instruccionColor yellow $ "Elige una acción: " ++ setColor red "[Atacar] " ++ setColor blue "[Cambiar]"
     if eleccion == "Atacar" then 
         do
-            setAttack pokemons ""
+            setAttack pokemons "\n¿Qué ataque quieres realizar? [Back] "
           
     else 
         do 
@@ -111,7 +89,7 @@ setAttack pokemons@(p1,p2) s = do
     clearScreen
     pokemonBattleUI pokemons
     putStrLn $ habilidadesUI (getPokemonHabilidades p1)
-    ataque <- instruccionColor "\n¿Qué ataque quieres realizar? [Back] " yellow
+    ataque <- instruccionColor s yellow
     input ataque
     where
         input ataque 
@@ -129,9 +107,11 @@ setAttack pokemons@(p1,p2) s = do
                     setBattle pokemons "Vaya, parece que nuestro entrenador se ha arrepentido de atacar ¿De qué     otra acción se arrepentirá?"
             | otherwise =
                 do 
-                    putStrLn "Ese ataque no sirve mamawebo"
-                    setAttack pokemons "¿Qué Ataque eligirá nuestro Entrenador?"
-
+                    putStr red
+                    readFileSprites "Data/tonteria.txt"
+                    putStr none
+                    getLine
+                    setAttack pokemons $ "Ese ataque no sirve mamawebo " ++ "¿Qué Ataque eligirá nuestro (bobo) Entrenador?"
 
 {-
 Antes que nada, la fórmula de daño de Pokemon está guardada en un archivo .png llamada FormulaDeDaño, pero en nuestro caso

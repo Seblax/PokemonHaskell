@@ -118,7 +118,7 @@ generarComentario p h (e,c) = "Nuestro entrenador ha usado " ++  setColorHabilid
       | e == 2 = "Que buen ataque, como sabe nuestro entrenador las debilidades de su oponente, ha hecho una taque muy eficaz. "
       | e == 0.5 = "¡Vaya, no sé que le  habrá dado a nuestro entrenador usando ese ataque poco eficaz contra su oponente! "
       | e == 0.25 = "¡El oponente no ha sentido ni cosquillas con ese ataque tan débil! "
-      | e == 0 = "Enserio... Le has hecho un ataque al cual tu oponente es inmune... ¡ESPÁVILA! "
+      | e == 0 = "Enserio... Le has hecho un ataque al cual tu oponente es inmune... ¡ESPABILA! "
       |otherwise = ""
     critico 
       | c == 2 = setColor red "¡Ha sido un golpe crítico!"
