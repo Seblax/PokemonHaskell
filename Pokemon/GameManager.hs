@@ -11,6 +11,7 @@ import Daño
 import Enemigo
 import GameUI (textBox, readFileSprites, clearScreen, pokemonBattleUI)
 import UIColors (colorLucha, colorPlanta)
+import System.Exit (exitWith)
 
 main :: IO()
 main = do
@@ -24,7 +25,9 @@ menuBehavior :: String -> IO ()
 menuBehavior s
   | s == "Start" = do wantToContinue
   | s == "Load" = do putStr $ green ++ "Has seleccionado LOAD!" ++ none
-  | s == "Exit" = do putStr $ red ++ "¡Hasta otra entrenador!" ++ none
+  | s == "Exit" = 
+    do 
+    putStrLn $ setColor red "¡Hasta otra Entrenador del Ciberespacio!"
   | otherwise = main
 
 
@@ -133,7 +136,7 @@ endGame (p1,p2) comentario
 
 ganar :: String -> IO()
 ganar s = do 
-    textBox $ s ++ setColor colorPlanta "¡ENHORABUENA HAS GANADO A UN BOT QUE ELIGE ATAQUES ALEATORIOS CON UNA POSIBILIDAD DEL 25% CADA ATAQUE! QUÉ MÁQUINA, TA TO ESHO UN COSINITA"
+    textBox $ s ++ setColor colorPlanta "\n\n¡ENHORABUENA HAS GANADO A UN BOT QUE ELIGE ATAQUES ALEATORIOS CON UNA POSIBILIDAD DEL 25% CADA ATAQUE! QUÉ MÁQUINA, TA TO ESHO UN COSINITA"
     getLine
     clearScreen
     putStr colorLucha
@@ -146,7 +149,7 @@ ganar s = do
 
 perder :: String -> IO()
 perder s = do 
-    textBox $ s ++ setColor colorLucha "Nuestro Entrenador ha quedado totalmente fuera de combate ¡Valiente despojo Humano!"
+    textBox $ s ++ setColor colorLucha "\n\nNuestro Entrenador ha quedado totalmente fuera de combate ¡Valiente despojo Humano!"
     getLine
     clearScreen
     putStr green

@@ -121,7 +121,7 @@ generarComentario p h (e,c) = "Nuestro entrenador ha usado " ++  setColorHabilid
       | e == 0 = "Enserio... Le has hecho un ataque al cual tu oponente es inmune... ¡ESPABILA! "
       |otherwise = "Un ataque bastante normal, ha optado por lo seguro nuestro Entrenador. "
     critico 
-      | c == 2 = setColor red "¡Ha sido un golpe crítico! "
+      | c == 2 && e /= 0 = setColor red "¡Ha sido un golpe crítico! "
       | otherwise = ""
 
 
@@ -136,5 +136,5 @@ generarComentarioEnemigo p h (e,c) = "El pokemon enemigo ha usado " ++  setColor
       | e == 0 = "¿Inmunne? Oh venga ya, prestad más atención a los tipos, señores. "
       |otherwise = "Ha sido un ataque neutral para tu pokemon. "
     critico 
-      | c == 2 = setColor red " Vaya hostión Willy, le ha dao un crítico a tu pokemon. "
+      | c == 2 && e /= 0 = setColor red " Vaya hostión Willy, le ha dao un crítico a tu pokemon. "
       | otherwise = ""
