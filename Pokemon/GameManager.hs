@@ -1,22 +1,20 @@
 import System.IO
 import System.Directory
 
-import Tipo
-import PokemonData
-import UIColors
+import Data.Tipo
+import Data.PokemonData
+import Data.Pokemon
+
+import UI.UIColors
+import UI.GameUI
+
 import Parser
-import GameUI
-import Pokemon
 import Daño
 import Enemigo
-import GameUI (textBox, readFileSprites, clearScreen, pokemonBattleUI)
-import UIColors (colorLucha, colorPlanta)
-import System.Exit (exitWith)
 
 main :: IO()
 main = do
     menuScreen
-    --Input del jugador
     n <- instruccionColor "Elige un botón del menú:" yellow
     menuBehavior n
 
@@ -125,8 +123,9 @@ setAttack pokemons@(p1,p2) s = do
             | otherwise =
                 do 
                     putStr red
-                    readFileSprites "Data/tonteria.txt"
+                    readFileSprites "Ficheros/Sprites/HabilidadMalEscrita.txt"
                     putStr none
+                    putStrLn "Pulsa 'Enter' para continuar"
                     getLine
                     setAttack pokemons $ "Ese ataque no sirve mamawebo " ++ "¿Qué Ataque eligirá nuestro (bobo) Entrenador?"
 
@@ -144,9 +143,9 @@ ganar s = do
     getLine
     clearScreen
     putStr colorLucha
-    readFileSprites "Data/win.txt"
+    readFileSprites "Ficheros/Sprites/Victoria.txt"
     putStr yellow
-    readFileSprites "Data/gameOver.txt"
+    readFileSprites "Ficheros/Sprites/GameOver.txt"
     putStr none
     getLine
     main
@@ -157,9 +156,9 @@ perder s = do
     getLine
     clearScreen
     putStr green
-    readFileSprites "Data/perder.txt"
+    readFileSprites "Ficheros/Sprites/Perder.txt"
     putStr blue
-    readFileSprites "Data/gameOver.txt"
+    readFileSprites "Ficheros/Sprites/GameOver.txt"
     putStr none
     getLine
     main
@@ -167,21 +166,21 @@ perder s = do
 --Carga los tipos de los pokemons
 loadTipos :: IO [Tipo]
 loadTipos = do
-    ficheroATK <- readFile "Data/AtkTypes.txt"
-    let ataques = drop 1 (lines ficheroATK)
-    let res = parsearTipos ataques
+    tablaDeTipos <- readFile "Ficheros/TablaDeTipos.txt"
+    let tipos = drop 1 (lines tablaDeTipos)
+    let res = parsearTipos tipos
     return res
     
 loadHabilities :: IO [Habilidad]
 loadHabilities =  do 
-    fichero <- readFile "Data/Habilidades.txt"
-    let lineas = lines fichero
-    let res = parsearHabilidades lineas
+    habilidadesSinParsear <- readFile "Ficheros/Habilidades.txt"
+    let habilidades = lines habilidadesSinParsear
+    let res = parsearHabilidades habilidades
     return res
 
 loadPokemons :: [Tipo] -> [Habilidad] -> Int ->IO [Pokemon]
 loadPokemons tipos habilidades seed =  do 
-    fichero <- readFile "Data/Pokemons.txt"
-    let lineas = lines fichero
-    let res = parsearPokemons lineas tipos habilidades seed
+    pokemonsSinParsear <- readFile "Ficheros/Pokemons.txt"
+    let pokemons = lines pokemonsSinParsear
+    let res = parsearPokemons pokemons tipos habilidades seed
     return res

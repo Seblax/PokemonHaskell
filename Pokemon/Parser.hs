@@ -1,10 +1,13 @@
 module Parser (parsearHabilidades, parsearTipos, parsearPokemons, parseoSemilla, getPokemonRandom) where
 
-import PokemonData
-import Tipo
+import Data.PokemonData
+import Data.Tipo
+
+
+import UI.UIColors
+import Data.Pokemon
+
 import System.Random
-import UIColors
-import Pokemon (getPokemonNombre)
 
 {-
     Función que separa un String en función de un Predicado dado.

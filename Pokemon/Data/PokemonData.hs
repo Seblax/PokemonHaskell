@@ -1,4 +1,4 @@
-module PokemonData where
+module Data.PokemonData where
 
 ----Sinonimos--------------------------
 -- Definidos para tener más limpiza visual

@@ -1,5 +1,5 @@
-module UIColors where
-import PokemonData
+module UI.UIColors where
+import Data.PokemonData
 
 type Color = String
 

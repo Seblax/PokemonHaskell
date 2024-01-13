@@ -1,12 +1,12 @@
-module GameUI where
+module UI.GameUI where
 
 import Data.Char
-import PokemonData
+import Data.PokemonData
 import System.Directory
 import System.IO
-import UIColors
-import Tipo
-import Pokemon
+import UI.UIColors
+import Data.Tipo
+import Data.Pokemon
 
 type Screen = String
 
@@ -17,7 +17,7 @@ menuScreen :: IO ()
 menuScreen = do
   clearScreen
   putStr blue
-  readFileSprites "Data/Menu.txt"
+  readFileSprites "Ficheros/Sprites/Menu.txt"
   putStr none
 
   putStrLn (justifyRight 52 ' ' (buttonUI "Start" yellow))

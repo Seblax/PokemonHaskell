@@ -1,7 +1,7 @@
-module Pokemon where
+module Data.Pokemon where
 
-import PokemonData
-import Tipo(getNombreTipo)
+import Data.PokemonData
+import Data.Tipo
 {-
 data Pokemon =  Pokemon Nombre (Tipo, Tipo) Hp [ID]
     deriving Show

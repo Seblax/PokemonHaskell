@@ -1,0 +1,19 @@
+Tipo	Debil (x0.5)	Fuerte (x2)	Inmune (x0)
+Acero	Acero Aguas Electrico Fuego	Hadas Hielo Piedra	null
+Aguas	Aguas Dragon Planta	Fuego Piedra Tierra	null
+Bicho	Acero Fantasma Fuego Hadas Lucha Veneno Volador	Planta Psiquico Siniestro	null
+Dragon	Acero	Dragon	Hadas
+Electrico	Dragon Electrico Planta	Aguas Volador	Tierra
+Fantasma	Siniestro	Fantasma Psiquico	Normal
+Fuego	Aguas Dragon Fuego Piedra	Acero Bicho Hielo Planta	null
+Hadas	Acero Fuego Veneno	Dragon Lucha Siniestro 	null
+Hielo	Acero Aguas Fuego Hielo	Dragon Planta Tierra Volador	null
+Lucha	Bicho Hadas Psiquico Veneno Volador	Acero Hielo Normal Piedra Siniestro	Fantasma
+Normal	Piedra Acero	null	Fantasma
+Planta	Acero Bicho Dragon Fuego Planta Veneno Volador	Aguas Piedra Tierra	null
+Psiquico	Acero Psiquico	Lucha Veneno	Siniestro
+Piedra	Acero Lucha Tierra	Bicho Fuego Hielo Volador	null
+Siniestro	Hadas Lucha Siniestro	Fantasma Psiquico	null
+Tierra	Bicho Planta	Acero Electrico Fuego Piedra Veneno	Volador
+Veneno	Fantasma Piedra Tierra Veneno	Hadas Planta	Acero
+Volador	Acero Electrico Piedra	Bicho Lucha Planta	null

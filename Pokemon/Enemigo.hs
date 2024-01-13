@@ -3,25 +3,21 @@ module Enemigo where
 import System.IO
 import System.Directory
 
-import Tipo
-import PokemonData
-import UIColors
+import Data.Tipo
+import Data.PokemonData
+import Data.Pokemon
 
 import Parser
-import GameUI
-
-import System.Random
-
-import Pokemon
 
 import Daño
+
+import UI.GameUI
+import UI.UIColors
 
 generateEnemyAttack :: (Pokemon, Pokemon) -> [Tipo] -> IO(String,Pokemon)
 generateEnemyAttack pokemons@(pokemonEnemig,pokemonAliado) tipos = 
     do           
-        seed <- tiempo
-        let generator = mkStdGen seed
-        let (rand, _) = randomR (0::Int,3::Int) generator
+        rand <- getNumRandomInterval 0 3
 
         let habilidad = getPokemonHabilidades pokemonEnemig !! rand 
         let tipoHabilidad = getTipoPorNombre tipos (getTipoHabilidad habilidad)

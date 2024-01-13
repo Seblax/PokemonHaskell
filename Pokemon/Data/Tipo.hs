@@ -1,5 +1,5 @@
-module Tipo where
-import PokemonData
+module Data.Tipo where
+import Data.PokemonData
 
 {-
     Dado un Tipo, devuelvel el nombre del tipo
