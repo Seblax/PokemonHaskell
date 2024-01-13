@@ -63,8 +63,6 @@ parsearTipos ataques defensas = [parseoUnSoloTipo s | s <- zip ataques defensas]
 parsearTipos :: [String] -> [String] -> [Tipo]
 parsearTipos ataques defensas = foldr (\(atk, def) ac -> parseoUnSoloTipo (atk, def) : ac) [] (zip ataques defensas)
 
-
-
 parseoUnSoloTipo :: (String, String) -> Tipo
 parseoUnSoloTipo (atk, def) = Nombre nombre (attak, defense)
     where

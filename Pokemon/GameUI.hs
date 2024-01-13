@@ -110,8 +110,15 @@ textBox s = do
 
 -------------------------------------------
 -- generarComentario pa h (e,d,c)
-generarComentario :: Pokemon -> Habilidad -> (Double, Double) -> String
-generarComentario p h (e,c) = "Nuestro entrenador ha usado " ++  setColorHabilidad h ++ " contra " ++ getPokemonNombre p ++ ". " ++ eficaz ++ critico
+generarComentario :: Pokemon -> Habilidad -> (Double, Double) -> Int -> Bool -> String
+generarComentario p h d daño turno = "Nuestro entrenador ha usado " ++  setColorHabilidad h ++ " contra " ++ getPokemonNombre p ++ " y ha hecho " ++ setColor red (show daño ++ " de daño. ") ++ comentario
+  where
+    comentario 
+      | turno = generarComentarioAliado d
+      | otherwise = generarComentarioEnemigo d
+
+generarComentarioAliado :: (Double, Double) -> String
+generarComentarioAliado (e,c)  = eficaz ++ critico
   where
     eficaz 
       | e == 4 = "Madre mía, el ataque ha dejado temblando al oponente, ha sido un x4... ¡ES SUPER EFICAZ! "
@@ -125,8 +132,8 @@ generarComentario p h (e,c) = "Nuestro entrenador ha usado " ++  setColorHabilid
       | otherwise = ""
 
 
-generarComentarioEnemigo :: Pokemon -> Habilidad -> (Double, Double) -> String
-generarComentarioEnemigo p h (e,c) = "El pokemon enemigo ha usado " ++  setColorHabilidad h ++ " sobre tu " ++ getPokemonNombre p ++ ". " ++ eficaz ++ critico
+generarComentarioEnemigo :: (Double, Double) -> String
+generarComentarioEnemigo (e,c) = eficaz ++ critico
   where
     eficaz 
       | e == 4 = "¡DIOS! un x4 a tu pokemon, suerte si ha sobrevivido a eso... "
