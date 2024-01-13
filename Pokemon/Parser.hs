@@ -74,7 +74,7 @@ parseoUnSoloTipo atk = Nombre nombre attak
         attak = Ataques [Debil atk_d, Fuerte atk_f, Inmune atk_i]
 
         --Obtiene el nombre del Tipo
-        nombre = head (splitText (=='|') atk)
+        nombre = head (splitText (=='\t') atk)
 
 
 --Parsea un String a una tupla de lista de Strings divididos de la siguiente forma:
@@ -85,7 +85,7 @@ parseoDebilFuerteInmune :: String -> ([String],[String],[String])
 parseoDebilFuerteInmune s = (debilidades, fortalezas, inmunidades)
     where
         --No nos interesa el nombre por lo tanto lo dropeamos
-        lista = drop 1 (splitText (=='|') s) 
+        lista = drop 1 (splitText (=='\t') s) 
 
         -- de la lista de strings cogemos los respectivos valores
         debilidades = (words.head) lista

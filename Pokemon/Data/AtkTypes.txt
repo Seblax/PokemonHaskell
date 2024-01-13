@@ -1,19 +1,19 @@
-Nombre      | Debil x(1/2)                                      | Fuerte x(2)                                                           | Inmune x(0)
-Acero| Acero Fuego Aguas Electrico| Piedra Hielo Hadas| 
-Aguas| Aguas Planta Dragon| Fuego Tierra Piedra| 
-Bicho| Lucha Volador Veneno Fantasma Acero Fuego Hadas| Planta Psiquico Siniestro| 
-Dragon| Acero| Dragon| Hadas 
-Electrico| Planta Electrico Dragon| Volador Acero| Tierra 
-Fantasma| Siniestro| Fantasma Psiquico| Normal
-Fuego| Piedra Fuego Aguas Dragon| Bicho Acero Planta Hielo| 
-Hadas| Acero Veneno Fuego| Lucha Dragon Siniestro| 
-Hielo| Acero Fuego Aguas Hielo| Volador Tierra Planta Dragon| 
-Lucha| Volador Veneno Bicho Psiquico Hadas| Normal Piedra Acero Hielo Siniestro|Fantasma 
-Normal| Piedra Acero|| Fantasma
-Planta| Volador Veneno Bicho Acero Fuego Planta Dragon| Tierra Piedra Aguas| 
-Psiquico| Acero Psiquico| Lucha Veneno| Siniestro 
-Piedra| Lucha Tierra Acero| Volador Bicho Fuego Hielo| 
-Siniestro| Lucha Hadas Siniestro| Fantasma Psiquico| 
-Tierra| Bicho Planta| Veneno Piedra Acero Fuego Electrico| Volador
-Veneno| Tierra Veneno Fantasma Piedra| Planta Hadas| Acero 
-Volador| Piedra Acero Electrico| Lucha Bicho Planta| Tierra
+Tipo	Debil (x0.5)	Fuerte (x2)	Inmune (x0)
+Acero	Acero Aguass Electrico Fuego	Hadas Hielo Piedra	
+Aguass	Aguass Dragon Planta	Fuego Piedra Tierra	
+Bicho	Acero Fantasma Fuego Hadas Lucha Veneno Volador	Planta Psiquico Siniestro	
+Dragon	Acero	Dragon	Hadas
+Electrico	Dragon Electrico Planta	Aguas Volador	Tierra
+Fantasma	Siniestro	Fantasma Psiquico	Normal
+Fuego	Aguas Dragon Fuego Piedra	Acero Bicho Hielo Planta	
+Hadass	Acero Fuego Veneno	Dragon Lucha Siniestro 	
+Hielo	Acero Aguas Fuego Hielo	Dragon Planta Tierra Volador	
+Lucha	Bicho Hadas Psiquico Veneno Volador	Acero Hielo Normal Piedra Siniestro	Fantasma
+Normal	Piedra Acero	null	Fantasma
+Planta	Acero Bicho Dragon Fuego Planta Veneno Volador	Aguas Piedra Tierra	
+Psiquico	Acero Psiquico	Lucha Veneno	Siniestro
+Piedra	Acero Lucha Tierra	Bicho Fuego Hielo Volador	
+Siniestro	Hadas Lucha Siniestro	Fantasma Psiquico	
+Tierra	Bicho Planta	Acero Electrico Fuego Piedra Veneno	Volador
+Veneno	Fantasma Piedra Tierra Veneno	Hadas Planta	Acero
+Volador	Acero Electrico Piedra	Bicho Lucha Planta	

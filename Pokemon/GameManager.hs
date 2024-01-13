@@ -57,9 +57,6 @@ generaBattle = do
   t <- loadTipos
   h <- loadHabilities
 
---   putStr (show (getTipoPorNombre t "Hielo"))
---   getLine
-
   textBox "La Seed sirve para generar una partida aleatoria con Pokemons y sus respec-tivas Habilidades randomizadas, para poder disfrutar de una partida única  cada vez que se añada una seed distinta. El formato de la Seed debe de ser el sifuiente xxxxxxxx-xxxxxxxx conformada por números enteros. \nPor ejemplo: 12345678-12345678"
   seed <- instruccionColor "Añadir Seed de la partida 'XXXXXXXX-XXXXXXXX':" green
 
