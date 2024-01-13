@@ -16,16 +16,17 @@ import Pokemon
 
 import Daño
 
-generateEnemyAttack :: (Pokemon, Pokemon) -> IO(String,Pokemon)
-generateEnemyAttack pokemons@(pokemonEnemig,pokemonAliado) = 
+generateEnemyAttack :: (Pokemon, Pokemon) -> [Tipo] -> IO(String,Pokemon)
+generateEnemyAttack pokemons@(pokemonEnemig,pokemonAliado) tipos = 
     do           
         seed <- tiempo
         let generator = mkStdGen seed
         let (rand, _) = randomR (0::Int,3::Int) generator
 
-        let ataque = getPokemonHabilidades pokemonEnemig !! rand 
+        let habilidad = getPokemonHabilidades pokemonEnemig !! rand 
+        let tipoHabilidad = getTipoPorNombre tipos (getTipoHabilidad habilidad)
                         
         critico <- esCritico
 
-        let (c, p) = hacerElDaño (pokemonAliado, pokemonEnemig ) ataque critico False
+        let (c, p) = hacerElDaño (pokemonAliado, pokemonEnemig ) (habilidad, tipoHabilidad) critico False
         return (c,p)

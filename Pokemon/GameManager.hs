@@ -57,6 +57,9 @@ generaBattle = do
   t <- loadTipos
   h <- loadHabilities
 
+--   putStr (show (getTipoPorNombre t "Hielo"))
+--   getLine
+
   textBox "La Seed sirve para generar una partida aleatoria con Pokemons y sus respec-tivas Habilidades randomizadas, para poder disfrutar de una partida única  cada vez que se añada una seed distinta. El formato de la Seed debe de ser el sifuiente xxxxxxxx-xxxxxxxx conformada por números enteros. \nPor ejemplo: 12345678-12345678"
   seed <- instruccionColor "Añadir Seed de la partida 'XXXXXXXX-XXXXXXXX':" green
 
@@ -94,7 +97,8 @@ setBattle pokemons@(p1,_) comentario turno = do
     else
         do
             getLine
-            (comentario, newPokemons) <- generateEnemyAttack pokemons
+            tipos <- loadTipos
+            (comentario, newPokemons) <- generateEnemyAttack pokemons tipos
             setBattle (p1,newPokemons) comentario True
 
 
@@ -110,10 +114,13 @@ setAttack pokemons@(p1,p2) s = do
             | elem ataque (getPokemonNombreHabilidades p2) =
                 do
                     let habilidadSelec = getPokemonHabilidadPorNombre ataque (getPokemonHabilidades p2)
-                    
+
                     critico <- esCritico
 
-                    let (comentario,p1) = hacerElDaño pokemons habilidadSelec critico True
+                    tipos <- loadTipos
+                    let tipoHabilidad = getTipoPorNombre tipos (getTipoHabilidad habilidadSelec)
+                    
+                    let (comentario,p1) = hacerElDaño pokemons (habilidadSelec,tipoHabilidad)  critico True
                     setBattle (p1,p2) comentario False
             | ataque == "Back" = 
                 do
@@ -164,10 +171,8 @@ perder s = do
 loadTipos :: IO [Tipo]
 loadTipos = do
     ficheroATK <- readFile "Data/AtkTypes.txt"
-    ficheroDEF <- readFile "Data/DefTypes.txt"
     let ataques = drop 1 (lines ficheroATK)
-    let defensas = drop 1 (lines ficheroDEF)
-    let res = parsearTipos ataques defensas
+    let res = parsearTipos ataques
     return res
     
 loadHabilities :: IO [Habilidad]

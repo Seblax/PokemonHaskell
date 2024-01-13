@@ -84,12 +84,12 @@ esSTAB (Pokemon _ (tipo1, tipo2) _ _) habilidad
 --      -. Habilidad
 -----------------------------------------------------------------------
 
-esEficaz :: Pokemon -> Habilidad -> Double
-esEficaz (Pokemon _ (tipo1, tipo2) _ _) (Habilidad _ _ _ tipoH)
+esEficaz :: Pokemon -> Tipo -> Double
+esEficaz (Pokemon _ (tipo1, tipo2) _ _) tipoH
     | esNull tipo1 && esNull tipo2 = error $ setColor red "El pokemon carece de tipo"
-    | esNull tipo2 = getEficaciaAtaque tipoH tipo1
-    | esNull tipo1 = getEficaciaAtaque tipoH tipo2
-    | otherwise = getEficaciaAtaque tipoH tipo1 * getEficaciaAtaque tipoH tipo2
+    | esNull tipo2 = getEficaciaAtaque tipo1 tipoH
+    | esNull tipo1 = getEficaciaAtaque tipo2 tipoH
+    | otherwise = getEficaciaAtaque tipo1 tipoH * getEficaciaAtaque tipo2 tipoH
    
 {-
     Calcula si un tipo es eficaz contra otro Tipo. 
@@ -109,18 +109,18 @@ esEficaz (Pokemon _ (tipo1, tipo2) _ _) (Habilidad _ _ _ tipoH)
                 Fantasma -> Normal -> x0
 -}
 
-getEficaciaAtaque :: String -> Tipo -> Double
-getEficaciaAtaque h (Debil xs) 
-    | elem h xs = 0.5
+getEficaciaAtaque :: Tipo -> Tipo -> Double
+getEficaciaAtaque (Nombre n _) (Debil xs) 
+    | elem n xs = 0.5
     | otherwise = 1
-getEficaciaAtaque h (Fuerte xs) 
-    | elem h xs = 2
+getEficaciaAtaque (Nombre n _) (Fuerte xs) 
+    | elem n xs = 2
     | otherwise = 1
-getEficaciaAtaque h (Inmune xs) 
-    | elem h xs = 0
+getEficaciaAtaque (Nombre n _) (Inmune xs) 
+    | elem n xs = 0
     | otherwise = 1
-getEficaciaAtaque h (Nombre _ (ataque,_)) = getEficaciaAtaque h ataque
-getEficaciaAtaque h (Ataques ts) = product [getEficaciaAtaque h t | t <- ts]
+getEficaciaAtaque tPokemon (Nombre _ ataque) = getEficaciaAtaque tPokemon ataque
+getEficaciaAtaque tPokemon (Ataques ts) = product [getEficaciaAtaque tPokemon t | t <- ts]
 
 
 
@@ -211,13 +211,13 @@ ya que estamos haciendo un pokemon mucho más simplificado, nuestra formula de d
     como lo son B (STAB), E (Defensas del enemigo), P (Poder del ataque) y C (es Crítico)
 -}
 
-hacerElDaño :: (Pokemon,Pokemon) -> Habilidad -> Bool -> Bool -> (String,Pokemon)
-hacerElDaño (pObjetivo,pAtacante) h crit turno = (comentario,nuevoPokemonObjetivo)
+hacerElDaño :: (Pokemon,Pokemon) -> (Habilidad,Tipo) -> Bool -> Bool -> (String,Pokemon)
+hacerElDaño (pObjetivo,pAtacante) (h,th) crit turno = (comentario,nuevoPokemonObjetivo)
         where 
             comentario = generarComentario pObjetivo h (e,c) daño turno
             b = esSTAB pAtacante h
-            e = esEficaz pObjetivo h
-            p = obtenerPotenciaHabilidad h 
+            e = esEficaz pObjetivo th
+            p = obtenerPotenciaHabilidad h
             c | crit = 2
               | otherwise = 1
             daño = round (b * e * (((1.2*p)/25) + 2) * c * 2) :: Int

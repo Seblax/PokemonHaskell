@@ -60,23 +60,18 @@ parsearTipos ataques defensas = [parseoUnSoloTipo s | s <- zip ataques defensas]
 
 -}
 
-parsearTipos :: [String] -> [String] -> [Tipo]
-parsearTipos ataques defensas = foldr (\(atk, def) ac -> parseoUnSoloTipo (atk, def) : ac) [] (zip ataques defensas)
+parsearTipos :: [String]  -> [Tipo]
+parsearTipos ataques = [parseoUnSoloTipo s | s <- ataques]
 
-parseoUnSoloTipo :: (String, String) -> Tipo
-parseoUnSoloTipo (atk, def) = Nombre nombre (attak, defense)
+
+parseoUnSoloTipo :: String -> Tipo
+parseoUnSoloTipo atk = Nombre nombre attak
     where
         --Parsea el String atk a una tupla de tres valores (Debilidades, Fortalezas, Inmunidades)
         (atk_d, atk_f, atk_i) = parseoDebilFuerteInmune atk
 
-        --Parsea el String def a una tupla de tres valores (Debilidades, Fortalezas, Inmunidades)
-        (def_d, def_f, def_i) = parseoDebilFuerteInmune def
-
         --Crea el Tipo Ataques [ Debilidades [], Fuerte [], Inmune []]
         attak = Ataques [Debil atk_d, Fuerte atk_f, Inmune atk_i]
-
-        --Crea el Tipo Defensas [ Debilidades [], Fuerte [], Inmune []]
-        defense = Defensas [Debil def_d, Fuerte def_f, Inmune def_i]
 
         --Obtiene el nombre del Tipo
         nombre = head (splitText (=='|') atk)
