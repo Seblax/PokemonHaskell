@@ -37,7 +37,7 @@ data Pokemon =  Pokemon Nombre (Tipo, Tipo) Hp [Habilidad]
     deriving Show
 
 ------------------------------------------------------------
---      Pruebas de Datos (No echar cuenta)
+--      Pruebas de Datos (No echar cuenta)                --
 ------------------------------------------------------------
 ataque1 :: Habilidad
 ataque1 = Habilidad 0 "Acero" 70 "Acero"
@@ -76,7 +76,7 @@ ataque17 = Habilidad 0 "Volador" 70 "Volador"
 ataque18 :: Habilidad
 ataque18 = Habilidad 0 "Hada" 70 "Hada"
 
---------------------------------------------------------
+--------------------------------------------------------------
 
 
 
@@ -145,3 +145,28 @@ acero = Nombre "Acero" (
         Fuerte ["Roca","Hielo","Hada"],
         Inmune []
         ])
+
+--------------------------------------------------------------
+
+
+
+--------------------------------------------------------------
+--                ESTO ES UNA PRUEBA SOLO                   --
+--------------------------------------------------------------
+
+
+squirtle :: Pokemon
+squirtle = Pokemon "Squirtle" (tipo1, tipo2) 150 [ataque11, ataque16]
+    where 
+        tipo1 :: Tipo
+        tipo1 = agua
+        tipo2 :: Tipo
+        tipo2 = piedra
+
+charizard :: Pokemon
+charizard = Pokemon "Charizard" (tipo1, tipo2) 750 [ataque14, ataque17]
+    where 
+        tipo1 :: Tipo
+        tipo1 = fuego
+        tipo2 :: Tipo
+        tipo2 = volador
