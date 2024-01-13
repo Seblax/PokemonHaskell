@@ -33,13 +33,6 @@ getPokemonHabilidades (Pokemon _ _ _ xs) = xs
 getNombreHabilidades:: Habilidad -> String
 getNombreHabilidades (Habilidad _ n _ _ ) = n
 
-{-
-
-getPokemonNombreHabilidades :: Pokemon -> [String]
-getPokemonNombreHabilidades (Pokemon _ _ _ xs) = [ getNombreHabilidades x | x <- xs]
-
--}
-
 getPokemonNombreHabilidades :: Pokemon -> [String]
 getPokemonNombreHabilidades (Pokemon _ _ _ xs) = foldr (\x ac -> getNombreHabilidades x : ac) [] xs
 
@@ -48,3 +41,6 @@ getPokemonHabilidadPorNombre n hs = head [ h | h@(Habilidad _ nom _ _) <- hs, n 
 
 getPokemonNombre :: Pokemon -> String
 getPokemonNombre (Pokemon n _ _ _) = n
+
+getHabilidadPorID :: [Habilidad] -> Int -> Habilidad
+getHabilidadPorID habilidades idPok = head [h | h@(Habilidad id _ _ _) <- habilidades, id == idPok]

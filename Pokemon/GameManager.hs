@@ -22,10 +22,15 @@ main = do
 menuBehavior :: String -> IO ()
 menuBehavior s
   | s == "Start" = do wantToContinue
-  | s == "Load" = do putStr $ green ++ "Has seleccionado LOAD!" ++ none
+  | s == "Load" = 
+    do
+        textBox "Si deseas cargar la partida solo debes escribir el nombre de la partida guardada."
+        path <- instruccionColor "¿Qué partida quieres cargar? " yellow
+        loadGame path
   | s == "Exit" = 
     do 
     putStrLn $ setColor red "¡Hasta otra Entrenador del Ciberespacio!"
+    error ""
   | otherwise = main
 
 
@@ -81,17 +86,27 @@ setBattle pokemons@(p1,_) comentario turno = do
 
     if turno then 
         do
-            eleccion <- instruccionColor yellow $ "Elige una acción: " ++ setColor red "[Atacar] " ++ setColor blue "[Cambiar]"
-            if eleccion == "Atacar" then 
+            eleccion <- instruccionColor ("Elige una acción: " ++ setColor red "[Attack] " ++ setColor blue "[Cambiar] " ++ setColor colorFantasma "[Save]") yellow
+            if eleccion == "Attack" then 
                 do
-                    setAttack pokemons "\n¿Qué ataque quieres realizar? [Back] "
-                
+                    setAttack pokemons $ "\n¿Qué ataque quieres realizar?" ++ setColor red " [Back]"
+            else if eleccion == "Cambiar" then
+                do
+                    setBattle pokemons ("No puedes cambiar ahora," ++ setColor red "no tienes más Pokemons" ++ ". Vaya torpe, ni contar sus pokemons sabe.") True
+            else if eleccion == "Save" then
+                do
+                    clearScreen
+                    textBox "Vaya vaya vaya, parece que nesutro jugador quiere tomarse un descanso y guardar lapartida, eso, o está haciendo trampillas para qu eno le maten. AAAY que te pillao tramposillo."
+                    path <- instruccionColor "¿Cómo se va a llamar el archivo de guardado?" yellow
+                    saveGame pokemons path
+
             else 
                 do 
-                    setBattle pokemons ("No puedes cambiar ahora," ++ setColor red "no tienes más Pokemons" ++ ". Vaya torpe, ni contar sus pokemons sabe.") True
+                    setBattle pokemons "Y bueno, aquí seguimos esperando a que nuestro Entrnador eliga una acción para realizar..." True
     else
         do
-            getLine
+            instruccionColor "Pulsa Enter para continuar." yellow
+
             tipos <- loadTipos
             (comentario, newPokemons) <- generateEnemyAttack pokemons tipos
             setBattle (p1,newPokemons) comentario True
@@ -125,8 +140,9 @@ setAttack pokemons@(p1,p2) s = do
                     putStr red
                     readFileSprites "Ficheros/Sprites/HabilidadMalEscrita.txt"
                     putStr none
-                    putStrLn "Pulsa 'Enter' para continuar"
-                    getLine
+
+                    instruccionColor "Pulsa Enter para continuar." yellow
+                    
                     setAttack pokemons $ "Ese ataque no sirve mamawebo " ++ "¿Qué Ataque eligirá nuestro (bobo) Entrenador?"
 
 
@@ -139,28 +155,38 @@ endGame (p1,p2) comentario
 
 ganar :: String -> IO()
 ganar s = do 
+    
     textBox $ s ++ setColor colorPlanta "\n\n¡ENHORABUENA HAS GANADO A UN BOT QUE ELIGE ATAQUES ALEATORIOS CON UNA POSIBILIDAD DEL 25% CADA ATAQUE! QUÉ MÁQUINA, TA TO ESHO UN COSINITA"
     getLine
+    
     clearScreen
     putStr colorLucha
     readFileSprites "Ficheros/Sprites/Victoria.txt"
+    
     putStr yellow
     readFileSprites "Ficheros/Sprites/GameOver.txt"
     putStr none
-    getLine
+    
+    instruccionColor "Pulsa Enter para continuar." yellow
+
     main
 
 perder :: String -> IO()
 perder s = do 
+    
     textBox $ s ++ setColor colorLucha "\n\nNuestro Entrenador ha quedado totalmente fuera de combate ¡Valiente despojo Humano!"
     getLine
+    
     clearScreen
     putStr green
     readFileSprites "Ficheros/Sprites/Perder.txt"
+    
     putStr blue
     readFileSprites "Ficheros/Sprites/GameOver.txt"
     putStr none
-    getLine
+    
+    instruccionColor "Pulsa Enter para continuar." yellow
+
     main
 
 --Carga los tipos de los pokemons
@@ -184,3 +210,30 @@ loadPokemons tipos habilidades seed =  do
     let pokemons = lines pokemonsSinParsear
     let res = parsearPokemons pokemons tipos habilidades seed
     return res
+
+-------------------------------------------------------------------------
+saveGame :: (Pokemon,Pokemon) -> String -> IO()
+saveGame (penemigo,paliado) nombre = 
+    do
+        let path = "Save/" ++ nombre ++ ".pokemon"
+        writeFile path (savePokemon paliado ++ "\n" ++ savePokemon penemigo)
+
+loadGame :: String -> IO()
+loadGame nombre = 
+    do
+        let path = "Save/" ++ nombre ++ ".pokemon"
+        partida <- readFile path
+
+        existe <- doesFileExist path
+        if existe then 
+            do
+                tipos <- loadTipos
+                habilidades <- loadHabilities
+
+                let pokemons = lines partida
+                let pokemonAliado = loadPokemonSave (head pokemons) habilidades tipos
+                let pokemonEnemigo = loadPokemonSave (pokemons!!1) habilidades tipos
+
+                setBattle (pokemonEnemigo,pokemonAliado) "Vaya, parece que acabamos de ser una partida cargada, me pregunto por qué neustro entrenador dejó la partida a medias" True
+        else 
+            error $ "No existe partida gaurdada " ++ setColor red nombre

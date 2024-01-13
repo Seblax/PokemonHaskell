@@ -97,7 +97,7 @@ textBox s = do
   putStrLn boxes
   textoSplit s
     where 
-      boxes = "###########################################################################"
+      boxes = setColor blue "###########################################################################"
       textoSplit :: String -> IO()
       textoSplit s 
         | length s > 75 = do

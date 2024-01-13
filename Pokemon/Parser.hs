@@ -1,4 +1,11 @@
-module Parser (parsearHabilidades, parsearTipos, parsearPokemons, parseoSemilla, getPokemonRandom) where
+module Parser (
+    parsearHabilidades, 
+    parsearTipos, 
+    parsearPokemons, 
+    parseoSemilla, 
+    getPokemonRandom,
+    savePokemon,
+    loadPokemonSave) where
 
 import Data.PokemonData
 import Data.Tipo
@@ -164,3 +171,31 @@ parseoSemilla s
     where 
         semillas = splitText (=='-') s
         (s1, s2) = (head semillas, last semillas) 
+
+
+-----------------------------------------------------
+--Bulbasaur	45	Planta	Veneno
+--1	Karate Chop	Lucha	50
+
+savePokemon :: Pokemon -> String
+savePokemon (Pokemon n (t1,t2) hp h) = n ++ "\t" ++ show hp ++ saveTipo t1 ++ saveTipo t2 ++ saveHabilidades h
+    where 
+        saveTipo (Nombre n a) = "\t" ++ n
+        saveTipo Null = "\t" ++ "null"
+        saveHabilidades ((Habilidad id _ _ _):hs) = "\t" ++ show id ++ saveHabilidades hs
+        saveHabilidades [] = ""
+
+loadPokemonSave :: String -> [Habilidad] -> [Tipo] -> Pokemon
+loadPokemonSave line habilidades tipos = Pokemon nombre (tipo1, tipo2) hp h
+    where
+        --Mismagius	46	Fantasma	null	209	262	289	93
+        lista = splitText (=='\t') line
+        nombre = head lista
+        hp = read (lista!!1)
+        tipo1 = getTipoPorNombre tipos (lista!!2)
+        tipo2 = getTipoPorNombre tipos (lista!!3)
+        h = [habilidad1,habilidad2,habilidad3,habilidad4]
+        habilidad1 = getHabilidadPorID habilidades (read (lista!!4))
+        habilidad2 = getHabilidadPorID habilidades (read (lista!!5))
+        habilidad3 = getHabilidadPorID habilidades (read (lista!!6))
+        habilidad4 = getHabilidadPorID habilidades (read (lista!!7))
