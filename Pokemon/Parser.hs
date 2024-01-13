@@ -104,8 +104,17 @@ parseoDebilFuerteInmune s = (debilidades, fortalezas, inmunidades)
 -- Dado dos lista de Strings (Ataques y Defensas), devolver una lista de tipos
 --      Habilidad = Habilidad 0 "Energi Bola" 70 "Eléctrico"
 ------------------------------------------------------------------------------
+
+{-
+
 parsearHabilidades :: [String] -> [Habilidad]
 parsearHabilidades habilidades = [parseoUnaSolaHabilidad habilidad | habilidad <- habilidades] 
+
+-}
+parsearHabilidades :: [String] -> [Habilidad]
+parsearHabilidades habilidades = map parseoUnaSolaHabilidad habilidades
+
+
 parseoUnaSolaHabilidad :: String -> Habilidad 
 parseoUnaSolaHabilidad h = (Habilidad id nombreHabilidad poder tipo)
     where
