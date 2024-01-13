@@ -30,13 +30,20 @@ setPokemonVida (Pokemon n t hp h) daño = Pokemon n t pupita h
 
 
 getPokemonHabilidades :: Pokemon -> [Habilidad]
-getPokemonHabilidades (Pokemon _ _ _ x) = x
+getPokemonHabilidades (Pokemon _ _ _ xs) = xs
+
+getNombreHabilidades:: Habilidad -> String
+getNombreHabilidades (Habilidad _ n _ _ ) = n
+
+{-
 
 getPokemonNombreHabilidades :: Pokemon -> [String]
 getPokemonNombreHabilidades (Pokemon _ _ _ xs) = [ getNombreHabilidades x | x <- xs]
 
-getNombreHabilidades:: Habilidad -> String
-getNombreHabilidades (Habilidad _ n _ _ ) = n
+-}
+
+getPokemonNombreHabilidades :: Pokemon -> [String]
+getPokemonNombreHabilidades (Pokemon _ _ _ xs) = foldr (\x ac -> getNombreHabilidades x : ac) [] xs
 
 getPokemonHabilidadPorNombre :: String -> [Habilidad] -> Habilidad
 getPokemonHabilidadPorNombre n hs = head [ h | h@(Habilidad _ nom _ _) <- hs, n == nom]

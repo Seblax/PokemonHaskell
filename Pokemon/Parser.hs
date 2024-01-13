@@ -53,8 +53,16 @@ Una vez entendido este tipo de organización, podemos salatar al parseo de tipos
 -- Dado dos lista de Strings (Ataques y Defensas), devolver una lista de tipos
 ------------------------------------------------------------------------------
 
+{-
+
 parsearTipos :: [String] -> [String] -> [Tipo]
-parsearTipos ataques defensas = [parseoUnSoloTipo s | s <- zip ataques defensas] 
+parsearTipos ataques defensas = [parseoUnSoloTipo s | s <- zip ataques defensas]
+
+-}
+
+parsearTipos :: [String] -> [String] -> [Tipo]
+parsearTipos ataques defensas = foldr (\(atk, def) ac -> parseoUnSoloTipo (atk, def) : ac) [] (zip ataques defensas)
+
 
 
 parseoUnSoloTipo :: (String, String) -> Tipo
