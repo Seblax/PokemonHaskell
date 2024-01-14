@@ -5,7 +5,8 @@ module Parser (
     parseoSemilla, 
     getPokemonRandom,
     savePokemon,
-    loadPokemonSave) where
+    loadPokemonSave,
+    splitText) where
 
 import Data.PokemonData
 import Data.Tipo
@@ -203,3 +204,4 @@ loadPokemonSave line habilidades tipos = Pokemon nombre (tipo1, tipo2) hp h
         habilidad2 = getHabilidadPorID habilidades (read (lista!!5))
         habilidad3 = getHabilidadPorID habilidades (read (lista!!6))
         habilidad4 = getHabilidadPorID habilidades (read (lista!!7))
+

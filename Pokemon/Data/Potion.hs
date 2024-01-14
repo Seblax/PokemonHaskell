@@ -1,6 +1,12 @@
-module Data.Potion (Pociones, potionSet, usarPocion, pocionesVacias) where
+module Data.Potion (
+    Pociones, 
+    potionSet, 
+    usarPocion, 
+    pocionesVacias, 
+    parsePotion) where
 
 import Data.Pila.PilaTA
+import Parser
 
 type Pociones = Pila Int
 
@@ -14,3 +20,14 @@ usarPocion p
 
 pocionesVacias :: Pociones -> Bool
 pocionesVacias = esVacia
+
+
+-----------------------------------------------
+parsePotion :: String -> Pociones
+parsePotion s = parseo lista
+    where
+        lista = splitText (=='|') s
+        parseo (x:xs) 
+            | x == "-" = vacia
+            | otherwise = apila (read x) (parseo xs) 
+        parseo [] = vacia

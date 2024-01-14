@@ -147,4 +147,13 @@ generarComentarioEnemigo (e,c) = eficaz ++ critico
       | otherwise = ""
 
 comentarioCuraEnemigo :: Int -> String 
-comentarioCuraEnemigo cura = "Vaya el Entrenador enemigo ha usado una cura y ha curado a su pokemon " ++ setColor green (show cura ++ " de hp") ++ ". Que mala baba >:("   
+comentarioCuraEnemigo cura 
+  | cura >= 50 = "¡BIEN! Ejem, digo, OH NO, el enemigo ha usado una poción de " ++ setColor green (show cura ++ " de hp") ++ " y a restaurado toda su vida practicamente de un golpe. Que mal... (Espero que tenga otra pociónmás)"
+  | cura <= 50 && cura >= 35 ="AY AY AYYYY QUE PENA QUE EL ENEMIGO TENÍA OTRA POCIÓN. AY AY AYYY, se ha curado cerca de " ++ setColor green (show cura ++ " de hp") 
+  | otherwise ="¡EL ENEMIGO A USADO OTRA POCIÓN MENOS MAL QUE ESA NO ERA LA ÚLTIMA! \n" ++  setColor colorHielo "Jimmy: " ++ "De hecho Comentalista, esa era su ultima poción de " ++ setColor green (show cura ++ " de hp") ++ " \n" ++ setColor red "Comentalista: " ++ "Pero... Os dije que le dieráis más pociones, máaaas pociones, he apostado la letra del coche a que ganaba el otro."
+
+comentarioCuraAliado :: Int -> String 
+comentarioCuraAliado cura 
+  | cura >= 50 ="El combate está siendo tan duro y difícil que nuestro Entrenador ha tenido que usar una cura. Ha gastado la poción de " ++ setColor green (show cura ++ " de hp") ++ " ya tan solo le quedan un par de recursos más."
+  | cura <= 50 && cura >= 35 ="Madre mía, ya es la segunda poción que usa, no escatimas en gastos el menda este, pero vamos, no debería costarle tanto una batalla tan amateur. Ha gastado su pocion de " ++ setColor green (show cura ++ " de hp") ++ " ya tan solo le queda una :O"
+  | otherwise ="¡OH NO! Nuestro Entrenador ha gastado la última cura " ++ setColor green (show cura ++ " de hp") ++ " que le quedaba, verémos cual será el desenlace de esta trágica historia."
