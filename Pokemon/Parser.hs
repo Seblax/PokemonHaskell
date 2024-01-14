@@ -9,11 +9,12 @@ module Parser (
     splitText) where
 
 import Data.PokemonData
+import Data.Pokemon
 import Data.Tipo
-
+import Data.List
 
 import UI.UIColors
-import Data.Pokemon
+
 
 import System.Random
 

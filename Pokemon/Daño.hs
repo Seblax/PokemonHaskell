@@ -8,7 +8,6 @@ module Daño (random,
 
 import Data.Time.Clock.POSIX (getPOSIXTime)
 import System.Random
-
 import System.IO
 
 import Data.PokemonData

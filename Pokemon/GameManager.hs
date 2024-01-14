@@ -4,6 +4,7 @@ import System.Directory
 import Data.Tipo
 import Data.PokemonData
 import Data.Pokemon
+import Data.List
 
 import UI.UIColors
 import UI.GameUI
@@ -114,18 +115,18 @@ setBattle pokemons@(p1,p2) comentario turno = do
                                 setBattle pokemons ("Ooooooooooh que pena... Parece que a nuestro Entrenador " ++ setColor red "ya no le quedan más Pociones. " ++ "pobre de el, nah estaba de coña.") False
                     else 
                         do
-                            setBattle pokemons ("Este entrenador me tiene echa la picha un lío " ++ setColor red "!Quieres elegir una acción ya de una vez¡") True
+                            setBattle pokemons ("Este entrenador me tiene hecha la picha un lío " ++ setColor red "!Quieres elegir una acción ya de una vez¡") True
             else if eleccion == "Save" then
                 do
                     clearScreen
                     pokemonBattleUI pokemons
-                    textBox $ "Vaya vaya vaya, parece que nesutro jugador quiere tomarse un descanso y guardar lapartida, eso, o está haciendo trampillas para que no le maten. AAAY que te pillao tramposillo." ++ setColor colorSiniestro " Payaso, que eres un Payaso. "
+                    textBox $ "Vaya vaya vaya, parece que nuestro jugador quiere tomarse un descanso y guardar la partida, eso, o está haciendo trampillas para que no le maten. AAAY que te pillao tramposillo." ++ setColor colorSiniestro " Payaso, que eres un Payaso. "
                     path <- instruccionColor "¿Cómo se va a llamar el archivo de guardado?" yellow
                     saveGame pokemons path
 
             else
                 do
-                    setBattle pokemons "Y bueno, aquí seguimos esperando a que nuestro Entrnador eliga una acción para realizar..." True
+                    setBattle pokemons "Y bueno, aquí seguimos esperando a que nuestro Entrenador eliga una acción para realizar..." True
     else
         do
             instruccionColor "Pulsa Enter para continuar." yellow
@@ -193,7 +194,7 @@ endGame (p1,p2) comentario
 ganar :: String -> IO()
 ganar s = do
 
-    textBox $ s ++ setColor colorPlanta "\n\n¡ENHORABUENA HAS GANADO A UN BOT QUE ELIGE ATAQUES ALEATORIOS CON UNA POSIBILIDAD DEL 25% CADA ATAQUE! QUÉ MÁQUINA, TA TO ESHO UN COSINITA"
+    textBox $ s ++ setColor colorPlanta "\n\n¡ENHORABUENA HAS GANADO A UN BOT QUE ELIGE ATAQUES ALEATORIOS CON UNA POSIBILIDAD DEL 25% CADA ATAQUE! QUÉ MÁQUINA, TA TO HESHO UN COSINITA"
     getLine
 
     clearScreen
@@ -288,11 +289,11 @@ loadGame nombre =
 
                 writeFile "Ficheros/Pociones.pot" $ pokemons!!2 ++ "\n" ++ pokemons!!3
 
-                setBattle (pokemonEnemigo,pokemonAliado) "Vaya, parece que acabamos de ser una partida cargada, me pregunto por qué neustro entrenador dejó la partida a medias" True
+                setBattle (pokemonEnemigo,pokemonAliado) "Vaya, parece que acabamos de ser una partida cargada, me pregunto por qué nuestro entrenador dejó la partida a medias" True
         else
             do
                 clearScreen
-                textBox $ "No existe la partida gaurdada con nombre: '" ++ setColor red nombre ++ "'."
+                textBox $ "No existe la partida guardada con nombre: '" ++ setColor red nombre ++ "'."
                 instruccionColor "Pulsa Enter para continuar." yellow
                 main
 
