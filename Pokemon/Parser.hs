@@ -70,9 +70,13 @@ parsearTipos ataques defensas = [parseoUnSoloTipo s | s <- zip ataques defensas]
 
 -}
 
+{-
 parsearTipos :: [String]  -> [Tipo]
 parsearTipos ataques = [parseoUnSoloTipo s | s <- ataques]
+-}
 
+parsearTipos :: [String]  -> [Tipo]
+parsearTipos = foldr(\x ac -> parsearUnSoloPokemon x : ac) []
 
 parseoUnSoloTipo :: String -> Tipo
 parseoUnSoloTipo atk = Nombre nombre attak
