@@ -17,7 +17,7 @@ menuScreen :: IO ()
 menuScreen = do
   clearScreen
   putStr blue
-  readFileSprites "Ficheros/Sprites/Menu.txt"
+  readFileSprites "Ficheros/Sprites/Menu.sprite"
   putStr none
 
   putStrLn (justifyRight 52 ' ' (buttonUI "Start" yellow))
@@ -145,3 +145,6 @@ generarComentarioEnemigo (e,c) = eficaz ++ critico
     critico 
       | c == 2 && e /= 0 = setColor red " Vaya hostión Willy, le ha dao un crítico a tu pokemon. "
       | otherwise = ""
+
+comentarioCuraEnemigo :: Int -> String 
+comentarioCuraEnemigo cura = "Vaya el Entrenador enemigo ha usado una cura y ha curado a su pokemon " ++ setColor green (show cura ++ " de hp") ++ ". Que mala baba >:("   

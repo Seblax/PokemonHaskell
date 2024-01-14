@@ -138,7 +138,7 @@ setAttack pokemons@(p1,p2) s = do
             | otherwise =
                 do 
                     putStr red
-                    readFileSprites "Ficheros/Sprites/HabilidadMalEscrita.txt"
+                    readFileSprites "Ficheros/Sprites/HabilidadMalEscrita.sprite"
                     putStr none
 
                     instruccionColor "Pulsa Enter para continuar." yellow
@@ -161,10 +161,10 @@ ganar s = do
     
     clearScreen
     putStr colorLucha
-    readFileSprites "Ficheros/Sprites/Victoria.txt"
+    readFileSprites "Ficheros/Sprites/Victoria.sprite"
     
     putStr yellow
-    readFileSprites "Ficheros/Sprites/GameOver.txt"
+    readFileSprites "Ficheros/Sprites/GameOver.sprite"
     putStr none
     
     instruccionColor "Pulsa Enter para continuar." yellow
@@ -179,10 +179,10 @@ perder s = do
     
     clearScreen
     putStr green
-    readFileSprites "Ficheros/Sprites/Perder.txt"
+    readFileSprites "Ficheros/Sprites/Perder.sprite"
     
     putStr blue
-    readFileSprites "Ficheros/Sprites/GameOver.txt"
+    readFileSprites "Ficheros/Sprites/GameOver.sprite"
     putStr none
     
     instruccionColor "Pulsa Enter para continuar." yellow
@@ -192,21 +192,21 @@ perder s = do
 --Carga los tipos de los pokemons
 loadTipos :: IO [Tipo]
 loadTipos = do
-    tablaDeTipos <- readFile "Ficheros/TablaDeTipos.txt"
+    tablaDeTipos <- readFile "Ficheros/TablaDeTipos.pokemon"
     let tipos = drop 1 (lines tablaDeTipos)
     let res = parsearTipos tipos
     return res
     
 loadHabilities :: IO [Habilidad]
 loadHabilities =  do 
-    habilidadesSinParsear <- readFile "Ficheros/Habilidades.txt"
+    habilidadesSinParsear <- readFile "Ficheros/Habilidades.pokemon"
     let habilidades = lines habilidadesSinParsear
     let res = parsearHabilidades habilidades
     return res
 
 loadPokemons :: [Tipo] -> [Habilidad] -> Int ->IO [Pokemon]
 loadPokemons tipos habilidades seed =  do 
-    pokemonsSinParsear <- readFile "Ficheros/Pokemons.txt"
+    pokemonsSinParsear <- readFile "Ficheros/Pokemons.pokemon"
     let pokemons = lines pokemonsSinParsear
     let res = parsearPokemons pokemons tipos habilidades seed
     return res
