@@ -99,7 +99,7 @@ setBattle pokemons@(p1,p2) comentario turno = do
                 do
                     (pe,pa) <- loadPotions
                     pokemonBattleUI pokemons
-                    textBox "Parece que neustro entrenador quiere usar una poción"
+                    textBox "Parece que nuestro entrenador quiere usar una poción"
                     tomar <- instruccionColor ("¿Quieres usar una poción? " ++ setColor green "[Ok]" ++ setColor red " [No]") yellow
 
                     if tomar == "Ok" then do
@@ -119,7 +119,7 @@ setBattle pokemons@(p1,p2) comentario turno = do
                 do
                     clearScreen
                     pokemonBattleUI pokemons
-                    textBox $ "Vaya vaya vaya, parece que nesutro jugador quiere tomarse un descanso y guardar lapartida, eso, o está haciendo trampillas para que no le maten. AAAY que te pillao tramposillo." ++ setColor colorSiniestro " Payaso, que eres un Payaso. "
+                    textBox $ "Vaya vaya vaya, parece que nuestro jugador quiere tomarse un descanso y guardar lapartida, eso, o está haciendo trampillas para que no le maten. AAAY que te pillao tramposillo." ++ setColor colorSiniestro " Payaso, que eres un Payaso. "
                     path <- instruccionColor "¿Cómo se va a llamar el archivo de guardado?" yellow
                     saveGame pokemons path
 
