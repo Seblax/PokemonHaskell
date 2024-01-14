@@ -252,7 +252,9 @@ saveGame :: (Pokemon,Pokemon) -> String -> IO()
 saveGame (penemigo,paliado) nombre =
     do
         let path = "Save/" ++ nombre ++ ".pokemon"
-        writeFile path (savePokemon paliado ++ "\n" ++ savePokemon penemigo)
+        (pocionesE,pocionesA) <- loadPotions
+
+        writeFile path (savePokemon paliado ++ "\n" ++ savePokemon penemigo ++ "\n" ++ show pocionesE ++ "\n" ++ show pocionesA)
 
 loadGame :: String -> IO()
 loadGame nombre =
@@ -269,6 +271,8 @@ loadGame nombre =
                 let pokemons = lines partida
                 let pokemonAliado = loadPokemonSave (head pokemons) habilidades tipos
                 let pokemonEnemigo = loadPokemonSave (pokemons!!1) habilidades tipos
+
+                writeFile "Ficheros/Pociones.pot" $ pokemons!!2 ++ "\n" ++ pokemons!!3
 
                 setBattle (pokemonEnemigo,pokemonAliado) "Vaya, parece que acabamos de ser una partida cargada, me pregunto por qué neustro entrenador dejó la partida a medias" True
         else
