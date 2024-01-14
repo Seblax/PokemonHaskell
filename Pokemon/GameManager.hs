@@ -118,6 +118,7 @@ setBattle pokemons@(p1,p2) comentario turno = do
             else if eleccion == "Save" then
                 do
                     clearScreen
+                    pokemonBattleUI pokemons
                     textBox $ "Vaya vaya vaya, parece que nesutro jugador quiere tomarse un descanso y guardar lapartida, eso, o está haciendo trampillas para que no le maten. AAAY que te pillao tramposillo." ++ setColor colorSiniestro " Payaso, que eres un Payaso. "
                     path <- instruccionColor "¿Cómo se va a llamar el archivo de guardado?" yellow
                     saveGame pokemons path
@@ -249,12 +250,25 @@ loadPokemons tipos habilidades seed =  do
 
 -------------------------------------------------------------------------
 saveGame :: (Pokemon,Pokemon) -> String -> IO()
-saveGame (penemigo,paliado) nombre =
+saveGame pokemons@(penemigo,paliado) nombre =
     do
         let path = "Save/" ++ nombre ++ ".pokemon"
         (pocionesE,pocionesA) <- loadPotions
 
-        writeFile path (savePokemon paliado ++ "\n" ++ savePokemon penemigo ++ "\n" ++ show pocionesE ++ "\n" ++ show pocionesA)
+        existe <- doesFileExist path
+        if existe then 
+            do
+                pokemonBattleUI pokemons
+                textBox $ "Oh no, parece que el archivo de nombre " ++ setColor yellow nombre ++ " ya existe. ¿Querrá nuestro Entrenador sobrescribirlo?"
+                sobresciribir <- instruccionColor ("¿Desea sobrescribir la partida Guardada?" ++ setColor green " [Ok] " ++ setColor blue "[No]") red 
+                if sobresciribir == "Ok" then do
+                    writeFile path (savePokemon paliado ++ "\n" ++ savePokemon penemigo ++ "\n" ++ show pocionesE ++ "\n" ++ show pocionesA)
+                    main
+                else do
+                    setBattle pokemons "Ni guardar la partida sabes, que penoso. Espero que luchar con los Pokemons se te de algo mejor" True
+        else 
+            do
+                writeFile path (savePokemon paliado ++ "\n" ++ savePokemon penemigo ++ "\n" ++ show pocionesE ++ "\n" ++ show pocionesA)
 
 loadGame :: String -> IO()
 loadGame nombre =
