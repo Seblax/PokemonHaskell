@@ -21,4 +21,4 @@ Volador :12345-XXXXXXXX
 3-3 Electrico vs Aguas
 10-10 HaPs vs SiDr
 17-17 Fa vs Fa
-1444-1444 Ataques Inmmunes
+1444-1444 Ataques Inmmunes (veneno contra Acero Juraría)

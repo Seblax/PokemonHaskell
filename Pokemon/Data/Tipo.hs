@@ -1,37 +1,58 @@
 module Data.Tipo where
 import Data.PokemonData
 
-{-
-    Dado un Tipo, devuelvel el nombre del tipo
-        Ej
-            fuego::Tipo
-            fuego = Principal "Fuego" [Debil "Agua", Fuerte "Planta"]
-            getNombreTipo fuego == "Fuego"
--}
+-----------------------------------------------------------------------------------
+--  .----------------.  .----------------.  .----------------.  .----------------. 
+-- | .--------------. || .--------------. || .--------------. || .--------------. |
+-- | |  _________   | || |     _____    | || |   ______     | || |     ____     | |
+-- | | |  _   _  |  | || |    |_   _|   | || |  |_   __ \   | || |   .'    `.   | |
+-- | | |_/ | | \_|  | || |      | |     | || |    | |__) |  | || |  /  .--.  \  | |
+-- | |     | |      | || |      | |     | || |    |  ___/   | || |  | |    | |  | |
+-- | |    _| |_     | || |     _| |_    | || |   _| |_      | || |  \  `--'  /  | |
+-- | |   |_____|    | || |    |_____|   | || |  |_____|     | || |   `.____.'   | |
+-- | |              | || |              | || |              | || |              | |
+-- | '--------------' || '--------------' || '--------------' || '--------------' |
+--  '----------------'  '----------------'  '----------------'  '----------------' 
+--
+--Este módulo está centrado en el tratamiento del tipo de dato abstracto Tipo
+--con funciones que tratan el tipo de dato ya sea para obtener su nombre, obtener
+--el tipo de un pokemon o habilidad, etc.
+-----------------------------------------------------------------------------------
+
+--Es Null--------------------------------------------------------------------------
+-- Comprueba si el Tipo que recive como entrada es de tipo Null (un contructor del 
+-- dato Tipo).
+-----------------------------------------------------------------------------------
+esNull :: Tipo -> Bool
+esNull Null = True
+esNull _ = False
+
+--Get Nombre Tipo------------------------------------------------------------------
+-- Dado un Tipo, devuelvel el nombre del tipo
+--     Ej
+--         fuego::Tipo
+--         fuego = Principal "Fuego" (Aatque [Debil "Agua", Fuerte "Planta"])
+--         getNombreTipo fuego == "Fuego"
+-----------------------------------------------------------------------------------
 getNombreTipo :: Tipo -> String
 getNombreTipo (Nombre x _) = x
 getNombreTipo Null = ""
 getNombreTipo _ = error "Error al extraer el nombre del tipo!"
 
-{-
-    Dado una Habilidad, devuelv el nombre del tipo de la Habilidad 
-        Ej:
-            hidropulso :: Ataque
-            hidropulso = Ataque 0 "Hidropulso" 70 "Agua"
-            getNombreTipo hidropulso == "Agua"
--}
-
+--Get Tipo Habilidad---------------------------------------------------------------
+--     Dado una Habilidad, devuelve el nombre del tipo de la Habilidad 
+--         Ej:
+--             hidropulso :: Ataque
+--             hidropulso = Ataque 0 "Hidropulso" 70 "Agua"
+--             getNombreTipo hidropulso == "Agua"
+-----------------------------------------------------------------------------------
 getTipoHabilidad :: Habilidad -> String
 getTipoHabilidad (Habilidad _ _ _ x) = x
 
-esNull :: Tipo -> Bool
-esNull Null = True
-esNull _ = False
-
-{-
-    GetTipoPorNombre obtiene como parámetros una lista de tipos y un String
-    y devuelve dicho Tipo que tenga de nombre ese String
--}
+--Get Tipo Por Nombre---------------------------------------------------------------
+-- Get Tipo Por Nombre, recive como parámetro de entrada una lista de Tipos y un String,
+-- devuelve el primer tipo de la lista que tenga como nombre el parámetro de entrada Nombre
+-----------------------------------------------------------------------------------
 getTipoPorNombre :: [Tipo] -> Nombre -> Tipo
 getTipoPorNombre [] n = error $ "No se ha encontrado el Tipo: " ++ n
 getTipoPorNombre ((Nombre n t):tipos) nombre
