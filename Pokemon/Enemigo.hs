@@ -14,20 +14,23 @@ import Daño
 import UI.GameUI
 import UI.UIColors
 import Data.Potion
+--------------------------------------------------------------------------------
+-- ▓█████  ███▄    █ ▓█████  ███▄ ▄███▓ ██▓  ▄████  ▒█████  
+-- ▓█   ▀  ██ ▀█   █ ▓█   ▀ ▓██▒▀█▀ ██▒▓██▒ ██▒ ▀█▒▒██▒  ██▒
+-- ▒███   ▓██  ▀█ ██▒▒███   ▓██    ▓██░▒██▒▒██░▄▄▄░▒██░  ██▒
+-- ▒▓█  ▄ ▓██▒  ▐▌██▒▒▓█  ▄ ▒██    ▒██ ░██░░▓█  ██▓▒██   ██░
+-- ░▒████▒▒██░   ▓██░░▒████▒▒██▒   ░██▒░██░░▒▓███▀▒░ ████▓▒░
+-- ░░ ▒░ ░░ ▒░   ▒ ▒ ░░ ▒░ ░░ ▒░   ░  ░░▓   ░▒   ▒ ░ ▒░▒░▒░ 
+--  ░ ░  ░░ ░░   ░ ▒░ ░ ░  ░░  ░      ░ ▒ ░  ░   ░   ░ ▒ ▒░ 
+--    ░      ░   ░ ░    ░   ░      ░    ▒ ░░ ░   ░ ░ ░ ░ ▒  
+--    ░  ░         ░    ░  ░       ░    ░        ░     ░ ░  
+-- Módulo que contiene la "IA" del enemigo
 
--- generateEnemyAttack :: (Pokemon, Pokemon) -> [Tipo] -> IO(String,Pokemon)
--- generateEnemyAttack pokemons@(pokemonEnemig,pokemonAliado) tipos = 
---     do           
---         rand <- getNumRandomInterval 0 3
-
---         let habilidad = getPokemonHabilidades pokemonEnemig !! rand 
---         let tipoHabilidad = getTipoPorNombre tipos (getTipoHabilidad habilidad)
-                        
---         critico <- esCritico
-
---         let (c, p) = hacerElDaño (pokemonAliado, pokemonEnemig ) (habilidad, tipoHabilidad) critico False
---         return (c,p)
-
+--Generate Enemy Attack---------------------------------------------------------
+-- Para entender esta función lo mejor es usar una máquina de estados sencilla que se encuentra
+-- en el Readme. Pero en resumen, si el pokemon enemigo está por debajo de 10 hp siempre usará
+-- pociones de vida, sino, eligirá ,entre los ataques del pokemon, uno al azar y lo usará
+--------------------------------------------------------------------------------
 generateEnemyAttack :: (Pokemon, Pokemon) -> [Tipo] -> Pociones -> IO(String,(Pokemon,Pokemon),Pociones)
 generateEnemyAttack pokemons@(pokemonE,pokemonA) tipos pocionesE = 
     do           

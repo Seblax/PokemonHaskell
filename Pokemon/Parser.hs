@@ -16,6 +16,15 @@ import UI.UIColors
 import Data.Pokemon
 
 import System.Random
+-----------------------------------------------------------------------------
+-- ██████╗  █████╗ ██████╗ ███████╗███████╗██████╗ 
+-- ██╔══██╗██╔══██╗██╔══██╗██╔════╝██╔════╝██╔══██╗
+-- ██████╔╝███████║██████╔╝███████╗█████╗  ██████╔╝
+-- ██╔═══╝ ██╔══██║██╔══██╗╚════██║██╔══╝  ██╔══██╗
+-- ██║     ██║  ██║██║  ██║███████║███████╗██║  ██║
+-- ╚═╝     ╚═╝  ╚═╝╚═╝  ╚═╝╚══════╝╚══════╝╚═╝  ╚═╝
+-- Módulo centrado en parsear los tipos de archivos .pokemons a datos hábiles
+------------------------------------------------------------------------------
 
 {-
     Función que separa un String en función de un Predicado dado.
@@ -25,31 +34,26 @@ import System.Random
         - http://zvon.org/other/haskell/Outputsyntax/caseQexpressions_reference.html
 -}
 splitText :: (Char -> Bool) -> String -> [String]   --Devuelve una lista de Strings
-splitText p s =  case dropWhile p s of          --Actua como un Switch              
-                      "" -> []              --Si estamos en caso base añadimos una Lista vacía
-                      s' -> w : splitText p xs --Si no, concatenamos w por la izquierda y realizamos llamada recursiva
+splitText p s =  case dropWhile p s of              --Actua como un Switch              
+                      "" -> []                      --Si estamos en caso base añadimos una Lista vacía
+                      s' -> w : splitText p xs      --Si no, concatenamos w por la izquierda y realizamos llamada recursiva
                             where (w, xs) = break p s' 
-                                            -- Break crea una tupla de 2 listas separadas por una condicion
-                                            -- w lista resultante, minetras que xs es el resto
+                                                    -- Break crea una tupla de 2 listas separadas por una condicion
+                                                    -- w lista resultante, minetras que xs es el resto
 
 
 
 
 {-
-Para parsear los datos vamos a usar la siguiente estrategia, tenemos las defensas
-y el ataque de cada tipo en dos ficheros distintos:
-        - AtkTypes.txt
-        - DefTypes.txt
+Para parsear los datos vamos a usar la siguiente estrategia, tenemos el ataque de 
+cada tipo en el fichero:
+        - TablaDeTipos.pokemon
 
-Los dos documentos están ectructurados exactamente de la misma forma, cada línea de texto
-representa un tipo Pokémon, estas a su vez están divididas en guardas para diferenciar
+El documento está ectructurado exactamente de la siguiente forma, cada línea de texto
+representa un tipo Pokémon, estas a su vez están divididas en tabulaciones para diferenciar
 entre el nombre, debilidades, fortalezas e inmunidades. Otra cosa a tener en cuenta
-es que los tipos están ordenados exactamente igual en ambos ficheros, la línea 1 por ejemplo
-es la que pertenece alelemento Acero. Quedando la estructura de la siguiente manera:
-
-Defensas: 
-    Nombre | Debil x(2)         | Fuerte x(1/2)                                                     | Inmune x(0)
-    Acero  | Lucha Fuego Tierra | Normal Volador Roca Bicho Acero Planta Psíquico Hielo Dragón Hada | Veneno
+es que los tipos están ordenados, la línea 1 por ejemplo
+es la que pertenece al tipo Acero. Quedando la estructura de la siguiente manera:
 
 Ataques:
     Nombre | Debil x(1/2)               | Fuerte x(2)     | Inmune x(0)
@@ -58,24 +62,9 @@ Ataques:
 Una vez entendido este tipo de organización, podemos salatar al parseo de tipos.
 -}
 
-
-
 --Parseo de Tipos-------------------------------------------------------------
--- Dado dos lista de Strings (Ataques y Defensas), devolver una lista de tipos
+-- Dado una lista de Strings (Ataques), devolver una lista de tipos
 ------------------------------------------------------------------------------
-
-{-
-
-parsearTipos :: [String] -> [String] -> [Tipo]
-parsearTipos ataques defensas = [parseoUnSoloTipo s | s <- zip ataques defensas]
-
--}
-
-{-
-parsearTipos :: [String]  -> [Tipo]
-parsearTipos ataques = [parseoUnSoloTipo s | s <- ataques]
--}
-
 parsearTipos :: [String]  -> [Tipo]
 parsearTipos = foldr(\x ac -> parseoUnSoloTipo x : ac) []
 
@@ -109,16 +98,9 @@ parseoDebilFuerteInmune s = (debilidades, fortalezas, inmunidades)
 
 
 --Parseo de Habilidades----------------------------------------------------------
--- Dado dos lista de Strings (Ataques y Defensas), devolver una lista de tipos
+-- Dado una lista de Strings (Habilidades ), devolver una lista de Habilidades
 --      Habilidad = Habilidad 0 "Energi Bola" 70 "Eléctrico"
 ------------------------------------------------------------------------------
-
-{-
-
-parsearHabilidades :: [String] -> [Habilidad]
-parsearHabilidades habilidades = [parseoUnaSolaHabilidad habilidad | habilidad <- habilidades] 
-
--}
 parsearHabilidades :: [String] -> [Habilidad]
 parsearHabilidades habilidades = map parseoUnaSolaHabilidad habilidades
 
@@ -134,7 +116,7 @@ parseoUnaSolaHabilidad h = (Habilidad id nombreHabilidad poder tipo)
 
 
 --Parseo de Pokemons----------------------------------------------------------
--- Dado dos lista de Strings (Ataques y Defensas), devolver una lista de tipos
+-- Dado una lista de Strings (Pokemons), devolver una lista de Pokemons
 ------------------------------------------------------------------------------
 parsearPokemons :: [String] -> [Tipo] -> [Habilidad] -> Int -> [Pokemon]
 parsearPokemons pokemons t h seed = [parsearUnSoloPokemon pokemon t h seed | pokemon <- pokemons] 
@@ -150,6 +132,7 @@ parsearUnSoloPokemon p t h seed = Pokemon nombre (t1, t2) vida habilidades
            | otherwise = getTipoPorNombre t (lista!!3)  
         habilidades = pokemonSetHabilidades h [] (seed)
 
+--Otorga a cada pokemon 4 habilidades aleatorias dado una semilla aleatoria
 pokemonSetHabilidades :: [Habilidad] -> [Habilidad] -> Int -> [Habilidad]
 pokemonSetHabilidades t ac seed
     | length ac < 4 = pokemonSetHabilidades t (nuevoAtaque ++ ac) (seed + 1)
@@ -162,6 +145,7 @@ pokemonSetHabilidades t ac seed
             | elem (t!!rand) ac = []
             | otherwise = [t!!rand]
 
+--Devolver un pokemon random dado una semilla
 getPokemonRandom :: [Pokemon] -> Int -> Pokemon
 getPokemonRandom p seed = p!!rand
     where
@@ -169,6 +153,7 @@ getPokemonRandom p seed = p!!rand
         n = length p
         (rand, _) = randomR (0,n) generator
 
+--Parsea semilla
 parseoSemilla :: String -> (Int, Int)
 parseoSemilla s 
     | length s2 <= 8 && length s1 <=8 = (read s1, read s2)
@@ -178,9 +163,35 @@ parseoSemilla s
         (s1, s2) = (head semillas, last semillas) 
 
 
------------------------------------------------------
---Bulbasaur	45	Planta	Veneno
---1	Karate Chop	Lucha	50
+--------------------------------------------------------------------------
+--      GUARDAR Y CARGAR DATOS
+--------------------------------------------------------------------------
+
+{-
+    Lo único que se almacenará son los pokemons y las pociones, el formato de guardado
+    será siempre el mismo. Un fichero compuesto por 4 líneas, donde las Impares (suponiendo
+     que comienzan en la línea 1) son del pokemon Aliado y las pares del pokemon Enemigo. 
+     Un ejemplo de partida guardad sería la siguiente:
+
+        Partida de referencia (Save/Prueba.pokemon):
+            1-  Mismagius	60	Fantasma	null	242	260	279	349
+            2-  Sinistea	40	Fantasma	null	149	210	158	315
+            3-  50|35|20|-
+            4-  20|-
+    
+    En este caso el pokemon aliado sería Mismagius y sus pociones serían las correspondientes
+    a la línea 3
+    y el restante sería lo correspondiente al equipo enemigo
+
+    Ahora bien, el formato del pokemone s lo siquiente:
+        
+        Nombre   | HP |  Tipo 1  | Tipo 2 | IDs de las Habilidades
+        Mismagius  60	Fantasma	null	242	260	279	349
+    
+    Solo guardamos las IDs de las Habilidades y el nombre de los tipos, por lo que es necesario
+    pasar como parámetro de entrada a la función load todos los Tipos existentes y todas las
+    Habilidades y parsear el pokemon en funcion al nombre de los tipos y las IDs de sus Habilidades.
+-}
 
 savePokemon :: Pokemon -> String
 savePokemon (Pokemon n (t1,t2) hp h) = n ++ "\t" ++ show hp ++ saveTipo t1 ++ saveTipo t2 ++ saveHabilidades h
@@ -193,7 +204,6 @@ savePokemon (Pokemon n (t1,t2) hp h) = n ++ "\t" ++ show hp ++ saveTipo t1 ++ sa
 loadPokemonSave :: String -> [Habilidad] -> [Tipo] -> Pokemon
 loadPokemonSave line habilidades tipos = Pokemon nombre (tipo1, tipo2) hp h
     where
-        --Mismagius	46	Fantasma	null	209	262	289	93
         lista = splitText (=='\t') line
         nombre = head lista
         hp = read (lista!!1)
@@ -204,4 +214,3 @@ loadPokemonSave line habilidades tipos = Pokemon nombre (tipo1, tipo2) hp h
         habilidad2 = getHabilidadPorID habilidades (read (lista!!5))
         habilidad3 = getHabilidadPorID habilidades (read (lista!!6))
         habilidad4 = getHabilidadPorID habilidades (read (lista!!7))
-
