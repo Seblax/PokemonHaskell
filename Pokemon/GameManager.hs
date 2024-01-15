@@ -31,25 +31,47 @@ main = do
     n <- instruccionColor yellow "Elige un botón del menú:"
     menuBehavior n
 
-
+{-
+En la máquina de estados estaríamos en
+    ############
+        Menu
+    ############
+-}
 menuBehavior :: String -> IO ()
 menuBehavior s
   | s == "Start" = do wantToContinue
   | s == "Load" =
     do
+        {-
+        En la máquina de estados estaríamos en
+            ############
+                Load
+            ############
+        -}
         clearScreen
         textBox "Si deseas cargar la partida solo debes escribir el nombre de la partida guardada."
         path <- instruccionColor magenta "¿Qué partida quieres cargar? "
         loadGame path
   | s == "Exit" =
     do
+        {-
+        En la máquina de estados estaríamos en
+            ############
+                Fin
+            ############
+        -}
     putStrLn $ setColor red "¡Hasta otra Entrenador del Ciberespacio!"
     error ""
   | otherwise = main
 
 
 {-
-    Esta función sirve para preguntarle al jugador si de verdad desesa continuar y crear una nueva partida
+    Esta función sirve para preguntarle al jugador si de verdad desesa continuar y crear
+     una nueva partida
+        En la máquina de estados estaríamos en
+            ############
+                Start
+            ############
 -}
 wantToContinue :: IO()
 wantToContinue = do
@@ -67,13 +89,20 @@ wantToContinue = do
 
 {-
     Generta los pokemons y un aseed que define que pokemon y que ataques tendrá este
+
+        En la máquina de estados estaríamos en
+            ##############
+                Batalla
+            ##############
 -}
 generaBattle :: IO ()
 generaBattle = do
   clearScreen
+  --Cargamos los tipos y Habilidades
   t <- loadTipos
   h <- loadHabilities
 
+  --Generamos las pociones completas
   savePotions (potionSet, potionSet)
 
   textBox "La Seed sirve para generar una partida aleatoria con Pokemons y sus respec-tivas Habilidades randomizadas, para poder disfrutar de una partida única  cada vez que se añada una seed distinta. El formato de la Seed debe de ser el sifuiente xxxxxxxx-xxxxxxxx conformada por números enteros. \nPor ejemplo: 12345678-12345678"
@@ -96,13 +125,25 @@ setBattle pokemons@(p1,p2) comentario turno = do
     clearScreen
     pokemonBattleUI pokemons
 
+    {-
+        Aquí estaríamso en la primera condicion de la maquina de estados justo después de Batalla
+        ya que vamos a comprobar si hay algún pokemon muerto o vivo con endGame. Si hay alguno
+        muerto nos iriamos por la rama Muerto sino seguimos por Vivo
+    -}
     endGame pokemons comentario
 
     textBox comentario
 
+    {-
+        Aquí estaríamso en la segunda condicion de la maquina de estados justo después de Batalla
+        por la rama de Vivo, ya que comprobamos si es nuestro turno o el del turno enemigo.
+    -}
     if turno then
         do
             eleccion <- instruccionColor yellow $ "Elige una acción: " ++ setColor red "[Attack] " ++ setColor green "[Potions] " ++ setColor colorFantasma "[Save]"
+
+            --Y aquí ya comprobaríamos la ultima condicion después de Battle siguiendo el camino Vivo-Jugador, 
+            -- nos encontramos en la ultima condicion donde podemos saltar al estado Attack, Potion o Save
             if eleccion == "Attack" then
                 do
                     setAttack pokemons $ "\n¿Qué ataque quieres realizar?" ++ setColor red " [Back]"
@@ -138,6 +179,12 @@ setBattle pokemons@(p1,p2) comentario turno = do
                 do
                     setBattle pokemons "Y bueno, aquí seguimos esperando a que nuestro Entrnador eliga una acción para realizar..." True
     else
+        {-
+            En la máquina de estados estaríamos en
+                ##################
+                    EnemyAttack
+                ##################
+            -}
         do
             instruccionColor yellow "Pulsa Enter para continuar."
 
@@ -150,6 +197,15 @@ setBattle pokemons@(p1,p2) comentario turno = do
 
             setBattle newPokemons comentario True
 
+
+{-
+    Usa una poción del jugador, cura al pokemon y vuelve a guardar las pociones.
+
+    En la máquina de estados estaríamos en
+            #############
+                Potion
+            #############
+-}
 potionBehavior :: Pokemon -> Pociones -> IO(Pokemon, String, Pociones)
 potionBehavior pa potions = 
     do
@@ -160,6 +216,14 @@ potionBehavior pa potions =
 
         return (nuevoPokemon, c, nuevasPociones)
 
+{-
+    setAttack nos muestra por pantalla todas las habilidades y nos deja elegir un ataque
+
+    En la máquina de estados estaríamos en
+            ##############
+                Attack
+            ##############
+-}
 setAttack :: (Pokemon, Pokemon) -> String -> IO()
 setAttack pokemons@(p1,p2) s = do
     clearScreen
@@ -194,13 +258,19 @@ setAttack pokemons@(p1,p2) s = do
                     setAttack pokemons $ "Ese ataque no sirve mamawebo " ++ "¿Qué Ataque eligirá nuestro (bobo) Entrenador?"
 
 
---End Game
+----------------------------------------------------------------------------------
+-- Uno de los dos pokemons ha sido debilitado, por lo que salta el mensake de derrota
+-- o victoria y se muestra el sprite correspondiente de derrota o victoria
+
+-- En la máquina de estados estaríamos en la rama condicional de Muerto
+
 endGame :: (Pokemon, Pokemon) -> String -> IO()
 endGame (p1,p2) comentario
     | getPokemonVida p1 <= 0 = ganar comentario
     | getPokemonVida p2 <= 0 = perder comentario
     | otherwise = putStr ""
 
+--Muestra el mensaje correspondiente de derrota o victoria y nos lelva al menú
 ganar :: String -> IO()
 ganar s = do
 
@@ -237,7 +307,10 @@ perder s = do
 
     main
 
---Carga los tipos de los pokemons
+---------------------------------------------------------------------------------------------------------------
+-- Sirve para leer y cargar todos los datos que se encuentran en la carpeta ficheros, como los pokemons
+-- habilidades y tipos
+
 loadTipos :: IO [Tipo]
 loadTipos = do
     tablaDeTipos <- readFile "Ficheros/TablaDeTipos.pokemon"
@@ -260,6 +333,13 @@ loadPokemons tipos habilidades seed =  do
     return res
 
 -------------------------------------------------------------------------
+{-
+Guardamos el estado de la partida
+        En la máquina de estados estaríamos en
+            ############
+                Save
+            ############
+-}
 saveGame :: (Pokemon,Pokemon) -> String -> IO()
 saveGame pokemons@(penemigo,paliado) nombre =
     do
@@ -281,6 +361,10 @@ saveGame pokemons@(penemigo,paliado) nombre =
             do
                 writeFile path (savePokemon paliado ++ "\n" ++ savePokemon penemigo ++ "\n" ++ show pocionesE ++ "\n" ++ show pocionesA)
                 main
+
+{-
+Carga una partida de un fichero
+-}
 loadGame :: String -> IO()
 loadGame nombre =
     do
@@ -308,7 +392,7 @@ loadGame nombre =
                 main
 
 -------------------------------------------------------
-
+-- Guarda y Carga las pociones de la partida
 savePotions :: (Pociones,Pociones) -> IO()
 savePotions (pe,pa) = do
     writeFile "Ficheros/Pociones.pot" $ show pe ++ "\n" ++ show pa
@@ -317,9 +401,6 @@ loadPotions :: IO (Pociones,Pociones)
 loadPotions = do
     fichero <- openFile "Ficheros/Pociones.pot" ReadMode
     pocionesStr <- hGetContents fichero
-
-    -- putStrLn pocionesStr
-    -- getLine
 
     let lineas = lines pocionesStr
     let listaPociones = parsearPocion lineas
