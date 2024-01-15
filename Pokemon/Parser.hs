@@ -10,7 +10,7 @@ module Parser (
 
 import Data.PokemonData
 import Data.Tipo
-
+import Data.List
 
 import UI.UIColors
 import Data.Pokemon
