@@ -1,6 +1,19 @@
 module UI.UIColors where
 import Data.PokemonData
 
+--         (               )                
+--         )\ )     (   ( /(   (            
+--     (  (()/(     )\  )\())  )\      (    
+--     )\  /(_))  (((_)((_)\  ((_) (   )(   
+--  _ ((_)(_))    )\___  ((_)  _   )\ (()\  
+-- | | | ||_ _|  ((/ __|/ _ \ | | ((_) ((_) 
+-- | |_| | | |    | (__| (_) || |/ _ \| '_| 
+--  \___/ |___|    \___|\___/ |_|\___/|_|
+--                                         
+-- Este módulo está enfocado en almacenar los colores customs de la terminal más un par de 
+-- funciones para seleccionar colores según los tipos y colocar colores a Strings y poco más
+----------------------------------------------------------------------------------------------
+
 type Color = String
 
 clear :: Color
@@ -41,8 +54,10 @@ cyan2 = "\ESC[96m"
 white2 :: Color
 white2 ="\ESC[97m"
 
---Colores de los pokemons
 
+---------------------------------------------------------------------------
+--Colores de los Tipos Pokemons
+---------------------------------------------------------------------------
 colorAcero :: String
 colorAcero = "\ESC[38;5;103m"
 
@@ -98,7 +113,10 @@ colorVolador :: String
 colorVolador = "\ESC[38;5;15m"
 
 
---Dado un tipo devuelve un color
+--Set Color Tipo-------------------------------
+-- Dado el nombre de un TIpo nos devuelve un Color
+-----------------------------------------------
+
 setColorTipo :: String -> String
 setColorTipo s
   | s == "Acero" = colorAcero
@@ -122,12 +140,26 @@ setColorTipo s
   | otherwise = error $ "No existe color para el tipo: \n" ++ s
 
 
-setTipoColorPokemonBatalla :: Tipo -> String
-setTipoColorPokemonBatalla (Nombre s _) = setColorTipo s ++ take 2 s ++ none
-setTipoColorPokemonBatalla _ = ""
+--Set Tipo Color Pokemon ----------------------------------------------------
+-- Dado un Tipo (no el nombre del Tipo), devuelve el nombre de ese tipo, pero tomando
+-- solo los dos primeros carácteres y aplicandole su respectivo color:
+--
+--    Ejemplo  setTipoCOlorPokemon Electrico = "El" (estaría en Amarillo)
+-----------------------------------------------------------------------------
+setTipoColorPokemon :: Tipo -> String
+setTipoColorPokemon (Nombre s _) = setColorTipo s ++ take 2 s ++ none
+setTipoColorPokemon _ = ""
 
+--Set Color------------------------------------------------------------------
+-- Recive un Color y un String como parametro de entrada y devuelve ese String
+-- aplicandole el color recivido
+-----------------------------------------------------------------------------
 setColor :: Color -> String -> String
 setColor color s = color ++ s ++ none
 
+--Set Color Habilidad---------------------------------------------------------
+--  Dada una Habilidad, devuelve su nombre con el color del que sea su tipo
+--      Ejemplo setColorHabilidad Rayo = "Rayo" (sería de color colorEléctrico)
+-----------------------------------------------------------------------------
 setColorHabilidad :: Habilidad -> String
 setColorHabilidad (Habilidad _ n _ tipo) = setColorTipo tipo ++ n ++ none

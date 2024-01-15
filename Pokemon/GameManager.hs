@@ -17,7 +17,7 @@ import Control.DeepSeq (NFData(rnf))
 main :: IO()
 main = do
     menuScreen
-    n <- instruccionColor "Elige un botón del menú:" yellow
+    n <- instruccionColor yellow "Elige un botón del menú:"
     menuBehavior n
 
 
@@ -28,7 +28,7 @@ menuBehavior s
     do
         clearScreen
         textBox "Si deseas cargar la partida solo debes escribir el nombre de la partida guardada."
-        path <- instruccionColor "¿Qué partida quieres cargar? " yellow
+        path <- instruccionColor magenta "¿Qué partida quieres cargar? "
         loadGame path
   | s == "Exit" =
     do
@@ -44,7 +44,7 @@ wantToContinue :: IO()
 wantToContinue = do
     clearScreen
     textBox $ "Se va a generar un equipo pokemon aleatoriamente, si deseas volver atrás   simplemente escriba " ++ setColor red "Back "  ++ ", si deseas continuar escriba" ++ setColor green " Ok"
-    respuesta <- instruccionColor "¿Desea crear una nueva partida?" green
+    respuesta <- instruccionColor green "¿Desea crear una nueva partida?"
     respuestaSelecionada respuesta
     where
         respuestaSelecionada :: String -> IO()
@@ -66,7 +66,7 @@ generaBattle = do
   savePotions (potionSet, potionSet)
 
   textBox "La Seed sirve para generar una partida aleatoria con Pokemons y sus respec-tivas Habilidades randomizadas, para poder disfrutar de una partida única  cada vez que se añada una seed distinta. El formato de la Seed debe de ser el sifuiente xxxxxxxx-xxxxxxxx conformada por números enteros. \nPor ejemplo: 12345678-12345678"
-  seed <- instruccionColor "Añadir Seed de la partida 'XXXXXXXX-XXXXXXXX':" green
+  seed <- instruccionColor green "Añadir Seed de la partida 'XXXXXXXX-XXXXXXXX':"
 
   --Obtengo la Semilla y la parseo
   let (semillaPokemon, semillaHabilidades) = parseoSemilla seed
@@ -91,7 +91,7 @@ setBattle pokemons@(p1,p2) comentario turno = do
 
     if turno then
         do
-            eleccion <- instruccionColor ("Elige una acción: " ++ setColor red "[Attack] " ++ setColor green "[Potions] " ++ setColor colorFantasma "[Save]") yellow
+            eleccion <- instruccionColor yellow $ "Elige una acción: " ++ setColor red "[Attack] " ++ setColor green "[Potions] " ++ setColor colorFantasma "[Save]"
             if eleccion == "Attack" then
                 do
                     setAttack pokemons $ "\n¿Qué ataque quieres realizar?" ++ setColor red " [Back]"
@@ -100,7 +100,7 @@ setBattle pokemons@(p1,p2) comentario turno = do
                     (pe,pa) <- loadPotions
                     pokemonBattleUI pokemons
                     textBox "Parece que neustro entrenador quiere usar una poción"
-                    tomar <- instruccionColor ("¿Quieres usar una poción? " ++ setColor green "[Ok]" ++ setColor red " [No]") yellow
+                    tomar <- instruccionColor yellow $ "¿Quieres usar una poción? " ++ setColor green "[Ok]" ++ setColor red " [No]"
 
                     if tomar == "Ok" then do
                         if not (pocionesVacias pa) then do
@@ -120,7 +120,7 @@ setBattle pokemons@(p1,p2) comentario turno = do
                     clearScreen
                     pokemonBattleUI pokemons
                     textBox $ "Vaya vaya vaya, parece que nesutro jugador quiere tomarse un descanso y guardar lapartida, eso, o está haciendo trampillas para que no le maten. AAAY que te pillao tramposillo." ++ setColor colorSiniestro " Payaso, que eres un Payaso. "
-                    path <- instruccionColor "¿Cómo se va a llamar el archivo de guardado?" yellow
+                    path <- instruccionColor magenta "¿Cómo se va a llamar el archivo de guardado?"
                     saveGame pokemons path
 
             else
@@ -128,7 +128,7 @@ setBattle pokemons@(p1,p2) comentario turno = do
                     setBattle pokemons "Y bueno, aquí seguimos esperando a que nuestro Entrnador eliga una acción para realizar..." True
     else
         do
-            instruccionColor "Pulsa Enter para continuar." yellow
+            instruccionColor yellow "Pulsa Enter para continuar."
 
             tipos <- loadTipos
             (pe,pa) <- loadPotions
@@ -154,7 +154,7 @@ setAttack pokemons@(p1,p2) s = do
     clearScreen
     pokemonBattleUI pokemons
     putStrLn $ habilidadesUI (getPokemonHabilidades p2)
-    ataque <- instruccionColor s yellow
+    ataque <- instruccionColor yellow s
     input ataque
     where
         input ataque
@@ -178,7 +178,7 @@ setAttack pokemons@(p1,p2) s = do
                     readFileSprites "Ficheros/Sprites/HabilidadMalEscrita.sprite"
                     putStr none
 
-                    instruccionColor "Pulsa Enter para continuar." yellow
+                    instruccionColor yellow "Pulsa Enter para continuar."
 
                     setAttack pokemons $ "Ese ataque no sirve mamawebo " ++ "¿Qué Ataque eligirá nuestro (bobo) Entrenador?"
 
@@ -204,7 +204,7 @@ ganar s = do
     readFileSprites "Ficheros/Sprites/GameOver.sprite"
     putStr none
 
-    instruccionColor "Pulsa Enter para continuar." yellow
+    instruccionColor yellow "Pulsa Enter para continuar."
 
     main
 
@@ -222,7 +222,7 @@ perder s = do
     readFileSprites "Ficheros/Sprites/GameOver.sprite"
     putStr none
 
-    instruccionColor "Pulsa Enter para continuar." yellow
+    instruccionColor yellow "Pulsa Enter para continuar."
 
     main
 
@@ -260,7 +260,7 @@ saveGame pokemons@(penemigo,paliado) nombre =
             do
                 pokemonBattleUI pokemons
                 textBox $ "Oh no, parece que el archivo de nombre " ++ setColor yellow nombre ++ " ya existe. ¿Querrá nuestro Entrenador sobrescribirlo?"
-                sobresciribir <- instruccionColor ("¿Desea sobrescribir la partida Guardada?" ++ setColor green " [Ok] " ++ setColor blue "[No]") red 
+                sobresciribir <- instruccionColor red2 $ "¿Desea sobrescribir la partida Guardada?" ++ setColor green " [Ok] " ++ setColor blue "[No]" 
                 if sobresciribir == "Ok" then do
                     writeFile path (savePokemon paliado ++ "\n" ++ savePokemon penemigo ++ "\n" ++ show pocionesE ++ "\n" ++ show pocionesA)
                     main
@@ -269,7 +269,7 @@ saveGame pokemons@(penemigo,paliado) nombre =
         else 
             do
                 writeFile path (savePokemon paliado ++ "\n" ++ savePokemon penemigo ++ "\n" ++ show pocionesE ++ "\n" ++ show pocionesA)
-
+                main
 loadGame :: String -> IO()
 loadGame nombre =
     do
@@ -293,7 +293,7 @@ loadGame nombre =
             do
                 clearScreen
                 textBox $ "No existe la partida gaurdada con nombre: '" ++ setColor red nombre ++ "'."
-                instruccionColor "Pulsa Enter para continuar." yellow
+                instruccionColor yellow "Pulsa Enter para continuar."
                 main
 
 -------------------------------------------------------
