@@ -1,4 +1,4 @@
-module Enemigo where
+module Enemigo (generateEnemyAttack) where
 
 import System.IO
 import System.Directory
@@ -32,24 +32,40 @@ import Data.Potion
 -- pociones de vida, sino, eligirá ,entre los ataques del pokemon, uno al azar y lo usará
 --------------------------------------------------------------------------------
 generateEnemyAttack :: (Pokemon, Pokemon) -> [Tipo] -> Pociones -> IO(String,(Pokemon,Pokemon),Pociones)
-generateEnemyAttack pokemons@(pokemonE,pokemonA) tipos pocionesE = 
-    do           
-        rand <- getNumRandomInterval 0 3
-
-
-        if getPokemonVida pokemonE <= 10 && not (pocionesVacias pocionesE) then 
+generateEnemyAttack pokemons@(pokemonE,pokemonA) tipos pocionesE =
+    do
+        --Si el enemigo está por debajo de 10 de vida y tiene pociones se cura
+        if getPokemonVida pokemonE <= 10 && not (pocionesVacias pocionesE) then
             do
-                let (cura, nuevasPociones) = usarPocion pocionesE
-                let pe = setPokemonVida pokemonE (-cura)
-
-                let c = comentarioCuraEnemigo cura
-
-                return (c,(pe,pokemonA),nuevasPociones)
-        else 
+                curar pokemons pocionesE
+        -- Si no ataca
+        else
             do
-                let habilidad = getPokemonHabilidades pokemonE !! rand 
-                let tipoHabilidad = getTipoPorNombre tipos (getTipoHabilidad habilidad)
-                                
-                critico <- esCritico
-                let (c, p) = hacerElDaño (pokemonA, pokemonE ) (habilidad, tipoHabilidad) critico False
-                return (c,(pokemonE,p),pocionesE)
+                atacar pokemons tipos pocionesE
+
+
+curar :: (Pokemon, Pokemon) -> Pociones ->  IO(String,(Pokemon,Pokemon),Pociones)
+curar pokemons@(pokemonE,pokemonA) pocionesE  = do
+    --gasta la poción
+    let (cura, nuevasPociones) = usarPocion pocionesE
+    --se cura
+    let pe = setPokemonVida pokemonE (-cura)
+
+    -- genera comentario de cura
+    let c = comentarioCuraEnemigo cura
+    return (c,(pe,pokemonA),nuevasPociones)
+
+atacar :: (Pokemon, Pokemon) -> [Tipo] -> Pociones -> IO(String,(Pokemon,Pokemon),Pociones)
+atacar pokemons@(pokemonE,pokemonA) tipos pocionesE = do
+    --escoge una habilidad aleatoria
+    rand <- getNumRandomInterval 0 3
+    let habilidad = getPokemonHabilidades pokemonE !! rand
+    let tipoHabilidad = getTipoPorNombre tipos (getTipoHabilidad habilidad)
+
+    -- Comprobamos si es crítico
+    critico <- esCritico
+
+    --Hacemos el ataque
+    let (c, p) = hacerElDaño (pokemonA, pokemonE ) (habilidad, tipoHabilidad) critico False
+    
+    return (c,(pokemonE,p),pocionesE)

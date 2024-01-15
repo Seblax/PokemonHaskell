@@ -20,7 +20,11 @@ import Control.DeepSeq (NFData(rnf))
 --   \___|  \__,_|  |_|_|_|  \___|   TS__[O]|_|__|_| \__,_|  |_||_|  \__,_|   |___/   \___|   _|_|_  
 -- _|"""""|_|"""""|_|"""""|_|"""""| {======|_|"""""|_|"""""|_|"""""|_|"""""|_|"""""|_|"""""|_|"""""| 
 -- "`-0-0-'"`-0-0-'"`-0-0-'"`-0-0-'./o--000'"`-0-0-'"`-0-0-'"`-0-0-'"`-0-0-'"`-0-0-'"`-0-0-'"`-0-0-' 
-
+--
+--  Game Manager es el pegamento que lo une todo. 
+-- Recomiendo ver este módulo siguiendo la máquina de estados que está en el Readme, para que
+-- la comprensión y la lectura sea más amena:
+--
 main :: IO()
 main = do
     menuScreen
